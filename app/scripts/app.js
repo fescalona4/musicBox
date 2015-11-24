@@ -9,6 +9,19 @@
 
 
 
+app.controller('appController', function($mdSidenav) {
+	
+		var appCtrl = this;
+
+		appCtrl.toggleSidenav = function(menuId) {
+			$mdSidenav(menuId).toggle();
+
+		};
+
+});
+
+
+
 
 
 

@@ -9,19 +9,21 @@
  <title>MusicBox</title>
 
  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+ <link rel="stylesheet" href="styles/myStyle.css">
 
 </head>
 
-<body layout="column">
+<body layout="column" ng-controller="appController as appCtrl">
 
-
+<!-- md-is-locked-open="$mdMedia('gt-sm')" -->
   <div layout="row" flex>
-        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left"
+        >
         <md-toolbar>
               <div class="md-toolbar-tools">
-                <md-button hide-gt-sm class="md-icon-button" aria-label="Settings">
-                  <md-icon md-svg-icon="images/menu.svg"></md-icon>
-                </md-button>
+                  <md-button class="md-icon-button" aria-label="Settings" ng-click="appCtrl.toggleSidenav('left')">
+                    <md-icon md-svg-icon="images/menu.svg"></md-icon>
+                  </md-button>
                 <h1>Menu Bar &nbsp;</h1>
               </div>
         </md-toolbar>
@@ -34,10 +36,9 @@
       <div layout="column" flex>
         <md-toolbar>
           <div class="md-toolbar-tools">
-            <md-button hide-gt-sm class="md-icon-button">
-            <md-icon aria-label="Menu">
-          </md-icon>
-        </md-button>
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="appCtrl.toggleSidenav('left')">
+              <md-icon md-svg-icon="images/menu.svg"></md-icon>
+            </md-button>
         <h1>MusicBox - New Releases &nbsp;</h1>
       </div>
       </md-toolbar>
