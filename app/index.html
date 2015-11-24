@@ -31,7 +31,7 @@
 
 
 
-      <div layout="column" >
+      <div layout="column" flex>
         <md-toolbar>
           <div class="md-toolbar-tools">
             <md-button hide-gt-sm class="md-icon-button">
@@ -42,14 +42,27 @@
       </div>
       </md-toolbar>
 
-    <div layout="row" flex>
-      <div layout="column" flex id="content">
-        <md-content layout="column" flex class="md-padding">
+    <div layout="row" flex ng-controller="cardsController as cardsCtrl">
+<!--       <div layout="column" flex id="content">
+        <md-content layout="column" flex class="md-padding"> -->
 
-        <p>Music cards go here! Music cards go here!</p>
+          <md-card flex="50" style="height:400px" ng-repeat="card in cardsCtrl">
+            <img ng-src="images/gdz_traidora.jpeg" class="md-card-image" alt="Washed Out">
+            <md-card-content>
+              <h2 class="md-title">{{card.name}}</h2>
+              <p>
+                {{card.artist}}
+              </p>
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+              <md-button>Listen</md-button>
+              <md-button>Download</md-button>
+            </md-card-actions>
+          </md-card>
 
+<!-- 
       </md-content>
-    </div>
+    </div> -->
     </div>
     </div>
 
@@ -62,23 +75,10 @@
 <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
 <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
 <script src="../bower_components/angular-material/angular-material.min.js"></script>
+<script src="scripts/app.js"></script>
 <script>
 
-  var app = angular.module('musicBoxApp', ['ngMaterial'])
-  .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('red')
-    .accentPalette('blue');
-  });
 
-  app.controller('AppController', function($mdSidenav) {
-    var vm = this;
-
-    vm.toggleSidenav = function(menuId) {
-      $mdSidenav(menuId).toggle();
-    };
-
-  });
 
 </script>
 
