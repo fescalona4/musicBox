@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.5.0-beta.2",
+    "angular": "~1.4.8",
     "angular-material": "master"
   }
 }
