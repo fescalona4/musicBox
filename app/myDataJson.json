@@ -1,8 +1,14 @@
+
 [
 {
-  name:'Traidora',
-  image: 'images/gdz_traidor.jpeg',
-  artist: 'Gente De Zona ft Marc Anthony'
+  "name"	: "Traidora",
+  "image" 	: "images/gdz_traidora.jpeg",
+  "artist" 	: "Gente De Zona ft. Marc Anthony"
+},
+{
+  "name"	: "La Gozadera",
+  "image" 	: "images/gdz_gozadera.jpg",
+  "artist" 	: "Gente De Zona ft. Marc Anthony"
 }
 
 ]

@@ -8,28 +8,20 @@
   });
 
 
-  app.controller('AppController', function($mdSidenav) {
-    var vm = this;
-
-    vm.toggleSidenav = function(menuId) {
-      $mdSidenav(menuId).toggle();
-    };
-
-  });
 
 
 
 
 app.controller('cardsController', ['$http', function($http) {
-
-    var music=this;
+	
+	//this.music = [];
+    var json=this;
+    json.music = [];
     
     $http.get("/app/myDataJson.json")
     	.success(function(response) {
-    		music = response;
+    		json.music = response;
+    		//alert(JSON.stringify(json.music));
     	});
-    
-   
 
-    
 }]);
