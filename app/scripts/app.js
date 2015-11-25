@@ -1,11 +1,26 @@
 
 
-var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager'])
+var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager','ngMdIcons'])
 //set theme
 .config(function($mdThemingProvider) {
-$mdThemingProvider.theme('default')
-.primaryPalette('red')
-.accentPalette('blue');
+  var customBlueMap =     $mdThemingProvider.extendPalette('light-blue', {
+    'contrastDefaultColor': 'light',
+    'contrastDarkColors': ['50'],
+    '50': 'ffffff'
+  });
+  $mdThemingProvider.definePalette('customBlue', customBlueMap);
+  $mdThemingProvider.theme('default')
+    .primaryPalette('customBlue', {
+      'default': '500',
+      'hue-1': '50'
+    }) 
+    .accentPalette('pink');
+    $mdThemingProvider.theme('input', 'default')
+    .primaryPalette('blue-grey');
+    $mdThemingProvider.theme('musicPlayer', 'default')
+    .primaryPalette('grey', {
+      'default': '50' // use shade 200 for default, and keep all other shades the same
+    });
 });
 
 //set routes
@@ -30,7 +45,7 @@ app.config(['$routeProvider',
   }]);
 
 
-app.controller('appController', ['$scope', '$location',function($scope,$location,$mdSidenav) {
+app.controller('appController', ['$scope', '$location','$mdSidenav',function($scope,$location,$mdSidenav) {
 	
 		var appCtrl = this;
 
