@@ -14,6 +14,9 @@
 </head>
 
 <body layout="column" ng-controller="appController as appCtrl">
+  
+  <!-- Initialize Soundmanager -->
+  <sound-manager></sound-manager>
 
 <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
   <!-- SIDEBAR -->
@@ -42,29 +45,37 @@
       </md-sidenav>
 
 
-      <!-- TOPBAR -->
+      
       <div layout="column" flex>
+        
+        <!-- TOPBAR START-->
         <md-toolbar>
           <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="appCtrl.toggleSidenav('left')">
               <md-icon md-svg-icon="images/menu.svg"></md-icon>
             </md-button>
-        <h1>MusicBox &nbsp;</h1>
+          
+            <h1>MusicBox &nbsp;</h1>
 
-        <!-- Search Input -->
-        <md-input-container flex style="margin-left:30px;">
-          <label>Search</label>
-          <input ng-model="appCtrl.search">
-        </md-input-container>
+            <!-- Search Input -->
+            <md-input-container flex style="margin-left:30px;">
+              <label>Search</label>
+              <input ng-model="appCtrl.search">
+            </md-input-container>
+
+          </div>
+        </md-toolbar>
+        <!-- TOPBAR END -->
+
+
+                  <p>
+                      Currently Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})
+                  </p>
+        
+        <!-- Cards View -->
+        <div ng-view></div>
 
       </div>
-      </md-toolbar>
-
-      
-      <div ng-view></div>
-
-
-</div>
 
 
 
@@ -74,6 +85,7 @@
 <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
 <script src="../bower_components/angular-material/angular-material.min.js"></script>
 <script src="../bower_components/angular-route/angular-route.min.js"></script>
+<script src="../bower_components/angular-soundmanager2/dist/angular-soundmanager2.js"></script>
 <script src="scripts/app.js"></script>
 <script>
 

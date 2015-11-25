@@ -1,32 +1,41 @@
 
 [
 {
-  "name"	: "Traidora",
+  "id"  : "1",
+  "title"	: "Traidora",
   "image" 	: "gdz_traidora.jpeg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
   "filter"  : "new",
-  "download": "Gente De Zona Ft. Marc Antony - Traidora.mp3"
+  "filename": "Gente De Zona Ft. Marc Antony - Traidora.mp3",
+  "url": "../music/Gente De Zona Ft. Marc Antony - Traidora.mp3"
+
 },
 {
-  "name"	: "La Gozadera",
+  "id"  : "2",
+  "title"	: "La Gozadera",
   "image" 	: "gdz_gozadera.jpg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
   "filter"  : "top",
-  "download": ""
+  "filename": "Gente De Zona Ft. Marc Antony - Gozadera.mp3",
+  "url": "../music/Gente De Zona Ft. Marc Antony - Gozadera.mp3"
 },
 {
-  "name"	: "Tienes Que Parar",
+  "id"  : "3",
+  "title"	: "Tienes Que Parar",
   "image" 	: "yd_tienesqueparar.jpg",
   "artist" 	: "Yomil & El Dany",
   "filter"  : "top, new",
-  "download": "Yomil & El Dany - Tienes Que Parar.mp3"
+  "filename": "Yomil & El Dany - Tienes Que Parar.mp3",
+  "url": "../music/Yomil & El Dany - Tienes Que Parar.mp3"
 },
 {
-  "name"	: "Solos",
+  "id"  : "4",
+  "title"	: "Solos",
   "image" 	: "el_micha.jpg",
   "artist" 	: "El Micha Ft. Maluma",
   "filter"  : "top, new",
-  "download": "El Micha Ft. Maluma - Solos.mp3"
+  "filename": "El Micha Ft. Maluma - Solos.mp3",
+  "url": "../music/El Micha Ft. Maluma - Solos.mp3"
 }
 
 ]

@@ -1,6 +1,6 @@
 
 
-var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute'])
+var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager'])
 //set theme
 .config(function($mdThemingProvider) {
 $mdThemingProvider.theme('default')
@@ -66,3 +66,9 @@ app.controller('cardsController', ['$http', function($http) {
 
 
 
+app.directive('musicCard', function(){
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/music-card.html'
+  };
+});
