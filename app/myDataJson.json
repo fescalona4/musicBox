@@ -3,12 +3,20 @@
 {
   "name"	: "Traidora",
   "image" 	: "images/gdz_traidora.jpeg",
-  "artist" 	: "Gente De Zona ft. Marc Anthony"
+  "artist" 	: "Gente De Zona ft. Marc Anthony",
+  "filter"  : "new"
 },
 {
   "name"	: "La Gozadera",
   "image" 	: "images/gdz_gozadera.jpg",
-  "artist" 	: "Gente De Zona ft. Marc Anthony"
+  "artist" 	: "Gente De Zona ft. Marc Anthony",
+  "filter"  : "top"
+},
+{
+  "name"	: "Tienes Que Parar",
+  "image" 	: "images/yd_tienesqueparar.jpg",
+  "artist" 	: "Yomil & El Dany",
+  "filter"  : "top, new"
 }
 
 ]

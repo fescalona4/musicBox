@@ -2,7 +2,7 @@
     
     <div layout="row" flex layout-wrap ng-controller="cardsController as cardsCtrl">
 
-        <div layout="column" ng-repeat="card in cardsCtrl.music | filter:'Traidora'">
+        <div layout="column" ng-repeat="card in cardsCtrl.music | filter:'new'">
           
           <md-card style="max-width: 200px;">
             <img ng-src="{{card.image}}" class="md-card-image" alt="Washed Out">
