@@ -1,15 +1,36 @@
 
 
-  var app = angular.module('musicBoxApp', ['ngMaterial'])
-  .config(function($mdThemingProvider) {
-  $mdThemingProvider.theme('default')
-    .primaryPalette('red')
-    .accentPalette('blue');
-  });
+var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute'])
+//set theme
+.config(function($mdThemingProvider) {
+$mdThemingProvider.theme('default')
+.primaryPalette('red')
+.accentPalette('blue');
+});
+
+//set routes
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider
+    .when('/new', {
+        templateUrl: 'partials/new-releases.html',
+        controller: 'cardsController'
+      })
+     .when('/top', {
+        templateUrl: 'partials/top-charts.html',
+        controller: 'cardsController'
+      })
+     .when('/home', {
+        templateUrl: 'partials/home.html',
+        controller: 'cardsController'
+      })
+    .otherwise({
+        redirectTo: '/home'
+      });
+  }]);
 
 
-
-app.controller('appController', function($mdSidenav) {
+app.controller('appController', ['$scope', '$location',function($scope,$location,$mdSidenav) {
 	
 		var appCtrl = this;
 
@@ -18,7 +39,12 @@ app.controller('appController', function($mdSidenav) {
 
 		};
 
-});
+		$scope.go = function ( path ) {
+		  $location.path( path );
+		  //alert();
+		};
+
+}]);
 
 
 
@@ -38,3 +64,6 @@ app.controller('cardsController', ['$http', function($http) {
     	});
 
 }]);
+
+
+
