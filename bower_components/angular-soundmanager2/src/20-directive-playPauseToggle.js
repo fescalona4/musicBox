@@ -5,7 +5,7 @@ ngSoundManager.directive('playPauseToggle', ['angularPlayer',
             link: function(scope, element, attrs) {
                 scope.$on('music:isPlaying', function(event, data) {
                     //update html
-                    if (data) {
+                    /*if (data) {
                         if(typeof attrs.pause != 'undefined') {
                             element.html(attrs.pause);
                         } else {
@@ -17,18 +17,18 @@ ngSoundManager.directive('playPauseToggle', ['angularPlayer',
                         } else {
                             element.html('Play');
                         }
-                    }
+                    }*/
                 });
                 
                 element.bind('click', function(event) {
-                    if(angularPlayer.isPlayingStatus()) {
+/*                    if(angularPlayer.isPlayingStatus()) {
                         //if playing then pause
                         angularPlayer.pause();
                     } else {
                         //else play if not playing
                         angularPlayer.play();
                         
-                    }
+                    }*/
                 });
             }
         };

@@ -87,3 +87,13 @@ app.directive('musicCard', function(){
     templateUrl: 'partials/music-card.html'
   };
 });
+
+
+
+
+app.directive('musicPlayer', function(){
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/music-player.html'
+  };
+});
