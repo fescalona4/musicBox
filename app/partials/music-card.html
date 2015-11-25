@@ -11,12 +11,23 @@
       {{card.artist}}
     </p>
   </md-card-content>
-  <md-card-actions layout="row" layout-align="end">
+  <md-card-actions layout="row" layout-align="end center" style="margin:-10px 5px 5px 0px">
 
 
-    <md-button music-player="play" add-song="card">Listen</md-button>
-    <md-button href="{{card.url}}" 
-    download="{{card.filename}}">Download</md-button>
+    <md-button music-player="play" add-song="card" class="md-fab md-mini" ng-hide="musicPlaying" 
+      ng-click="musicPlaying = !musicPlaying;">
+      <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px"></md-icon>
+    </md-button>
+
+    <md-button pause-music class="md-fab md-mini" ng-show="musicPlaying"
+      ng-click="musicPlaying = !musicPlaying;">
+      <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px"></md-icon>
+    </md-button>
+
+    <md-button class="md-fab md-mini" aria-label="Download" href="{{card.url}}" 
+    download="{{card.filename}}">
+      <md-icon md-svg-src="images/icons/ic_file_download_white_48px.svg"></md-icon>
+    </md-button>
 
   </md-card-actions>
 </md-card>

@@ -47,7 +47,7 @@
 
 
       
-      <div layout="column" flex layout-align="center center">
+      <div layout="column" flex>
         
         <!-- TOP TOOLBAR START-->
         <md-toolbar ng-hide="showSearch">
@@ -67,18 +67,20 @@
         </md-toolbar>
         <md-toolbar class="md-hue-1" ng-show="showSearch" class="md-whiteframe-1dp">
           <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Back">
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Back">
               <md-icon md-svg-icon="images/icons/ic_arrow_back_black_48px.svg"></md-icon>
-            </md-button>
-
-            <h1>Back &nbsp;</h1>
-           
-            <md-input-container flex md-no-float style="margin-left:30px;">
-              <input ng-model="appCtrl.search" placeholder="enter search">
-            </md-input-container>
+            </md-button>         
 
             <md-button class="md-icon-button" ng-click="showSearch = !showSearch">
               <md-icon md-svg-icon="images/icons/ic_search_black_48px.svg"></md-icon>
+            </md-button>  
+           
+            <md-input-container flex md-no-float>
+              <input ng-model="appCtrl.search" placeholder="enter search">
+            </md-input-container>
+
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''">
+              <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
             </md-button>
 
           </div>

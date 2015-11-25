@@ -14,7 +14,7 @@ var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundMan
       'default': '500',
       'hue-1': '50'
     }) 
-    .accentPalette('pink');
+    .accentPalette('deep-orange');
     $mdThemingProvider.theme('input', 'default')
     .primaryPalette('blue-grey');
     $mdThemingProvider.theme('musicPlayer', 'default')
