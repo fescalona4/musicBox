@@ -16,6 +16,7 @@
 <body layout="column" ng-controller="appController as appCtrl">
 
 <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
+  <!-- SIDEBAR -->
   <div layout="row" flex>
         <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left"
         md-is-locked-open="$mdMedia('gt-sm')">
@@ -41,14 +42,21 @@
       </md-sidenav>
 
 
-
+      <!-- TOPBAR -->
       <div layout="column" flex>
         <md-toolbar>
           <div class="md-toolbar-tools">
             <md-button class="md-icon-button" aria-label="Settings" ng-click="appCtrl.toggleSidenav('left')">
               <md-icon md-svg-icon="images/menu.svg"></md-icon>
             </md-button>
-        <h1>MusicBox - New Releases &nbsp;</h1>
+        <h1>MusicBox &nbsp;</h1>
+
+        <!-- Search Input -->
+        <md-input-container flex style="margin-left:30px;">
+          <label>Search</label>
+          <input ng-model="appCtrl.search">
+        </md-input-container>
+
       </div>
       </md-toolbar>
 

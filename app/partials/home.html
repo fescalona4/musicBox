@@ -2,7 +2,7 @@
     
     <div layout="row" flex layout-wrap ng-controller="cardsController as cardsCtrl">
 
-        <div layout="column" ng-repeat="card in cardsCtrl.music">
+        <div layout="column" ng-repeat="card in cardsCtrl.music | filter:appCtrl.search">
           
           <md-card style="max-width: 200px;">
             
@@ -15,8 +15,12 @@
               </p>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end">
+
+
               <md-button>Listen</md-button>
-              <md-button>Download</md-button>
+              <md-button href="../music/GenteDeZonaFt.MarcAntony-Traidora.mp3" 
+              download="Gente De Zona Ft. Marc Antony - Traidora.mp3">Download</md-button>
+
             </md-card-actions>
           </md-card>
 
