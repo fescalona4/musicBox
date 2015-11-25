@@ -6,20 +6,26 @@
 
 
 
-<md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4); height:89px;">
-	
-	<span>Playing: {{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
-	
-
-<div class="md-toolbar-tools" layout="row" layout-align="center center">
 
 
-    <md-button play-pause-toggle class="md-fab">
-      <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
-      <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
-    </md-button>
+<md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4); <!-- height:89px; -->">
+
+	<div class="md-toolbar-tools" layout="row" layout-align="center center">
+<!-- 
+		<md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ></md-progress-linear>
+
+	<span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
+
+ -->
+
+
+	<md-button play-pause-toggle class="md-fab">
+	<md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
+	<md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
+	</md-button>
 
 </div>
+
+
+
 </md-toolbar>
-
-
