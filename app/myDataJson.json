@@ -2,21 +2,31 @@
 [
 {
   "name"	: "Traidora",
-  "image" 	: "images/gdz_traidora.jpeg",
+  "image" 	: "gdz_traidora.jpeg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
-  "filter"  : "new"
+  "filter"  : "new",
+  "download": "Gente De Zona Ft. Marc Antony - Traidora.mp3"
 },
 {
   "name"	: "La Gozadera",
-  "image" 	: "images/gdz_gozadera.jpg",
+  "image" 	: "gdz_gozadera.jpg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
-  "filter"  : "top"
+  "filter"  : "top",
+  "download": ""
 },
 {
   "name"	: "Tienes Que Parar",
-  "image" 	: "images/yd_tienesqueparar.jpg",
+  "image" 	: "yd_tienesqueparar.jpg",
   "artist" 	: "Yomil & El Dany",
-  "filter"  : "top, new"
+  "filter"  : "top, new",
+  "download": "Yomil & El Dany - Tienes Que Parar.mp3"
+},
+{
+  "name"	: "Solos",
+  "image" 	: "el_micha.jpg",
+  "artist" 	: "El Micha Ft. Maluma",
+  "filter"  : "top, new",
+  "download": "El Micha Ft. Maluma - Solos.mp3"
 }
 
 ]

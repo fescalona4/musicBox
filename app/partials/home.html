@@ -6,7 +6,7 @@
           
           <md-card style="max-width: 200px;">
             
-            <img ng-src="{{card.image}}" class="md-card-image" alt="Washed Out">
+            <img ng-src="images/{{card.image}}" class="md-card-image" alt="Washed Out">
             
             <md-card-content style="padding:0px 10px;">
               <h2 class="md-title">{{card.name}}</h2>
@@ -18,8 +18,8 @@
 
 
               <md-button>Listen</md-button>
-              <md-button href="../music/GenteDeZonaFt.MarcAntony-Traidora.mp3" 
-              download="Gente De Zona Ft. Marc Antony - Traidora.mp3">Download</md-button>
+              <md-button href="../music/{{card.download}}" 
+              download="{{card.download}}">Download</md-button>
 
             </md-card-actions>
           </md-card>
