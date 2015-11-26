@@ -112,8 +112,13 @@
     <div flex>
     <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ></md-progress-linear>
     
-    <div class="md-toolbar-tools" layout="row" layout-align="center end" style="margin-top:5px;">
-           
+    <div class="md-toolbar-tools" layout="row" layout-align="space-between end" style="margin-top:5px;">
+      <div flex>
+      <div>Title</div>
+      <div>Artist</div>
+      </div>
+
+      <div flex>
       <!--
         <span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
 
@@ -131,7 +136,10 @@
         <md-button next-track class="md-icon-button" aria-label="next">
           <md-icon md-svg-icon="images/icons/ic_skip_next_black_48px.svg"></md-icon>
         </md-button>
-
+      </div>
+      <div flex>
+        <div>icons</div>
+      </div>
     </div>
     </div>
 </div>
