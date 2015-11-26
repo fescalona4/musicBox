@@ -21,7 +21,7 @@
 
 <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
   <!-- SIDEBAR -->
-  <div layout="row" flex="90">
+  <div layout="row" flex>
         <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" style="z-index:1"
         md-is-locked-open="$mdMedia('gt-sm')">
         <md-toolbar class="">
@@ -98,16 +98,21 @@
       </div>
   </div>
 
-  <div layout="row" flex>
+  <div layout="row"  id= "footer">
 
 <!--<music-player flex></music-player> -->
 
 
   <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4); <!-- height:89px; -->">
+<div layout="row">
+    <md-toolbar-filler layout layout-align="center center"  ng-show="playlist.length > 0"> 
+        <img ng-src="images/{{currentPlaying.image}}" class="md-card-image" style="width:80px;height:80px" alt="">
+      </md-toolbar-filler>
 
+    <div flex>
     <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ></md-progress-linear>
     
-    <div class="md-toolbar-tools" layout="row" layout-align="center end" style="margin-top:10px;">
+    <div class="md-toolbar-tools" layout="row" layout-align="center end" style="margin-top:5px;">
            
       <!--
         <span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
@@ -128,7 +133,8 @@
         </md-button>
 
     </div>
-
+    </div>
+</div>
   </md-toolbar>
 
   </div>

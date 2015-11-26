@@ -58,6 +58,7 @@ app.controller('appController', ['$scope', '$location','$mdSidenav',function($sc
 		  $location.path( path );
 		};
 
+
 }]);
 
 
@@ -65,7 +66,7 @@ app.controller('appController', ['$scope', '$location','$mdSidenav',function($sc
 
 
 
-app.controller('cardsController', ['$http', function($http) {
+app.controller('cardsController', ['$scope','$http','$filter', function($scope,$http,$filter) {
 	
 	//this.music = [];
     var json=this;
@@ -76,6 +77,7 @@ app.controller('cardsController', ['$http', function($http) {
     		json.music = response;
     		//alert(JSON.stringify(json.music));
     	});
+
 
 }]);
 

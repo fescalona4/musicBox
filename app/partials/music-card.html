@@ -14,15 +14,14 @@
   <md-card-actions layout="row" layout-align="end center" style="margin:-10px 5px 5px 0px">
 
 
-    <md-button music-player="play" add-song="card" class="md-fab md-mini" ng-hide="musicPlaying" 
-      ng-click="musicPlaying = !musicPlaying;">
+    <md-button music-player="play" add-song="card" class="md-fab md-mini">
       <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px"></md-icon>
     </md-button>
 
-    <md-button pause-music class="md-fab md-mini" ng-show="musicPlaying"
+<!--     <md-button pause-music class="md-fab md-mini" ng-show="musicPlaying"
       ng-click="musicPlaying = !musicPlaying;">
       <md-icon md-svg-src="images/icons/ic_stop_white_48px.svg" style="margin-top:-2px"></md-icon>
-    </md-button>
+    </md-button> -->
 
     <md-button class="md-fab md-mini" aria-label="Download" href="{{card.url}}" 
     download="{{card.filename}}">

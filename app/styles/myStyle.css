@@ -16,12 +16,19 @@ md-card img{
 }
 
 
+#footer {
+   /*position:fixed;*/
+   left:0px;
+   bottom:0px;
+   height:80px;
+   width:100%;
+   z-index: 99;
+}
 
 
 
 
 
-$gray: #eee;
 
 md-content.md-default-theme {
   background-color: $gray;
