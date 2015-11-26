@@ -25,6 +25,10 @@ md-card img{
    z-index: 99;
 }
 
+.grayIcon{
+  opacity: 0.6;
+}
+
 
 
 
