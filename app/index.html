@@ -108,7 +108,7 @@
 
   <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4); <!-- height:89px; -->">
 <div layout="row">
-    <md-toolbar-filler layout layout-align="center center"  ng-show="playlist.length > 0"> 
+    <md-toolbar-filler layout layout-align="center center"  ng-show="playlist.length > 0" hide-sm> 
         <img ng-src="images/{{currentPlaying.image}}" class="md-card-image" style="width:80px;height:80px" alt="">
       </md-toolbar-filler>
 
@@ -121,12 +121,12 @@
       <div class="md-caption">{{currentPlaying.artist}}</div>
       </div>
 
-      <div flex>
+      <div flex >
       <!--
         <span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
 
        -->
-        <md-button prev-track class="md-icon-button" aria-label="prev">
+        <md-button prev-track class="md-icon-button" aria-label="prev" hide-sm>
           <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
         </md-button>
 
@@ -136,15 +136,15 @@
           <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
         </md-button>
 
-        <md-button next-track class="md-icon-button" aria-label="next">
+        <md-button next-track class="md-icon-button" aria-label="next" hide-sm>
           <md-icon md-svg-icon="images/icons/ic_skip_next_black_48px.svg"></md-icon>
         </md-button>
       </div>
       
-      <div flex>
+      <div flex hide-sm>
         <div><!-- icons --></div>
       </div>
-      
+
     </div>
     </div>
 </div>
