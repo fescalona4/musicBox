@@ -1,19 +1,21 @@
 
 
-<md-dialog aria-label="Mango (Fruit)"  ng-cloak id="playlistDialog">
+<md-dialog aria-label="Playlist"  ng-cloak id="playlistDialog">
 
     <md-dialog-content>
       <div class="md-dialog-content">
-        <h2>Using .md-dialog-content class that sets the padding as the spec</h2>
 
+        
+        <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id">
 
-        <md-list-item class="md-2-line">
-        <!-- <img ng-src="20" class="md-avatar" alt="" /> -->
+          <img ng-src="images/{{song.image}}" class="md-avatar" alt="" />
           <div class="md-list-item-text">
-            <h3>Song</h3>
-            <p>Artist</p>
+            <h3>{{song.title}}</h3>
+            <p>{{song.artist}}</p>
           </div>
+          <!-- <p class="md-secondary">{{::currentDuration}}</p>-->
         </md-list-item>
+
 
       </div>
     </md-dialog-content>

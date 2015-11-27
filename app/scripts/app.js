@@ -78,7 +78,9 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
         $scope.playlistShown = true;
 
         $mdDialog.show({
-          //controller: DialogController,
+          controller: DialogController,
+          //controllerAs: 'ctrl',
+          scope: $scope.$new(), 
           templateUrl: 'partials/playlistQueue.html',
           parent: angular.element(document.body),
           targetEvent: ev,
@@ -89,7 +91,7 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
         .then(function(answer) {
           $scope.status = 'You said the information was "' + answer + '".';
           $scope.playlistShown = false;
-          
+
         }, function() {
           $scope.status = 'You cancelled the dialog.';
         });
@@ -100,10 +102,34 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
         $mdDialog.hide();
     }
     
+    $scope.$on('player:playlist', function(event, data) {
+        //do your stuff here
+        console.log("playlist: "+JSON.stringify(data));
+        //console.log("scope: "+JSON.stringify($scope));
+        //console.log("scope var: "+currentPlaying.title);
+        //$scope.$parent.test(data);
+    });
+
+    $scope.test = function ( duration ) {
+        //console.log("playlist2: "+JSON.stringify(data));
+        console.log("scope var2: "+duration);
+    };
 
 }]);
 
-
+function DialogController($scope, $mdDialog) {
+  $scope.hide = function() {
+    $mdDialog.hide();
+  };
+  $scope.cancel = function() {
+    $mdDialog.cancel();
+  };
+  $scope.answer = function(answer) {
+    $mdDialog.hide(answer);
+  };
+  this.parent = $scope;
+  //console.log("playlist:"+JSON.stringify($scope));
+}
 
 
 
