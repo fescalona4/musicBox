@@ -42,3 +42,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 *.mp3
+
+# Dependency Management
+node_modules/
+bower_components/
+
