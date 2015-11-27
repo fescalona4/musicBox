@@ -4,7 +4,7 @@ A music streaming/listening website primarily targeting Cuban Reaggeton artists.
 
 ##Horizontal Prototype
 The following image describes the main dashboard view of the site.
-![alt tag](https://raw.github.com/fescalona4/musicBox/master/musicBox.JPG)
+![](docs/mockups/musicBox.JPG)
 
 ##Usage
 This project requires the following technogologies:
