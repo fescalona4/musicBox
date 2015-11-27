@@ -29,20 +29,20 @@
                   <md-button class="md-icon-button" aria-label="Menu" ng-click="appCtrl.toggleSidenav('left')">
                     <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
                   </md-button>
-                <h1>Menu &nbsp;</h1>
+                <h1>MusicBox</h1>
               </div>
         </md-toolbar>
 
         <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/')"> 
-            <md-icon md-svg-src="images/icons/ic_home_black_48px.svg" class="grayIcon"></md-icon>Home</md-button>
+          <md-button class="md-accent" ng-click="go('/','Dashboard')"> 
+            <md-icon md-svg-src="images/icons/ic_home_black_48px.svg" class="grayIcon"></md-icon>Dashboard</md-button>
         </md-menu-item>
         <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/new')">
+          <md-button class="md-accent" ng-click="go('/new','New Releases')">
           <md-icon md-svg-src="images/icons/ic_new_releases_black_48px.svg" class="grayIcon"></md-icon>New Releases</md-button>
         </md-menu-item>
         <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/top')">
+          <md-button class="md-accent" ng-click="go('/top','Top Charts')">
           <md-icon md-svg-src="images/icons/ic_star_rate_black_18px.svg" class="grayIcon"></md-icon>Top Charts</md-button>
         </md-menu-item>
 
@@ -60,9 +60,9 @@
               <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
             </md-button>
           
-            <h1 flex>MusicBox &nbsp;</h1>   
+            <h1 flex>{{title}}</h1>   
 
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch">
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
               <md-icon md-svg-icon="images/icons/ic_search_white_48px.svg"></md-icon>
             </md-button>    
 
@@ -74,7 +74,7 @@
               <md-icon md-svg-icon="images/icons/ic_arrow_back_black_48px.svg"></md-icon>
             </md-button>         
 
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch">
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
               <md-icon md-svg-icon="images/icons/ic_search_black_48px.svg"></md-icon>
             </md-button>  
            
@@ -82,7 +82,7 @@
               <input ng-model="appCtrl.search" placeholder="enter search">
             </md-input-container>
 
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''">
+            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Close">
               <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
             </md-button>
 
@@ -106,7 +106,7 @@
 <!--<music-player flex></music-player> -->
 
 
-  <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4); <!-- height:89px; -->">
+<md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);">
 <div layout="row">
     <md-toolbar-filler layout layout-align="center center"  ng-show="playlist.length > 0" hide-sm> 
         <img ng-src="images/{{currentPlaying.image}}" class="md-card-image" style="width:80px;height:80px" alt="">
@@ -131,7 +131,7 @@
         </md-button>
 
 
-        <md-button play-pause-toggle class="md-fab" >
+        <md-button play-pause-toggle class="md-fab" aria-label="Play">
           <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
           <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
         </md-button>
@@ -142,13 +142,23 @@
       </div>
       
       <div flex hide-sm>
-        <div><!-- icons --></div>
+        <div layout="row" layout-align="end end">
+          <!--right side icons -->
+          <md-button next-track class="md-icon-button" aria-label="Volume" hide-sm>
+            <md-icon md-svg-icon="images/icons/ic_volume_up_black_48px.svg"></md-icon>
+          </md-button>
+
+          <md-button next-track class="md-icon-button" aria-label="Queue" 
+            ng-click="showPlaylistQueue($event)"  hide-sm>
+            <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg"></md-icon>
+          </md-button>
+        </div>
       </div>
 
     </div>
     </div>
 </div>
-  </md-toolbar>
+</md-toolbar>
 
   </div>
 

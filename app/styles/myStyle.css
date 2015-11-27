@@ -32,6 +32,15 @@ md-card img{
 
 
 
+md-dialog {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  right:30px;
+  bottom:90px;
+}
+
+
 
 
 md-content.md-default-theme {
