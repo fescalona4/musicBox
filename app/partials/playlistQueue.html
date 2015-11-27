@@ -6,13 +6,15 @@
       <div class="md-dialog-content">
 
         
-        <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id">
+        <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id" >
 
           <img ng-src="images/{{song.image}}" class="md-avatar" alt="" />
           <div class="md-list-item-text">
             <h3>{{song.title}}</h3>
             <p>{{song.artist}}</p>
           </div>
+          <md-button play-from-playlist="song">PLAY</md-button>
+          <md-button remove-from-playlist="song" data-index="{{$index}}">REMOVE</md-button>
           <!-- <p class="md-secondary">{{::currentDuration}}</p>-->
         </md-list-item>
 
