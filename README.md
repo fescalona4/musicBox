@@ -2,4 +2,4 @@
 music website
 Creating readme file
 
-![alt tag](https://raw.github.com/fescalona/musicBox/master/musicBox.JPG)
+![alt tag](https://raw.github.com/fescalona4/musicBox/master/musicBox.JPG)
