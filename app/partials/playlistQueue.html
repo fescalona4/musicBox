@@ -5,7 +5,13 @@
     <md-dialog-content>
       <div class="md-dialog-content">
 
-        
+
+        <div layout="column" layout-align="center center" ng-show="{{playlist.length==0}}"> 
+          <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" style="height:64px;width:64px;margin-top:45px"></md-icon>
+          <h3 style="color:rgba(0,0,0,0.54)">Your queue is empty</h3>
+        </div>
+
+
         <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id" >
 
           <img ng-src="images/{{song.image}}" class="md-avatar" alt="" />
@@ -31,7 +37,7 @@
 
     <md-dialog-actions>
 
-      <md-button ng-click="closeDialog()" class="md-primary">Close</md-button>
+      <md-button clear-playlist class="md-primary">Clear</md-button>
 
     </md-dialog-actions>
 
