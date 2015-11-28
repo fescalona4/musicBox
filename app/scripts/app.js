@@ -1,6 +1,6 @@
 
 
-var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager','ngMdIcons'])
+var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager','ngMdIcons','ngAnimate'])
 //set theme
 .config(function($mdThemingProvider) {
   var customBlueMap =     $mdThemingProvider.extendPalette('light-blue', {

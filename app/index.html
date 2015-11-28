@@ -145,21 +145,22 @@
       </div>
       
       <div flex hide-sm>
-        <div layout="row" layout-align="end center">
+        <div layout="row" layout-align="end center" ng-mouseleave="volHover = false">
           <!--right side icons -->
-          <md-button class="md-icon-button" aria-label="VolumeDown" hide-sm>
+          <md-button class="md-icon-button fade" aria-label="VolumeDown" hide-sm ng-click="volume=0" ng-show="volHover">
             <md-icon md-svg-icon="images/icons/ic_volume_down_black_48px.svg"></md-icon>
           </md-button>
 
-          <md-slider min="0" max="100"  aria-label="volume" ng-model="volume" style="width:70px">
+          <md-slider min="0" max="100" class="fade" aria-label="volume" ng-model="volume" style="width:70px" ng-show="volHover">
           </md-slider>
 
-          <md-button class="md-icon-button" aria-label="Volume" hide-sm mute-music> 
+          <md-button class="md-icon-button" aria-label="Volume" hide-sm 
+            ng-click="volume=100" ng-mouseenter="volHover = true" > 
             <md-icon md-svg-icon="images/icons/ic_volume_up_black_48px.svg"></md-icon>
           </md-button>
-
+          
           <md-button class="md-icon-button" aria-label="Queue" 
-            ng-click="showPlaylistQueue($event)"  >
+            ng-click="showPlaylistQueue($event)" ng-mouseenter="volHover = false" >
             <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" ng-class="{'orangeIcon':playlistShown,'blackIcon':!playlistShown}"></md-icon>
           </md-button>
         </div>
@@ -171,6 +172,9 @@
 </md-toolbar>
 
   </div>
+
+  <!--     ng-mouseenter="hover = true"
+    ng-mouseleave="hover = false" -->
 
 
   <script src="../bower_components/angular/angular.min.js"></script>

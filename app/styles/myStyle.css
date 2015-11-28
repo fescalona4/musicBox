@@ -36,7 +36,17 @@ md-card img{
   fill: #000000;
 }
 
+.fade.ng-hide {
+  opacity: 0;
+}
 
+.fade.ng-hide-remove {
+  transition: all linear 500ms;
+}
+
+.fade.ng-hide-add {
+  transition: all linear 500ms;
+}
 
 
 md-dialog {
