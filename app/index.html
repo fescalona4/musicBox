@@ -60,7 +60,7 @@
               <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
             </md-button>
           
-            <h1 flex>{{title}}</h1>   
+            <h1 flex>{{title}}</h1>
 
             <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
               <md-icon md-svg-icon="images/icons/ic_search_white_48px.svg"></md-icon>
@@ -128,6 +128,7 @@
         <span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
 
        -->
+   
         <md-button prev-track class="md-icon-button" aria-label="prev" hide-sm>
           <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
         </md-button>
@@ -144,9 +145,16 @@
       </div>
       
       <div flex hide-sm>
-        <div layout="row" layout-align="end end">
+        <div layout="row" layout-align="end center">
           <!--right side icons -->
-          <md-button class="md-icon-button" aria-label="Volume" hide-sm>
+          <md-button class="md-icon-button" aria-label="VolumeDown" hide-sm>
+            <md-icon md-svg-icon="images/icons/ic_volume_down_black_48px.svg"></md-icon>
+          </md-button>
+
+          <md-slider min="0" max="100"  aria-label="volume" ng-model="volume" style="width:70px">
+          </md-slider>
+
+          <md-button class="md-icon-button" aria-label="Volume" hide-sm mute-music> 
             <md-icon md-svg-icon="images/icons/ic_volume_up_black_48px.svg"></md-icon>
           </md-button>
 

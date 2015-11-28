@@ -45,12 +45,30 @@ app.config(['$routeProvider',
   }]);
 
 
-app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
-    function($scope,$location,$mdSidenav,$mdDialog) {
+app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog','angularPlayer',
+    function($scope,$location,$mdSidenav,$mdDialog, angularPlayer) {
 	
 		var appCtrl = this;
     $scope.playlistShown = false;
-    
+
+    //Adjust volume code
+    $scope.volume = angularPlayer.getVolume();
+    $scope.$watch(
+        "volume",
+        function handleVolumeChange( newValue, oldValue ) {
+            angularPlayer.adjustVolumeSlider(newValue);
+            //console.log('angularPlayer: '+angularPlayer.getVolume());
+        }
+    );
+    $scope.$on('music:isPlaying', function(event, data) {
+      //console.log("music:isPlaying: "+data);
+      if(data == true){
+        angularPlayer.adjustVolumeSlider($scope.volume);
+      }
+    });
+
+
+
     //console.log('Current route name: ' + $location.path());
     if($location.path()=="/home"){
       $scope.title = "Dashboard";
@@ -113,10 +131,9 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
         //console.log("playlist: "+JSON.stringify(data));
     });
 
-    $scope.test = function ( duration ) {
-        //console.log("playlist2: "+JSON.stringify(data));
-        console.log("scope var2: "+duration);
-    };
+
+
+
 
 }]);
 
