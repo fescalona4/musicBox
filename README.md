@@ -17,6 +17,8 @@ This project requires the following technogologies:
 To contribute/run follow these steps:
  * Run ``git clone https://github.com/fescalona4/musicBox.git``
  * cd /musicBox
- * Run ``bower install``
+ //make sure bower_components folder is inside app folder after running this command (app/bower_components)
+ * Run ``bower install`` 
+ 
  * Run ``npm install``
  * Run ``node server.js`` 
