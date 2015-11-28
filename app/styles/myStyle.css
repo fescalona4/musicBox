@@ -29,6 +29,13 @@ md-card img{
   opacity: 0.6;
 }
 
+.orangeIcon{
+  fill: rgb(255,110,64);
+}
+.blackIcon{
+  fill: #000000;
+}
+
 
 
 

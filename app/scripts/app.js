@@ -75,6 +75,8 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
 
     $scope.showPlaylistQueue = function(ev) {
     
+      if(!$scope.playlistShown){
+
         $scope.playlistShown = true;
 
         $mdDialog.show({
@@ -89,13 +91,17 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
           hasBackdrop:false
         })
         .then(function(answer) {
-          $scope.status = 'You said the information was "' + answer + '".';
+          //$scope.status = 'You said the information was "' + answer + '".';
           $scope.playlistShown = false;
 
         }, function() {
-          $scope.status = 'You cancelled the dialog.';
+          //$scope.status = 'You cancelled the dialog.';
+          $scope.playlistShown = false;
         });
-      
+      }
+      else{
+        $scope.closeDialog();
+      }
     };
 
     $scope.closeDialog = function() {

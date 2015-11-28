@@ -119,7 +119,6 @@
       <div flex>
       <div class="md-subhead"><b>{{currentPlaying.title}}</b></div>
       <div class="md-caption">{{currentPlaying.artist}}</div>
-      
       </div>
 
       <div flex >
@@ -150,8 +149,8 @@
           </md-button>
 
           <md-button class="md-icon-button" aria-label="Queue" 
-            ng-click="showPlaylistQueue($event)"  hide-sm>
-            <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg"></md-icon>
+            ng-click="showPlaylistQueue($event)"  >
+            <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" ng-class="{'orangeIcon':playlistShown,'blackIcon':!playlistShown}"></md-icon>
           </md-button>
         </div>
       </div>
