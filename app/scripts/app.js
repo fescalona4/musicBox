@@ -140,7 +140,7 @@ app.controller('cardsController', ['$scope','$http','$filter', function($scope,$
     var json=this;
     json.music = [];
     
-    $http.get("/app/myDataJson.json")
+    $http.get("/myDataJson.json")
     	.success(function(response) {
     		json.music = response;
     		//alert(JSON.stringify(json.music));
