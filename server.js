@@ -14,6 +14,6 @@ var port = process.env.PORT || 8000;
 // the /app path is relative to whatever the __dirname variable resolves to
 var staticFileDir = __dirname + '/app';
 app.use(express.static(staticFileDir));
-
+app.use(express.static(__dirname));
 app.listen(port);
 console.log('Listening on port: '+port);
