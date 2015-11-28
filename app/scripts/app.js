@@ -110,10 +110,7 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
     
     $scope.$on('player:playlist', function(event, data) {
         //do your stuff here
-        console.log("playlist: "+JSON.stringify(data));
-        //console.log("scope: "+JSON.stringify($scope));
-        //console.log("scope var: "+currentPlaying.title);
-        //$scope.$parent.test(data);
+        //console.log("playlist: "+JSON.stringify(data));
     });
 
     $scope.test = function ( duration ) {
