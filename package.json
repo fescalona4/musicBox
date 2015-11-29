@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "config": {
-    "bower_directory": "app/bower_components"
+    "bower_directory": "bower_components"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
