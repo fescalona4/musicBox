@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/fescalona4/musicBox#readme",
   "dependencies": {
-    "express": "latest"
+    "express": "latest",
+    "bower": "latest"
   }
 }
