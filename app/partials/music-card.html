@@ -9,9 +9,11 @@
   <img ng-src="images/{{card.image}}" class="md-card-image">
   
   <md-card-content style="padding:0px 10px;">
-    <h3 class="md-subhead"><b>{{card.title}}</b></h3>
-    <p class="md-body-1">
-      {{card.artist}}
+    <h3 class="md-subhead"><b>{{card.title | limitTo : 19}}
+    {{(card.title.length>19)?' ...':''}}</b></h3>
+
+    <p class="md-body-1" style="margin-top:-10px;margin-bottom:5px">
+      {{card.artist | limitTo : 45}} {{(card.artist.length>45)?' ...':''}}
     </p>
   </md-card-content>
   <md-card-actions layout="row" layout-align="space-around center" style="<!-- margin:-10px 0px 5px 0px -->">
