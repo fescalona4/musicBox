@@ -48,6 +48,15 @@ app.config(['$routeProvider',
 app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog','angularPlayer',
     function($scope,$location,$mdSidenav,$mdDialog, angularPlayer) {
 	
+
+
+      AWS.config.update({accessKeyId: 'AKIAIWPOGAA4SGIPOR2A', 
+          secretAccessKey: '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'});
+      AWS.config.region = 'us-east-1';
+      
+      //var s3 = new AWS.S3({ params: {Bucket: 'cubanmusicbox.com'} });
+
+
 		var appCtrl = this;
     $scope.playlistShown = false;
 
