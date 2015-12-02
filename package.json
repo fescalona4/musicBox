@@ -30,6 +30,7 @@
   "homepage": "https://github.com/fescalona4/musicBox#readme",
   "dependencies": {
     "express": "latest",
-    "bower": "latest"
+    "bower": "latest",
+    "aws-sdk":"latest"
   }
 }

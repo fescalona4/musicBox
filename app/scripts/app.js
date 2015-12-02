@@ -49,13 +49,29 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
     function($scope,$location,$mdSidenav,$mdDialog, angularPlayer) {
 	
 
-
       AWS.config.update({accessKeyId: 'AKIAIWPOGAA4SGIPOR2A', 
           secretAccessKey: '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'});
       AWS.config.region = 'us-east-1';
       
-      //var s3 = new AWS.S3({ params: {Bucket: 'cubanmusicbox.com'} });
 
+      var dynamodb  = new AWS.DynamoDB();
+      
+      var params = {
+        TableName: 'music'
+      };
+
+      dynamodb.scan(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else {
+         
+            console.log(data);           // successful response
+            console.log(dynamodbMarshaler.unmarshalJson(data.Items[0]));  
+            //var items= dynamodbMarshaler.unmarshalJson(data.Items[0]);
+            //console.log(dynamodbMarshaler.marshalJson(items));  
+          }
+      });
+
+      //console.log(dynamodbMarshaler.unmarshalJson({  "title": {    "S": "123"  }}) );
 
 		var appCtrl = this;
     $scope.playlistShown = false;

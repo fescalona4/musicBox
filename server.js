@@ -15,5 +15,9 @@ var port = process.env.PORT || 8000;
 var staticFileDir = __dirname + '/app';
 app.use(express.static(staticFileDir));
 app.use(express.static(__dirname));
+
+require('routes.js')(app);
+
+
 app.listen(port);
 console.log('Listening on port: '+port);

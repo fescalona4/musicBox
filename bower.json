@@ -25,7 +25,8 @@
     "angular": "~1.4.8",
     "angular-material": "master",
     "angular-route": "1.4.8",
-    "angular-soundmanager2": ""
+    "angular-soundmanager2": "",
+    "dynamodb-marshaler":""
   },
   "resolutions": {
     "angular": "~1.4.8"
