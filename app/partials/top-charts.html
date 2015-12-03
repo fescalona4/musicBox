@@ -1,13 +1,8 @@
 
-    
-    
+
 <div layout="row" flex layout-wrap ng-controller="cardsController as cardsCtrl">
-
-  <div layout="column" ng-repeat="card in cardsCtrl.music | filter:
+    <div layout="column" ng-repeat="card in cardsCtrl.music | filter:
       {filter: 'top', artist: appCtrl.search}">
-
-    <music-card></music-card>
-
-	</div>
-
+        <music-card></music-card>
+    </div>
 </div>

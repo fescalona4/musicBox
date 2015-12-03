@@ -1,44 +1,31 @@
 
 
-<md-dialog aria-label="Playlist"  ng-cloak id="playlistDialog">
-
+<md-dialog aria-label="Playlist" ng-cloak id="playlistDialog">
     <md-dialog-content>
-      <div class="md-dialog-content">
-
-
-        <div layout="column" layout-align="center center" ng-show="{{playlist.length==0}}"> 
-          <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" style="height:64px;width:64px;margin-top:45px"></md-icon>
-          <h3 style="color:rgba(0,0,0,0.54)">Your queue is empty</h3>
+        <div class="md-dialog-content">
+            <div layout="column" layout-align="center center" ng-show="{{playlist.length==0}}">
+                <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" style="height:64px;width:64px;margin-top:45px"></md-icon>
+                <h3 style="color:rgba(0,0,0,0.54)">Your queue is empty</h3>
+            </div>
+            <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id">
+                <img ng-src="images/{{song.image}}" class="md-avatar" alt="" style="margin-top:15px" />
+                <div class="md-list-item-text">
+                    <h3>{{song.title}}</h3>
+                    <p>{{song.artist}}</p>
+                </div>
+                <!-- <md-button play-from-playlist="song">PLAY</md-button> -->
+                <md-button class="md-icon-button grayIcon" aria-label="Play" play-from-playlist="song" style="margin-top:10px;margin-right:0px">
+                    <md-icon md-svg-icon="images/icons/ic_queue_play_next_black_48px.svg"></md-icon>
+                </md-button>
+                <!-- <md-button remove-from-playlist="song" data-index="{{$index}}">REMOVE</md-button> -->
+                <md-button class="md-icon-button grayIcon" aria-label="Remove" remove-from-playlist="song" data-index="{{$index}}" style="margin-top:10px; margin-left:0px">
+                    <md-icon md-svg-icon="images/icons/ic_remove_from_queue_black_48px.svg"></md-icon>
+                </md-button>
+                <!-- <p class="md-secondary">{{::currentDuration}}</p>-->
+            </md-list-item>
         </div>
-
-
-        <md-list-item class="md-2-line" ng-repeat="song in playlist track by song.id" >
-
-          <img ng-src="images/{{song.image}}" class="md-avatar" alt="" style="margin-top:15px"/>
-          <div class="md-list-item-text">
-            <h3>{{song.title}}</h3>
-            <p>{{song.artist}}</p>
-          </div>
-          <!-- <md-button play-from-playlist="song">PLAY</md-button> -->
-
-          <md-button class="md-icon-button grayIcon" aria-label="Play" play-from-playlist="song" style="margin-top:10px;margin-right:0px">
-            <md-icon md-svg-icon="images/icons/ic_queue_play_next_black_48px.svg"></md-icon>
-          </md-button>
-          <!-- <md-button remove-from-playlist="song" data-index="{{$index}}">REMOVE</md-button> -->
-          <md-button class="md-icon-button grayIcon" aria-label="Remove" remove-from-playlist="song" data-index="{{$index}}" style="margin-top:10px; margin-left:0px">
-            <md-icon md-svg-icon="images/icons/ic_remove_from_queue_black_48px.svg"></md-icon>
-          </md-button>
-          <!-- <p class="md-secondary">{{::currentDuration}}</p>-->
-        </md-list-item>
-
-
-      </div>
     </md-dialog-content>
-
     <md-dialog-actions>
-
-      <md-button clear-playlist class="md-primary">Clear</md-button>
-
+        <md-button clear-playlist class="md-primary">Clear</md-button>
     </md-dialog-actions>
-
 </md-dialog>

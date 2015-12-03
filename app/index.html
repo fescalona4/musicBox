@@ -2,189 +2,145 @@
 <html lang="en" ng-app="musicBoxApp">
 
 <head>
- <meta charset="utf-8">
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
-
- <title>MusicBox</title>
-
- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
- <link rel="stylesheet" href="styles/myStyle.css">
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MusicBox</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+    <link rel="stylesheet" href="styles/myStyle.css">
 </head>
 
+
 <body layout="column" ng-cloak ng-controller="appController as appCtrl">
-  
-  <!-- Initialize Soundmanager -->
-  <sound-manager></sound-manager>
-
-<!-- md-is-locked-open="$mdMedia('gt-sm')" -->
-  <!-- SIDEBAR -->
-  <div layout="row" flex>
-        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-sm')">
-        <md-toolbar class="">
-              <div class="md-toolbar-tools">
-                  <md-button class="md-icon-button" aria-label="Menu" ng-click="appCtrl.toggleSidenav('left')">
-                    <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
-                  </md-button>
-                <h1>MusicBox</h1>
-              </div>
-        </md-toolbar>
-
-        <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/','Dashboard')"> 
-            <md-icon md-svg-src="images/icons/ic_home_black_48px.svg" class="grayIcon"></md-icon>Dashboard</md-button>
-        </md-menu-item>
-        <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/new','New Releases')">
-          <md-icon md-svg-src="images/icons/ic_new_releases_black_48px.svg" class="grayIcon"></md-icon>New Releases</md-button>
-        </md-menu-item>
-        <md-menu-item style="width:100%">
-          <md-button class="md-accent" ng-click="go('/top','Top Charts')">
-          <md-icon md-svg-src="images/icons/ic_star_rate_black_18px.svg" class="grayIcon"></md-icon>Top Charts</md-button>
-        </md-menu-item>
-
-      </md-sidenav>
-
-
-      
-      <div layout="column" flex>
-        
-        <!-- TOP TOOLBAR START-->
-        <md-toolbar ng-hide="showSearch">
-          <div class="md-toolbar-tools">
-            
-            <md-button class="md-icon-button" ng-click="appCtrl.toggleSidenav('left')" hide-gt-sm aria-label="Menu">          
-              <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
-            </md-button>
-          
-            <h1 flex>{{title}}</h1>
-
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
-              <md-icon md-svg-icon="images/icons/ic_search_white_48px.svg"></md-icon>
-            </md-button>    
-
-          </div>
-        </md-toolbar>
-        <md-toolbar class="md-hue-1" ng-show="showSearch" class="md-whiteframe-1dp">
-          <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Back">
-              <md-icon md-svg-icon="images/icons/ic_arrow_back_black_48px.svg"></md-icon>
-            </md-button>         
-
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
-              <md-icon md-svg-icon="images/icons/ic_search_black_48px.svg"></md-icon>
-            </md-button>  
-           
-            <md-input-container flex md-no-float>
-              <input ng-model="appCtrl.search" placeholder="enter search">
-            </md-input-container>
-
-            <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Close">
-              <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
-            </md-button>
-
-          </div>
-        </md-toolbar>
-        <!-- TOP TOOLBAR END -->
-
-
-      <md-content flex md-scroll-y>
-        <!-- Cards View -->
-        <div ng-view></div>
-
-      </md-content>
-
-
-      </div>
-  </div>
-
-  <div layout="row"  id= "footer">
-
-<!--<music-player flex></music-player> -->
-
-
-<md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);">
-<div layout="row">
-      <md-toolbar-filler layout layout-align="center center"  ng-hide="playlist.length==0" hide-sm> 
-        <img ng-src="images/{{currentPlaying.image}}" class="md-card-image" style="width:80px;height:80px" alt="">
-      </md-toolbar-filler>
-
-    <div flex>
-    <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ></md-progress-linear>
+    <!-- Initialize Soundmanager -->
+    <sound-manager></sound-manager>
+    <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
     
-    <div class="md-toolbar-tools" layout="row" layout-align="space-between end" style="margin-top:5px;">
-      <div flex>
-        <div ng-hide="playlist.length==0">
-          <div class="md-subhead"><b>{{currentPlaying.title}}</b></div>
-          <div class="md-caption">{{currentPlaying.artist}}</div>
+
+    <!-- SIDEBAR -->
+    <div layout="row" flex>
+        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-toolbar class="">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" aria-label="Menu" ng-click="appCtrl.toggleSidenav('left')">
+                        <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
+                    </md-button>
+                    <h1>MusicBox</h1>
+                </div>
+            </md-toolbar>
+            <md-menu-item style="width:100%">
+                <md-button class="md-accent" ng-click="go('/','Dashboard')">
+                    <md-icon md-svg-src="images/icons/ic_home_black_48px.svg" class="grayIcon"></md-icon>Dashboard</md-button>
+            </md-menu-item>
+            <md-menu-item style="width:100%">
+                <md-button class="md-accent" ng-click="go('/new','New Releases')">
+                    <md-icon md-svg-src="images/icons/ic_new_releases_black_48px.svg" class="grayIcon"></md-icon>New Releases</md-button>
+            </md-menu-item>
+            <md-menu-item style="width:100%">
+                <md-button class="md-accent" ng-click="go('/top','Top Charts')">
+                    <md-icon md-svg-src="images/icons/ic_star_rate_black_18px.svg" class="grayIcon"></md-icon>Top Charts</md-button>
+            </md-menu-item>
+        </md-sidenav>
+        <div layout="column" flex>
+            <!-- TOP TOOLBAR START-->
+            <md-toolbar ng-hide="showSearch">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="appCtrl.toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+                        <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
+                    </md-button>
+                    <h1 flex>{{title}}</h1>
+                    <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
+                        <md-icon md-svg-icon="images/icons/ic_search_white_48px.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-toolbar class="md-hue-1" ng-show="showSearch" class="md-whiteframe-1dp">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Back">
+                        <md-icon md-svg-icon="images/icons/ic_arrow_back_black_48px.svg"></md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="showSearch = !showSearch" aria-label="Search">
+                        <md-icon md-svg-icon="images/icons/ic_search_black_48px.svg"></md-icon>
+                    </md-button>
+                    <md-input-container flex md-no-float>
+                        <input ng-model="appCtrl.search" placeholder="enter search">
+                    </md-input-container>
+                    <md-button class="md-icon-button" ng-click="showSearch = !showSearch; appCtrl.search=''" aria-label="Close">
+                        <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <!-- TOP TOOLBAR END -->
+            <md-content flex md-scroll-y>
+                <!-- Cards View -->
+                <div ng-view></div>
+            </md-content>
         </div>
-      </div>
-
-      <div flex >
-      <!--
-        <span>Playing:{{ currentPlaying.title }} by {{ currentPlaying.artist }} ({{ currentPostion }} / {{ currentDuration }})</span>
-
-       -->
-   
-        <md-button prev-track class="md-icon-button" aria-label="prev" hide-sm>
-          <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
-        </md-button>
-
-
-        <md-button play-pause-toggle class="md-fab" aria-label="Play">
-          <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
-          <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
-        </md-button>
-
-        <md-button next-track class="md-icon-button" aria-label="next" hide-sm>
-          <md-icon md-svg-icon="images/icons/ic_skip_next_black_48px.svg"></md-icon>
-        </md-button>
-      </div>
-      
-      <div flex hide-sm>
-        <div layout="row" layout-align="end center" ng-mouseleave="volHover = false">
-          <!--right side icons -->
-          <md-button class="md-icon-button fade" aria-label="VolumeDown" hide-sm ng-click="volume=0" ng-show="volHover">
-            <md-icon md-svg-icon="images/icons/ic_volume_down_black_48px.svg"></md-icon>
-          </md-button>
-
-          <md-slider min="0" max="100" class="fade" aria-label="volume" ng-model="volume" style="width:70px" ng-show="volHover">
-          </md-slider>
-
-          <md-button class="md-icon-button" aria-label="Volume" hide-sm 
-            ng-click="volume=100" ng-mouseenter="volHover = true" > 
-            <md-icon md-svg-icon="images/icons/ic_volume_up_black_48px.svg"></md-icon>
-          </md-button>
-          
-          <md-button class="md-icon-button" aria-label="Queue" 
-            ng-click="showPlaylistQueue($event)" ng-mouseenter="volHover = false" >
-            <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" ng-class="{'orangeIcon':playlistShown,'blackIcon':!playlistShown}"></md-icon>
-          </md-button>
-        </div>
-      </div>
-
     </div>
+
+
+    <div layout="row" id="footer">
+        <!--<music-player flex></music-player> -->
+        <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);">
+            <div layout="row">
+                <md-toolbar-filler layout layout-align="center center" ng-hide="playlist.length==0" hide-sm>
+                    <img ng-src="images/{{currentPlaying.image}}" class="md-card-image" style="width:80px;height:80px" alt="">
+                </md-toolbar-filler>
+                <div flex>
+                    <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default"></md-progress-linear>
+                    <div class="md-toolbar-tools" layout="row" layout-align="space-between end" style="margin-top:5px;">
+                        <div flex>
+                            <div ng-hide="playlist.length==0">
+                                <div class="md-subhead"><b>{{currentPlaying.title}}</b></div>
+                                <div class="md-caption">{{currentPlaying.artist}}</div>
+                            </div>
+                        </div>
+                        <div flex>
+                            <md-button prev-track class="md-icon-button" aria-label="prev" hide-sm>
+                                <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
+                            </md-button>
+                            <md-button play-pause-toggle class="md-fab" aria-label="Play">
+                                <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
+                                <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
+                            </md-button>
+                            <md-button next-track class="md-icon-button" aria-label="next" hide-sm>
+                                <md-icon md-svg-icon="images/icons/ic_skip_next_black_48px.svg"></md-icon>
+                            </md-button>
+                        </div>
+                        <div flex hide-sm>
+                            <div layout="row" layout-align="end center" ng-mouseleave="volHover = false">
+                                <!--right side icons -->
+                                <md-button class="md-icon-button fade" aria-label="VolumeDown" hide-sm ng-click="volume=0" ng-show="volHover">
+                                    <md-icon md-svg-icon="images/icons/ic_volume_down_black_48px.svg"></md-icon>
+                                </md-button>
+                                <md-slider min="0" max="100" class="fade" aria-label="volume" ng-model="volume" style="width:70px" ng-show="volHover">
+                                </md-slider>
+                                <md-button class="md-icon-button" aria-label="Volume" hide-sm ng-click="volume=100" ng-mouseenter="volHover = true">
+                                    <md-icon md-svg-icon="images/icons/ic_volume_up_black_48px.svg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button" aria-label="Queue" ng-click="showPlaylistQueue($event)" ng-mouseenter="volHover = false">
+                                    <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" ng-class="{'orangeIcon':playlistShown,'blackIcon':!playlistShown}"></md-icon>
+                                </md-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-toolbar>
     </div>
-</div>
-</md-toolbar>
 
-  </div>
 
-  <!--     ng-mouseenter="hover = true"
-    ng-mouseleave="hover = false" -->
-  <script src="scripts/dynamodb-marshaler.min.js"></script>
-  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.19.min.js"></script>
-  <script src="../bower_components/angular/angular.min.js"></script>
-  <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
-  <script src="../bower_components/angular-material/angular-material.min.js"></script>
-  <script src="../bower_components/angular-route/angular-route.min.js"></script>
-  <script src="scripts/angular-soundmanager2.js"></script>
-  <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
-  <script src="scripts/app.js"></script>
-
+    <script src="scripts/dynamodb-marshaler.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.19.min.js"></script>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="../bower_components/angular-material/angular-material.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="scripts/angular-soundmanager2.js"></script>
+    <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
+
 </html>

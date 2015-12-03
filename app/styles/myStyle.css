@@ -1,6 +1,6 @@
 
 md-sidenav.md-locked-open {
-  width: 180px !important;
+  width    : 180px !important;
   min-width: 150px !important;
   max-width: 180px !important;
 }
@@ -18,11 +18,11 @@ md-card img{
 
 #footer {
    /*position:fixed;*/
-   left:0px;
-   bottom:0px;
-   height:80px;
-   width:100%;
-   z-index: 99;
+   left      :0px;
+   bottom    :0px;
+   height    :80px;
+   width     :100%;
+   z-index   : 99;
 }
 
 .grayIcon{
@@ -50,11 +50,11 @@ md-card img{
 
 
 md-dialog {
-  width: 50%;
-  height: auto;
+  width   : 50%;
+  height  : auto;
   position: absolute;
-  right:30px;
-  bottom:90px;
+  right   :30px;
+  bottom  :90px;
 }
 
 
@@ -88,10 +88,10 @@ md-toolbar:not(.md-hue-1),
   fill: #fff;
 }
 md-sidenav {
-  fill: #737373;
+  fill      : #737373;
   ng-md-icon {
     position: relative;
-    top: 5px; // adjust for svg viewbox
+    top     : 5px; // adjust for svg viewbox
   }
 }
 .user-avatar {
