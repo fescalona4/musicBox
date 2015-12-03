@@ -4,15 +4,11 @@ var AWS = require('aws-sdk');
 var express = require('express');
 var router = express.Router();
 
-AWS.config.update({
-    accessKeyId: '',
-    secretAccessKey: ''
-});
 AWS.config.region = 'us-east-1';
 
 //setting proxy
 var proxy = require('proxy-agent');
-AWS.config.update({httpOptions: { agent: proxy('http://tpaproxy.verizon.com:80') } });
+//AWS.config.update({httpOptions: { agent: proxy('http://tpaproxy.verizon.com:80') } });
 
 
 var dynamodb = new AWS.DynamoDB();
