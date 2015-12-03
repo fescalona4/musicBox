@@ -12,7 +12,7 @@ md-card-content p {
 }
 
 md-card img{
-	max-height: 200px;
+	height: 200px;
 }
 
 
@@ -29,7 +29,24 @@ md-card img{
   opacity: 0.6;
 }
 
+.orangeIcon{
+  fill: rgb(255,110,64);
+}
+.blackIcon{
+  fill: #000000;
+}
 
+.fade.ng-hide {
+  opacity: 0;
+}
+
+.fade.ng-hide-remove {
+  transition: all linear 500ms;
+}
+
+.fade.ng-hide-add {
+  transition: all linear 500ms;
+}
 
 
 md-dialog {

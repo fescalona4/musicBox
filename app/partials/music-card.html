@@ -1,20 +1,22 @@
           
 
 
-<md-card style="max-width: 200px;" 
+<md-card style="width: 200px;" 
     ng-class="{'md-whiteframe-4dp': hover}" 
     ng-mouseenter="hover = true"
     ng-mouseleave="hover = false">
   
-  <img ng-src="images/{{card.image}}" class="md-card-image" alt="Washed Out">
+  <img ng-src="images/{{card.image}}" class="md-card-image" ng-click="go('/song-details/'+card.id,'')">
   
   <md-card-content style="padding:0px 10px;">
-    <h2 class="md-title">{{card.title}}</h2>
-    <p>
-      {{card.artist}}
+    <h3 class="md-subhead"><b>{{card.title | limitTo : 19}}
+    {{(card.title.length>19)?' ...':''}}</b></h3>
+
+    <p class="md-body-1" style="margin-top:-10px;margin-bottom:5px">
+      {{card.artist | limitTo : 45}} {{(card.artist.length>45)?' ...':''}}
     </p>
   </md-card-content>
-  <md-card-actions layout="row" layout-align="space-around center" style="margin:-10px 0px 5px 0px">
+  <md-card-actions layout="row" layout-align="space-around center" style="<!-- margin:-10px 0px 5px 0px -->">
 
     <div flex>
       
@@ -25,7 +27,7 @@
       </md-button>
     </div>
 
-    <div  style="margin-right:10px;">
+    <div  style="margin-right:5px;margin-bottom:3px;">
       <md-button music-player="play" add-song="card" aria-label="Play" class="md-fab md-mini">
         <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px"></md-icon>
       </md-button>

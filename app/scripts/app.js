@@ -1,6 +1,6 @@
 
 
-var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager','ngMdIcons'])
+var app = angular.module('musicBoxApp', ['ngMaterial','ngRoute','angularSoundManager','ngMdIcons','ngAnimate'])
 //set theme
 .config(function($mdThemingProvider) {
   var customBlueMap =     $mdThemingProvider.extendPalette('light-blue', {
@@ -31,13 +31,17 @@ app.config(['$routeProvider',
         templateUrl: 'partials/new-releases.html',
         controller: 'cardsController'
       })
-     .when('/top', {
+    .when('/top', {
         templateUrl: 'partials/top-charts.html',
         controller: 'cardsController'
       })
-     .when('/home', {
+    .when('/home', {
         templateUrl: 'partials/home.html',
         controller: 'cardsController'
+      })
+    .when('/song-details/:songId', {
+        templateUrl: 'partials/song-details.html',
+        controller: 'sondDetailsController'
       })
     .otherwise({
         redirectTo: '/home'
@@ -45,12 +49,57 @@ app.config(['$routeProvider',
   }]);
 
 
-app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
-    function($scope,$location,$mdSidenav,$mdDialog) {
-	
+app.controller('appController', ['$scope', '$route', '$location','$mdSidenav','$mdDialog','angularPlayer',
+    function($scope,$route,$location,$mdSidenav,$mdDialog, angularPlayer) {
+	   
+    $scope.$route = $route;
+    $scope.$location = $location;
+
+/*      AWS.config.update({accessKeyId: 'AKIAIWPOGAA4SGIPOR2A', 
+          secretAccessKey: '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'});
+      AWS.config.region = 'us-east-1';
+      
+
+      var dynamodb  = new AWS.DynamoDB();
+      
+      var params = {
+        TableName: 'music'
+      };
+
+      dynamodb.scan(params, function(err, data) {
+        if (err) console.log(err, err.stack); // an error occurred
+        else {
+         
+            console.log(data);           // successful response
+            console.log(dynamodbMarshaler.unmarshalJson(data.Items[0]));  
+            //var items= dynamodbMarshaler.unmarshalJson(data.Items[0]);
+            //console.log(dynamodbMarshaler.marshalJson(items));  
+          }
+      });*/
+
+      //console.log(dynamodbMarshaler.unmarshalJson({  "title": {    "S": "123"  }}) );
+
 		var appCtrl = this;
     $scope.playlistShown = false;
-    
+
+    //Adjust volume code
+    $scope.volume = angularPlayer.getVolume();
+    $scope.$watch(
+        "volume",
+        function handleVolumeChange( newValue, oldValue ) {
+            angularPlayer.adjustVolumeSlider(newValue);
+            //console.log('angularPlayer: '+angularPlayer.getVolume());
+        }
+    );
+    $scope.$on('music:isPlaying', function(event, data) {
+      //console.log("music:isPlaying: "+data);
+      if(data == true){
+        angularPlayer.adjustVolumeSlider($scope.volume);
+      }
+    });
+
+
+
     //console.log('Current route name: ' + $location.path());
     if($location.path()=="/home"){
       $scope.title = "Dashboard";
@@ -75,6 +124,8 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
 
     $scope.showPlaylistQueue = function(ev) {
     
+      if(!$scope.playlistShown){
+
         $scope.playlistShown = true;
 
         $mdDialog.show({
@@ -89,13 +140,17 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
           hasBackdrop:false
         })
         .then(function(answer) {
-          $scope.status = 'You said the information was "' + answer + '".';
+          //$scope.status = 'You said the information was "' + answer + '".';
           $scope.playlistShown = false;
 
         }, function() {
-          $scope.status = 'You cancelled the dialog.';
+          //$scope.status = 'You cancelled the dialog.';
+          $scope.playlistShown = false;
         });
-      
+      }
+      else{
+        $scope.closeDialog();
+      }
     };
 
     $scope.closeDialog = function() {
@@ -104,16 +159,12 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
     
     $scope.$on('player:playlist', function(event, data) {
         //do your stuff here
-        console.log("playlist: "+JSON.stringify(data));
-        //console.log("scope: "+JSON.stringify($scope));
-        //console.log("scope var: "+currentPlaying.title);
-        //$scope.$parent.test(data);
+        //console.log("playlist: "+JSON.stringify(data));
     });
 
-    $scope.test = function ( duration ) {
-        //console.log("playlist2: "+JSON.stringify(data));
-        console.log("scope var2: "+duration);
-    };
+
+
+
 
 }]);
 
@@ -136,16 +187,31 @@ function DialogController($scope, $mdDialog) {
 
 app.controller('cardsController', ['$scope','$http','$filter', function($scope,$http,$filter) {
 	
-	//this.music = [];
     var json=this;
     json.music = [];
     
-    $http.get("/app/myDataJson.json")
+    $http.get("/myDataJson.json")
     	.success(function(response) {
     		json.music = response;
     		//alert(JSON.stringify(json.music));
     	});
 
+
+}]);
+
+
+
+
+app.controller('sondDetailsController', ['$scope','$routeParams','$http', function($scope,$routeParams,$http) {
+  
+    $scope.params = $routeParams;
+    
+
+    $http.get("/api/song/"+$routeParams.songId)
+      .success(function(response) {
+        $scope.song = response;
+        //alert(JSON.stringify(json.music));
+      });
 
 }]);
 

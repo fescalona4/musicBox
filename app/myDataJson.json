@@ -36,6 +36,78 @@
   "filter"  : "top, new",
   "filename": "El Micha Ft. Maluma - Solos.mp3",
   "url": "../music/El Micha Ft. Maluma - Solos.mp3"
+},
+{
+  "id"  : "5",
+  "title" : "Rikiti",
+  "image"   : "djunic.jpg",
+  "artist"  : "Dj Unic Ft. Chacal, Chocolate, Desiguales, El Micha",
+  "filter"  : "top",
+  "filename": "Dj Unic Ft. Chacal, Chocolate, Desiguales, El Micha - Rikiti.mp3",
+  "url": "../music/Dj_Unic_Ft._El_Chacal,_Chocolate,_Desiguales,_El_Micha_y_Varios_Artistas_-_Rikiti.mp3"
+},
+{
+  "id"  : "6",
+  "title" : "Soltera",
+  "image"   : "principe.jpg",
+  "artist"  : "El Principe Ft. Srta Dayana",
+  "filter"  : "top",
+  "filename": "El Principe Ft. Srta Dayana - Soltera.mp3",
+  "url": "../music/El_Principe_Ft._La_Srta_Dayana_-_Soltera.mp3"
+},
+{
+  "id"  : "7",
+  "title" : "Guerreando Solo",
+  "image"   : "principe.jpg",
+  "artist"  : "El Principe Ft. Osmani Garcia",
+  "filter"  : "top",
+  "filename": "El Principe Ft. Osmani Garcia - Guerreando Solo.mp3",
+  "url": "../music/El_Principe_Ft._Osmani_Garcia_-_Gerreando_Solo.mp3"
+},
+{
+  "id"  : "8",
+  "title" : "Hasta Que Se Seque El Malecon",
+  "image"   : "jacob2.jpg",
+  "artist"  : "Jacob Forever",
+  "filter"  : "top",
+  "filename": "Jacob Forever - Hasta Que Se Seque El Malecon.mp3",
+  "url": "../music/Jacob_Forever_-_Hasta_Que_Se_Seque_El_Malecon.mp3"
+},
+{
+  "id"  : "9",
+  "title" : "Nadie Mas",
+  "image"   : "jacob-divan.jpg",
+  "artist"  : "Jacob Forever Ft. Divan",
+  "filter"  : "top",
+  "filename": "Jacob Forever Ft. Divan - Nadie Mas.mp3",
+  "url": "../music/Jacob_Forever_Ft._Divan_-_Nadie_Mas.mp3"
+},
+{
+  "id"  : "10",
+  "title" : "Mirala",
+  "image"   : "jacob2.jpg",
+  "artist"  : "Jacob Forever Ft. El Chacal",
+  "filter"  : "top",
+  "filename": "Jacob Forever Ft. El Chacal - Mirala.mp3",
+  "url": "../music/Jacob_Forever_Ft._El_Chacal_-_Mirala.mp3"
+},
+{
+  "id"  : "11",
+  "title" : "Hazme El Amor",
+  "image"   : "chocolate.jpg",
+  "artist"  : "Los 3 Gatos Ft. Chocolate",
+  "filter"  : "top",
+  "filename": "Los 3 Gatos Ft. Chocolate - Hazme El Amor.mp3",
+  "url": "../music/Los_3_Gatos_Ft._Chocolate_-_Hazme_El_Amor.mp3"
+},
+{
+  "id"  : "12",
+  "title" : "Lo Que Buscas",
+  "image"   : "principe.jpg",
+  "artist"  : "El Principe",
+  "filter"  : "top, new",
+  "filename": "El Principe - Lo Que Buscas.mp3",
+  "url": "../music/El Principe - Lo Q' Buscas.mp3"
 }
 
 ]
