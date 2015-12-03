@@ -184,7 +184,7 @@ app.controller('sondDetailsController', ['$scope', '$routeParams', '$http', func
     $http.get("/api/song/" + $routeParams.songId)
         .success(function(response) {
             $scope.song = response;
-            //alert(JSON.stringify(json.music));
+            console.log("api/song: "+ response);
         });
 
 }]);

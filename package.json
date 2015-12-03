@@ -28,10 +28,11 @@
   },
   "homepage": "https://github.com/fescalona4/musicBox#readme",
   "dependencies": {
-    "express": "latest",
+    "aws-sdk": "latest",
     "body-parser": "~1.0.0",
     "bower": "latest",
-    "aws-sdk":"latest",
-    "dynamodb-marshaler":"latest"
+    "dynamodb-marshaler": "latest",
+    "express": "latest",
+    "proxy-agent": "^2.0.0"
   }
 }

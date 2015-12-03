@@ -1,20 +1,37 @@
-<h3>song details goes here Id: {{params.songId}}</h3>
-<h4>{{song.title}}</h4>
+<h5>song details goes here Id: {{params.songId}}</h5>
 
 
 
-<md-card>
+<md-card style="margin:5px 15px;">
     <md-card-title>
         <md-card-title-media>
-            <div class="md-media-lg card-media"></div>
+            <div class="md-media-lg card-media">
+                <img ng-src="images/{{song.image}}" class="md-card-image">
+            </div>
         </md-card-title-media>
         <md-card-title-text>
-            <span class="md-headline">Card with image</span>
-            <span class="md-subhead">Large</span>
+            <span class="md-headline">{{song.title}}</span>
+            <span class="md-subhead">{{song.artist}}</span>
         </md-card-title-text>
     </md-card-title>
     <md-card-actions layout="row" layout-align="end center">
-        <md-button>Action 1</md-button>
-        <md-button>Action 2</md-button>
+        <md-button>Listen</md-button>
+        <md-button>Download</md-button>
     </md-card-actions>
+
+    <md-divider></md-divider>
+    <md-content flex layout-padding>
+        
+        <div>Reviews</div>
+
+    </md-content>
+
+    <md-divider></md-divider>
+    <md-content flex layout-padding>
+        
+        <div>Additional information</div>
+
+    </md-content>
+
+
 </md-card>
