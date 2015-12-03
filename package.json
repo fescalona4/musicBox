@@ -12,8 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
-    "postinstall": "bower install -p",
-    "prestart": "bower install"
+    "postinstall": "bower install -p"
   },
   "repository": {
     "type": "git",
@@ -30,7 +29,9 @@
   "homepage": "https://github.com/fescalona4/musicBox#readme",
   "dependencies": {
     "express": "latest",
+    "body-parser": "~1.0.0",
     "bower": "latest",
-    "aws-sdk":"latest"
+    "aws-sdk":"latest",
+    "dynamodb-marshaler":"latest"
   }
 }

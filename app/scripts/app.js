@@ -31,13 +31,17 @@ app.config(['$routeProvider',
         templateUrl: 'partials/new-releases.html',
         controller: 'cardsController'
       })
-     .when('/top', {
+    .when('/top', {
         templateUrl: 'partials/top-charts.html',
         controller: 'cardsController'
       })
-     .when('/home', {
+    .when('/home', {
         templateUrl: 'partials/home.html',
         controller: 'cardsController'
+      })
+    .when('/song-details/:songId', {
+        templateUrl: 'partials/song-details.html',
+        controller: 'sondDetailsController'
       })
     .otherwise({
         redirectTo: '/home'
@@ -45,11 +49,13 @@ app.config(['$routeProvider',
   }]);
 
 
-app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog','angularPlayer',
-    function($scope,$location,$mdSidenav,$mdDialog, angularPlayer) {
-	
+app.controller('appController', ['$scope', '$route', '$location','$mdSidenav','$mdDialog','angularPlayer',
+    function($scope,$route,$location,$mdSidenav,$mdDialog, angularPlayer) {
+	   
+    $scope.$route = $route;
+    $scope.$location = $location;
 
-      AWS.config.update({accessKeyId: 'AKIAIWPOGAA4SGIPOR2A', 
+/*      AWS.config.update({accessKeyId: 'AKIAIWPOGAA4SGIPOR2A', 
           secretAccessKey: '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'});
       AWS.config.region = 'us-east-1';
       
@@ -69,7 +75,7 @@ app.controller('appController', ['$scope', '$location','$mdSidenav','$mdDialog',
             //var items= dynamodbMarshaler.unmarshalJson(data.Items[0]);
             //console.log(dynamodbMarshaler.marshalJson(items));  
           }
-      });
+      });*/
 
       //console.log(dynamodbMarshaler.unmarshalJson({  "title": {    "S": "123"  }}) );
 
@@ -181,7 +187,6 @@ function DialogController($scope, $mdDialog) {
 
 app.controller('cardsController', ['$scope','$http','$filter', function($scope,$http,$filter) {
 	
-	//this.music = [];
     var json=this;
     json.music = [];
     
@@ -191,6 +196,22 @@ app.controller('cardsController', ['$scope','$http','$filter', function($scope,$
     		//alert(JSON.stringify(json.music));
     	});
 
+
+}]);
+
+
+
+
+app.controller('sondDetailsController', ['$scope','$routeParams','$http', function($scope,$routeParams,$http) {
+  
+    $scope.params = $routeParams;
+    
+
+    $http.get("/api/song/"+$routeParams.songId)
+      .success(function(response) {
+        $scope.song = response;
+        //alert(JSON.stringify(json.music));
+      });
 
 }]);
 
