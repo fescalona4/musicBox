@@ -29,6 +29,10 @@ md-card img {
     opacity: 0.6;
 }
 
+.starFilled {
+    fill: rgb(255, 110, 64);
+}
+
 .orangeIcon {
     fill: rgb(255, 110, 64);
 }
@@ -100,4 +104,9 @@ md-sidenav {
 
 .user-avatar {
     border-radius: 99%;
+}
+
+
+.play-stats {
+    margin-left: -7px;
 }

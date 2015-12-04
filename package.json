@@ -31,7 +31,6 @@
     "aws-sdk": "latest",
     "body-parser": "~1.0.0",
     "bower": "latest",
-    "dynamodb-marshaler": "latest",
     "express": "latest",
     "proxy-agent": "^2.0.0"
   }

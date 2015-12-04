@@ -1,17 +1,35 @@
 
 [
 {
-  "id"  : "1",
+  "id"  : 1,
   "title"	: "Traidora",
   "image" 	: "gdz_traidora.jpeg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
   "filter"  : "new",
   "filename": "Gente De Zona Ft. Marc Antony - Traidora.mp3",
-  "url": "../music/Gente De Zona Ft. Marc Antony - Traidora.mp3"
+  "url": "../music/Gente De Zona Ft. Marc Antony - Traidora.mp3",
+  "comments": [
+      {
+        "comment": "Awesome",
+        "name": "John"
+      },
+      {
+        "comment": "Cool!",
+        "name": "Mark"
+      }
+  ],
+  "downloadCount": 0,
+  "playCount": 0,
+  "rating": 0,
+  "ratingsArray": [
+    0,
+    2,
+    5
+  ]
 
 },
 {
-  "id"  : "2",
+  "id"  : 2,
   "title"	: "La Gozadera",
   "image" 	: "gdz_gozadera.jpg",
   "artist" 	: "Gente De Zona ft. Marc Anthony",
@@ -20,7 +38,7 @@
   "url": "../music/Gente De Zona Ft. Marc Antony - Gozadera.mp3"
 },
 {
-  "id"  : "3",
+  "id"  : 3,
   "title"	: "Tienes Que Parar",
   "image" 	: "yd_tienesqueparar.jpg",
   "artist" 	: "Yomil & El Dany",
@@ -29,7 +47,7 @@
   "url": "../music/Yomil & El Dany - Tienes Que Parar.mp3"
 },
 {
-  "id"  : "4",
+  "id"  : 4,
   "title"	: "Solos",
   "image" 	: "el_micha.jpg",
   "artist" 	: "El Micha Ft. Maluma",
@@ -38,7 +56,7 @@
   "url": "../music/El Micha Ft. Maluma - Solos.mp3"
 },
 {
-  "id"  : "5",
+  "id"  : 5,
   "title" : "Rikiti",
   "image"   : "djunic.jpg",
   "artist"  : "Dj Unic Ft. Chacal, Chocolate, Desiguales, El Micha",
@@ -47,7 +65,7 @@
   "url": "../music/Dj_Unic_Ft._El_Chacal,_Chocolate,_Desiguales,_El_Micha_y_Varios_Artistas_-_Rikiti.mp3"
 },
 {
-  "id"  : "6",
+  "id"  : 6,
   "title" : "Soltera",
   "image"   : "principe.jpg",
   "artist"  : "El Principe Ft. Srta Dayana",
@@ -56,7 +74,7 @@
   "url": "../music/El_Principe_Ft._La_Srta_Dayana_-_Soltera.mp3"
 },
 {
-  "id"  : "7",
+  "id"  : 7,
   "title" : "Guerreando Solo",
   "image"   : "principe.jpg",
   "artist"  : "El Principe Ft. Osmani Garcia",
@@ -65,7 +83,7 @@
   "url": "../music/El_Principe_Ft._Osmani_Garcia_-_Gerreando_Solo.mp3"
 },
 {
-  "id"  : "8",
+  "id"  : 8,
   "title" : "Hasta Que Se Seque El Malecon",
   "image"   : "jacob2.jpg",
   "artist"  : "Jacob Forever",
@@ -74,7 +92,7 @@
   "url": "../music/Jacob_Forever_-_Hasta_Que_Se_Seque_El_Malecon.mp3"
 },
 {
-  "id"  : "9",
+  "id"  : 9,
   "title" : "Nadie Mas",
   "image"   : "jacob-divan.jpg",
   "artist"  : "Jacob Forever Ft. Divan",
@@ -83,7 +101,7 @@
   "url": "../music/Jacob_Forever_Ft._Divan_-_Nadie_Mas.mp3"
 },
 {
-  "id"  : "10",
+  "id"  : 10,
   "title" : "Mirala",
   "image"   : "jacob2.jpg",
   "artist"  : "Jacob Forever Ft. El Chacal",
@@ -92,7 +110,7 @@
   "url": "../music/Jacob_Forever_Ft._El_Chacal_-_Mirala.mp3"
 },
 {
-  "id"  : "11",
+  "id"  : 11,
   "title" : "Hazme El Amor",
   "image"   : "chocolate.jpg",
   "artist"  : "Los 3 Gatos Ft. Chocolate",
@@ -101,7 +119,7 @@
   "url": "../music/Los_3_Gatos_Ft._Chocolate_-_Hazme_El_Amor.mp3"
 },
 {
-  "id"  : "12",
+  "id"  : 12,
   "title" : "Lo Que Buscas",
   "image"   : "principe.jpg",
   "artist"  : "El Principe",
