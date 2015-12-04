@@ -37,7 +37,7 @@ router.get('/song/:id', function(req, res, next) {
         } // an error occurred
         else {
             // successful response
-            console.log(unmarshalJson(data.Item));
+            //console.log(unmarshalJson(data.Item));
             res.send(unmarshalJson(data.Item));
         }
     });

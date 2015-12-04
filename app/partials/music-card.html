@@ -1,6 +1,6 @@
 
 
-<md-card style="width: 200px;" ng-class="{'md-whiteframe-4dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+<md-card style="width: 200px;" ng-class="{'md-whiteframe-5dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
     <img ng-src="images/{{card.image}}" class="md-card-image" ng-click="go('/song-details/'+card.id,'')">
     <md-card-content style="padding:0px 10px;">
         <h3 class="md-subhead"><b>{{card.title | limitTo : 19}}

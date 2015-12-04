@@ -10,12 +10,23 @@
             </div>
         </md-card-title-media>
 
-        <div layout="column" flex>
-	        <md-card-title-text>
-	            <span class="md-headline">{{song.title}}</span>
-	            <span class="md-subhead">{{song.artist}}</span>
-	        </md-card-title-text>
-
+        <div layout="column" layout-align="space-between none" flex>
+       		<div layout="row">
+		        <md-card-title-text style="margin-top:10px;">
+		            <span class="md-headline">{{song.title}}</span>
+		            <span class="md-subhead">{{song.artist}}</span>
+		        </md-card-title-text>
+		        <div style="margin-top:-20px;">
+		        	<div ng-controller="starCtrl"> 
+					 	<span ng-repeat="rating in ratings"><!-- {{rating.current}} out of {{rating.max}} -->
+					        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
+					        </div>
+					        <div class="md-display-1" style="text-align:center">{{rating.current | number:1}}</div>
+					    </span>
+					</div>
+		        </div>
+	        </div>
+	        <div flex></div>
 	        <md-card-actions layout="row" layout-align="end end">
 		        <md-button>Listen</md-button>
 		        <md-button>Download</md-button>
@@ -46,3 +57,6 @@
 
 
 </md-card>
+
+
+
