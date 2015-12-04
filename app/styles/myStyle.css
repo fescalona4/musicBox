@@ -1,99 +1,103 @@
+.bodyContent {
+    background-color: #F5F5F5;
+}
 
 md-sidenav.md-locked-open {
-  width    : 180px !important;
-  min-width: 150px !important;
-  max-width: 180px !important;
+    width: 180px !important;
+    min-width: 150px !important;
+    max-width: 180px !important;
 }
-
-
 
 md-card-content p {
-	height:36px;
+    height: 36px;
 }
 
-md-card img{
-	height: 200px;
+md-card img {
+    height: 200px;
 }
-
 
 #footer {
-   /*position:fixed;*/
-   left      :0px;
-   bottom    :0px;
-   height    :80px;
-   width     :100%;
-   z-index   : 99;
+    /*position:fixed;*/
+    left: 0px;
+    bottom: 0px;
+    height: 80px;
+    width: 100%;
+    z-index: 99;
 }
 
-.grayIcon{
-  opacity: 0.6;
+.grayIcon {
+    opacity: 0.6;
 }
 
-.orangeIcon{
-  fill: rgb(255,110,64);
+.orangeIcon {
+    fill: rgb(255, 110, 64);
 }
-.blackIcon{
-  fill: #000000;
+
+.blackIcon {
+    fill: #000000;
 }
 
 .fade.ng-hide {
-  opacity: 0;
+    opacity: 0;
 }
 
 .fade.ng-hide-remove {
-  transition: all linear 500ms;
+    transition: all linear 500ms;
 }
 
 .fade.ng-hide-add {
-  transition: all linear 500ms;
+    transition: all linear 500ms;
 }
-
 
 md-dialog {
-  width   : 50%;
-  height  : auto;
-  position: absolute;
-  right   :30px;
-  bottom  :90px;
+    width: 50%;
+    height: auto;
+    position: absolute;
+    right: 30px;
+    bottom: 90px;
 }
-
-
-
 
 md-content.md-default-theme {
-  background-color: $gray;
+    background-color: $gray;
 }
+
 md-card {
-  background-color: #fff;
-  h2:first-of-type {
-    margin-top: 0;
-  }
+    background-color: #fff;
+    h2:first-of-type {
+        margin-top: 0;
+    }
 }
+
 md-toolbar {
-  .md-button.md-default-theme {
-    border-radius: 99%; // round toolbar buttons
-  }
+    .md-button.md-default-theme {
+        border-radius: 99%; // round toolbar buttons
+    }
 }
+
 h2 {
-  font-weight: 400;
+    font-weight: 400;
 }
+
 .md-toolbar-tools-bottom {
-  font-size: small;
-  & :last-child {
-    opacity: 0.8;
-  }
+    font-size: small;
+    &:last-child {
+        opacity: 0.8;
+    }
 }
+
 md-toolbar:not(.md-hue-1),
 .md-fab {
-  fill: #fff;
+    fill: #fff;
 }
+
 md-sidenav {
-  fill      : #737373;
-  ng-md-icon {
-    position: relative;
-    top     : 5px; // adjust for svg viewbox
-  }
+    fill: #737373;
+    ng-md-icon {
+        position: relative;
+        top: 5px; // adjust for svg viewbox
+    }
 }
+
 .user-avatar {
-  border-radius: 99%;
+    border-radius: 99%;
 }

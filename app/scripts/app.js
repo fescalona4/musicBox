@@ -184,7 +184,7 @@ app.controller('sondDetailsController', ['$scope', '$routeParams', '$http', func
     $http.get("/api/song/" + $routeParams.songId)
         .success(function(response) {
             $scope.song = response;
-            console.log("api/song: "+ response);
+            console.log(angular.fromJson(angular.toJson(response)));
         });
 
 }]);
