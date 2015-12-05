@@ -213,7 +213,7 @@ app.controller('soundDetailsController', ['$scope', '$routeParams', '$http', fun
     $http.get("/api/song/" + $routeParams.songId)
         .success(function(response) {
             $scope.song = response;
-            console.log(response);
+            //console.log(response);
         });
 
 }]);
