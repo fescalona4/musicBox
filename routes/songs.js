@@ -14,7 +14,7 @@ var dynamodbDoc = new AWS.DynamoDB.DocumentClient();
 var fs = require('fs');
 
 
-
+var count = 0;
 router.get('/get-all-songs', function(req, res, next) {
 
     var params = {
@@ -29,7 +29,7 @@ router.get('/get-all-songs', function(req, res, next) {
         } // an error occurred
         else {
             // successful response
-            console.log(data.Items);
+            console.log("api/get-all-songs "+count++);
             res.send(data.Items);
         }
     });

@@ -27,15 +27,18 @@ app.config(['$routeProvider',
         $routeProvider
             .when('/new', {
                 templateUrl: 'partials/new-releases.html',
-                controller: 'cardsController'
+                controller: 'newReleasesController',
+                controllerAs: 'cardsCtrl'
             })
             .when('/top', {
                 templateUrl: 'partials/top-charts.html',
-                controller: 'cardsController'
+                controller: 'newReleasesController',
+                controllerAs: 'cardsCtrl'
             })
             .when('/home', {
                 templateUrl: 'partials/home.html',
-                controller: 'cardsController'
+                controller: 'homeController',
+                controllerAs: 'cardsCtrl'
             })
             .when('/song-details/:songId', {
                 templateUrl: 'partials/song-details.html',
@@ -48,8 +51,8 @@ app.config(['$routeProvider',
 ]);
 
 
-app.controller('appController', ['$scope', '$route', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
-    function($scope, $route, $location, $mdSidenav, $mdDialog, angularPlayer) {
+app.controller('appController', ['$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
+    function($scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
 
         $scope.$route = $route;
         $scope.$location = $location;
@@ -136,8 +139,21 @@ app.controller('appController', ['$scope', '$route', '$location', '$mdSidenav', 
         });
 
 
+        $scope.playCountPlusPlus = function(id) {
+            //console.log("playCountPlusPlus");
+            $http.put("/api/song/play-count/" + id, null)
+                .success(function(response) {
+                    //console.log(response);
+                });
+        }
 
-
+        $scope.downloadCountPlusPlus = function(id) {
+            //console.log("downloadCountPlusPlus");
+            $http.put("/api/song/download-count/" + id, null)
+                .success(function(response) {
+                    //console.log(response);
+                });
+        }
 
     }
 ]);
@@ -159,27 +175,40 @@ function DialogController($scope, $mdDialog) {
 
 
 
-app.controller('cardsController', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+app.controller('homeController', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 
     var json = this;
     json.music = [];
 
-    $http.get("/myDataJson.json")
+
+    $http.get("/api/get-all-songs")
         .success(function(response) {
             json.music = response;
-            //alert(JSON.stringify(json.music));
         });
 
 
 }]);
 
 
+app.controller('newReleasesController', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+
+    var json = this;
+    json.music = [];
+
+
+    $http.get("/api/get-all-songs")
+        .success(function(response) {
+            json.music = response;
+        });
+
+
+
+}]);
 
 
 app.controller('soundDetailsController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
 
     $scope.params = $routeParams;
-
 
     $http.get("/api/song/" + $routeParams.songId)
         .success(function(response) {
@@ -212,39 +241,36 @@ app.directive('musicPlayer', function() {
 
 
 
-
-
-
-app.controller('starCtrl', ['$scope', function ($scope) {
+app.controller('starCtrl', ['$scope', function($scope) {
     $scope.rating = 0;
     $scope.ratings = [{
         current: 3,
         max: 5
     }];
 
-    $scope.getSelectedRating = function (rating) {
+    $scope.getSelectedRating = function(rating) {
         //console.log(rating);
     }
 }]);
 
-app.directive('starRating', function () {
+app.directive('starRating', function() {
     return {
         restrict: 'A',
-        template: '<div layout="row" > '+
-                  '<md-button class="md-icon-button grayIcon" aria-label="rating" '+
-                  'ng-click="toggle($index)" style="margin:0px;padding:0px;width:22px;" ng-repeat="star in stars">'+
-                  '    <md-icon md-svg-icon="images/icons/ic_star_black_48px.svg" ng-show="star.filled"></md-icon>'+
-                  '    <md-icon md-svg-icon="images/icons/ic_star_border_black_48px.svg" ng-hide="star.filled"></md-icon>'+
-                  '</md-button> '+
-                  '</div>',
+        template: '<div layout="row" > ' +
+            '<md-button class="md-icon-button grayIcon" aria-label="rating" ' +
+            'ng-click="toggle($index)" style="margin:0px;padding:0px;width:22px;" ng-repeat="star in stars">' +
+            '    <md-icon md-svg-icon="images/icons/ic_star_black_48px.svg" ng-show="star.filled"></md-icon>' +
+            '    <md-icon md-svg-icon="images/icons/ic_star_border_black_48px.svg" ng-hide="star.filled"></md-icon>' +
+            '</md-button> ' +
+            '</div>',
         scope: {
             ratingValue: '=',
             max: '=',
             onRatingSelected: '&'
         },
-        link: function (scope, elem, attrs) {
+        link: function(scope, elem, attrs) {
 
-            var updateStars = function () {
+            var updateStars = function() {
                 scope.stars = [];
                 for (var i = 0; i < scope.max; i++) {
                     scope.stars.push({
@@ -253,14 +279,14 @@ app.directive('starRating', function () {
                 }
             };
 
-            scope.toggle = function (index) {
+            scope.toggle = function(index) {
                 scope.ratingValue = index + 1;
                 scope.onRatingSelected({
                     rating: index + 1
                 });
             };
 
-            scope.$watch('ratingValue', function (oldVal, newVal) {
+            scope.$watch('ratingValue', function(oldVal, newVal) {
                 if (newVal) {
                     updateStars();
                 }

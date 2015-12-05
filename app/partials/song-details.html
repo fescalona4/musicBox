@@ -36,8 +36,8 @@
 	        </div>
 	        <div flex></div>
 	        <md-card-actions layout="row" layout-align="end end">
-		        <md-button class="md-raised" music-player="play" add-song="song">Listen</md-button>
-		        <md-button class="md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;">Download</md-button>
+		        <md-button class="md-raised" music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">Listen</md-button>
+		        <md-button class="md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;" ng-click="downloadCountPlusPlus(song.id)">Download</md-button>
 		    </md-card-actions>
 	    </div>
 
