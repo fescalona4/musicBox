@@ -15,6 +15,7 @@ var fs = require('fs');
 
 
 var count = 0;
+// GET service to get all existing songs in DB
 router.get('/get-all-songs', function(req, res, next) {
 
     var params = {
@@ -37,17 +38,7 @@ router.get('/get-all-songs', function(req, res, next) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+// GET service to get single song details by id
 router.get('/song/:id', function(req, res, next) {
 
     var params = {
@@ -73,7 +64,7 @@ router.get('/song/:id', function(req, res, next) {
 });
 
 
-
+// PUT service to increase song play-count by 1
 router.put('/song/play-count/:id', function(req, res, next) {
 
     var params = {
@@ -100,6 +91,7 @@ router.put('/song/play-count/:id', function(req, res, next) {
 });
 
 
+// PUT service to increase song download-count by 1
 router.put('/song/download-count/:id', function(req, res, next) {
 
     var params = {
@@ -127,7 +119,8 @@ router.put('/song/download-count/:id', function(req, res, next) {
 
 
 
-router.post('/song/:id', function(req, res, next) {
+// POST service to load all songs from json to db
+router.post('/load-all-songs', function(req, res, next) {
 
 var allMovies = JSON.parse(fs.readFileSync('app/myDataJson.json', 'utf8'));
 allMovies.forEach(function(movie) {
