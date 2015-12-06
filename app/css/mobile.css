@@ -26,3 +26,18 @@
         height: 180px;
     }
 }
+
+.play-stats {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-left: -5px;
+}
+
+.card-title {
+    padding-bottom: 0px;
+}
+
+.songTitle {
+    line-height: 20px;
+    font-size: 20px;
+}
