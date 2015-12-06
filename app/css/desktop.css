@@ -1,0 +1,21 @@
+/* For desktop: */
+
+.musicCard {
+    width: 200px;
+    margin-left: 15px;
+    margin-right: 0px;
+}
+
+md-card img {
+    height: 200px;
+}
+
+md-sidenav.md-locked-open {
+    width: 200px !important;
+}
+
+.songDetailsCard {
+    min-width: 500px;
+    max-width: 650px;
+    margin: 20px 20px;
+}

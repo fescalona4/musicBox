@@ -1,0 +1,64 @@
+<!-- <h5>song details goes here Id: {{params.songId}}</h5>
+ -->
+
+
+<md-card style="" class="songDetailsCard">
+    <md-card-title>
+        <md-card-title-media>
+            <div class="md-media-lg card-media" style="width:200px;height:200px">
+                <img ng-src="images/{{song.image}}" class="md-card-image" style="margin-top:-16px; margin-left:-16px;width:200px;height:200px">
+            </div>
+        </md-card-title-media>
+
+        <div layout="column" layout-align="space-between none" flex>
+       		<div layout="row">
+		        <md-card-title-text style="margin-top:10px;">
+		            <span class="md-headline">{{song.title}}</span>
+		            <span class="md-subhead" style="margin-bottom:10px">{{song.artist}}</span>
+		            <span class="md-body-2 play-stats">
+		            	<md-icon class="grayIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+		            	{{song.playCount}}
+		            </span>
+		            <span class="md-body-2 play-stats">
+		            	<md-icon class="grayIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+		            	{{song.downloadCount}}
+		            </span>
+		        </md-card-title-text>
+		        <div style="margin-top:-20px;">
+		        	<div ng-controller="starCtrl"> 
+					 	<span ng-repeat="rating in ratings"><!-- {{rating.current}} out of {{rating.max}} -->
+					        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
+					        </div>
+					        <div class="md-display-1" style="text-align:center">{{rating.current | number:1}}</div>
+					    </span>
+					</div>
+		        </div>
+	        </div>
+	        <div flex></div>
+	        <md-card-actions layout="row" layout-align="end end">
+		        <md-button class="md-raised" music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">Listen</md-button>
+		        <md-button class="md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;" ng-click="downloadCountPlusPlus(song.id)">Download</md-button>
+		    </md-card-actions>
+	    </div>
+
+    </md-card-title>
+
+
+    <md-divider style="margin:15px; margin-left:216px"></md-divider>
+	<md-content flex layout-padding>
+	    <div>Reviews</div>
+	    <md-list-item class="md-2-line" ng-repeat="comment in song.comments">
+	        <div class="md-list-item-text">
+	            <h3>{{comment.name}}</h3>
+	            <p>{{comment.comment}}</p>
+	        </div>
+	    </md-list-item>
+	</md-content>
+
+
+
+
+</md-card>
+
+
+

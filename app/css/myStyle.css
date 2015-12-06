@@ -101,62 +101,7 @@ md-sidenav {
 }
 
 
-/* nexus 5 */
-
-@media only screen and (max-width: 384px) {
-    /* For mobile phones: */
-    .musicCard {
-        width: 160px;
-        margin-left: 13px;
-        margin-right: 0px;
-    }
-    md-card img {
-        height: 160px;
-    }
-}
-
-
-/* nexus 6 */
-
-@media only screen and (min-width: 385px) and (max-width: 412px) {
-    /* For mobile phones: */
-    .musicCard {
-        width: 180px;
-        margin-left: 18px;
-        margin-right: 0px;
-    }
-    md-card img {
-        height: 180px;
-    }
-}
-
-
-/* ipad */
-
-@media only screen and (min-width: 413px) and (max-width: 768px) {
-    .musicCard {
-        width: 240px;
-        margin-left: 30px;
-    }
-    md-card img {
-        height: 240px;
-    }
-}
 
 
 
-/* For desktop: */
 
-@media only screen and (min-width: 769px) {
-    .musicCard {
-        width: 200px;
-        margin-left: 15px;
-        margin-right: 0px;
-    }
-    md-card img {
-        height: 200px;
-    }
-    md-sidenav.md-locked-open {
-        width: 200px !important;
-    }
-}

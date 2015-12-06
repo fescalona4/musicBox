@@ -1,0 +1,20 @@
+/* ipad */
+
+.musicCard {
+    width: 240px;
+    margin-left: 30px;
+}
+
+md-card img {
+    height: 240px;
+}
+
+md-sidenav.md-locked-open {
+    width: 200px !important;
+}
+
+.songDetailsCard {
+    min-width: 500px;
+    max-width: 650px;
+    margin: 20px 20px;
+}

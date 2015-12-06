@@ -1,29 +1,39 @@
-var app = angular.module('musicBoxApp', ['ngMaterial', 'ngRoute', 'angularSoundManager', 'ngMdIcons', 'ngAnimate'])
-    //set theme
-    .config(function($mdThemingProvider) {
-        var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
-            'contrastDefaultColor': 'light',
-            'contrastDarkColors': ['50'],
-            '50': 'ffffff'
-        });
-        $mdThemingProvider.definePalette('customBlue', customBlueMap);
-        $mdThemingProvider.theme('default')
-            .primaryPalette('customBlue', {
-                'default': '500',
-                'hue-1': '50'
-            })
-            .accentPalette('deep-orange');
-        $mdThemingProvider.theme('input', 'default')
-            .primaryPalette('blue-grey');
-        $mdThemingProvider.theme('musicPlayer', 'default')
-            .primaryPalette('grey', {
-                'default': '50' // use shade 200 for default, and keep all other shades the same
-            });
+var app = angular.module('musicBoxApp', ['ngMaterial', 'ngRoute', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider'])
+
+
+
+//set theme
+.config(function($mdThemingProvider) {
+    var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
+        'contrastDefaultColor': 'light',
+        'contrastDarkColors': ['50'],
+        '50': 'ffffff'
     });
+    $mdThemingProvider.definePalette('customBlue', customBlueMap);
+    $mdThemingProvider.theme('default')
+        .primaryPalette('customBlue', {
+            'default': '500',
+            'hue-1': '50'
+        })
+        .accentPalette('deep-orange');
+    $mdThemingProvider.theme('input', 'default')
+        .primaryPalette('blue-grey');
+    $mdThemingProvider.theme('musicPlayer', 'default')
+        .primaryPalette('grey', {
+            'default': '50' // use shade 200 for default, and keep all other shades the same
+        });
+});
+
+
+
 
 //set routes
-app.config(['$routeProvider',
-    function($routeProvider) {
+app.config(['$routeProvider', 'deviceTypeProvider',
+    function($routeProvider, deviceTypeProvider) {
+
+        var deviceTypeProvider = deviceTypeProvider.$get(),
+            deviceType = deviceTypeProvider.getDeviceType();
+        
         $routeProvider
             .when('/new', {
                 templateUrl: 'partials/new-releases.html',
@@ -41,7 +51,7 @@ app.config(['$routeProvider',
                 controllerAs: 'cardsCtrl'
             })
             .when('/song-details/:songId', {
-                templateUrl: 'partials/song-details.html',
+                templateUrl: 'view/' + deviceType + '/song-details.html',
                 controller: 'soundDetailsController'
             })
             .otherwise({
@@ -51,11 +61,16 @@ app.config(['$routeProvider',
 ]);
 
 
-app.controller('appController', ['$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
-    function($scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
+app.controller('appController', ['deviceType','$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer', 
+
+    function(deviceType,$scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
 
         $scope.$route = $route;
         $scope.$location = $location;
+
+        $scope.styleType = deviceType.getDeviceType();
+        console.log($scope.styleType);
+
 
 
         var appCtrl = this;

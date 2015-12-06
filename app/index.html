@@ -1,22 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="musicBoxApp">
+<html lang="en" ng-app="musicBoxApp" ng-controller="appController as appCtrl">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <title>MusicBox</title>
-    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
-    <link rel="stylesheet" href="styles/myStyle.css">
+    <link rel="stylesheet" href="css/myStyle.css">
+    <link rel='stylesheet' ng-if="styleType.length > 0" ng-href='css/{{styleType}}.css'>
+
 </head>
 
 
-<body layout="column" ng-cloak ng-controller="appController as appCtrl">
+<body layout="column" ng-cloak >
     <!-- Initialize Soundmanager -->
     <sound-manager></sound-manager>
     <!-- md-is-locked-open="$mdMedia('gt-sm')" -->
-    
 
     <!-- SIDEBAR -->
     <div layout="row" flex>
@@ -73,7 +75,7 @@
             </md-toolbar>
             <!-- TOP TOOLBAR END -->
             
-            <md-content flex md-scroll-y class="bodyContent" layout-align-sm="center center">
+            <md-content flex md-scroll-y class="bodyContent">
                 <!-- Cards View -->
                 <div ng-view></div>
             
@@ -133,8 +135,7 @@
     </div>
 
 
-    <script src="scripts/dynamodb-marshaler.min.js"></script>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.19.min.js"></script>
+
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
@@ -143,6 +144,7 @@
     <script src="scripts/angular-soundmanager2.js"></script>
     <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/deviceTypeProvider.js"></script>
 </body>
 
 </html>
