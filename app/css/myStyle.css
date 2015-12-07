@@ -96,10 +96,6 @@ md-sidenav {
     border-radius: 99%;
 }
 
-
-
-
-
-
-
-
+.playerButtons {
+    min-width: 190px
+}

@@ -88,5 +88,10 @@
 }
 
 .playerButtons {
-    justify-content:flex-end;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
 }
