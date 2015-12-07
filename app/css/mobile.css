@@ -42,43 +42,47 @@
     font-size: 20px;
 }
 
-.songDetailsCard{
+.songDetailsCard {
     margin-left: 12px;
     margin-right: 12px;
 }
 
-.playerPlayBtn{
-   /* margin:0px !important;*/
+.playerPlayBtn {
+    /* margin:0px !important;*/
 }
 
-.playerPrevBtn{
-    margin:0px !important;
+.playerPrevBtn {
+    margin: 0px !important;
     width: 30px !important;
 }
 
 .playerNextBtn {
-    margin:-10px !important;
+    margin: -10px !important;
     margin-right: 0px !important;
     width: 30px !important;
 }
 
-.playerTitle{
+.playerTitle {
     font-size: 12px;
     line-height: 18px;
     margin-left: -10px;
     margin-top: -5px;
 }
 
-.playerArtist{
+.playerArtist {
     font-size: 10px;
     margin-left: -10px;
 }
 
-#footer{
-    height:60px;
+#footer {
+    height: 60px;
 }
 
 .playerImage {
-    height:60px !important;
-    width :60px !important;
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.volQueueContainer {
+    display: none;
 }
