@@ -10,7 +10,7 @@ md-card-content p {
     /*position:fixed;*/
     left: 0px;
     bottom: 0px;
-    height: 80px;
+    height: 70px;
     width: 100%;
     z-index: 99;
 }

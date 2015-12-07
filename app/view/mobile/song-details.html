@@ -12,7 +12,7 @@
             <div layout="row">
                 <md-card-title-text>
                     <span class="md-headline songTitle">{{song.title}}</span>
-                    <span class="md-subhead" style="margin-bottom:5px">{{song.artist}}</span>
+                    <span class="md-subhead">{{song.artist}}</span>
                     
                     <div layout="row">
                         <span class="md-body-2 play-stats">
@@ -26,13 +26,13 @@
 		            	{{song.downloadCount}}
 		            	</span>
 
-		            	<div ng-controller="starCtrl" style="margin-top:5px;"> 
-						 	<span ng-repeat="rating in ratings"><!-- {{rating.current}} out of {{rating.max}} -->
+		            	<!-- Rating Stars -->
+<!-- 		            	<div ng-controller="starCtrl" style="margin-top:5px;"> 
+						 	<span ng-repeat="rating in ratings"> {{rating.current}} out of {{rating.max}} 
 						        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
 						        </div>
-						        
 						    </span>
-						</div>
+						</div> -->
                     </div>
                 </md-card-title-text>
             </div>

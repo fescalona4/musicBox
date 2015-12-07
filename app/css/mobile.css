@@ -28,7 +28,7 @@
 }
 
 .play-stats {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-right: 15px;
     margin-left: -5px;
 }
@@ -40,4 +40,45 @@
 .songTitle {
     line-height: 20px;
     font-size: 20px;
+}
+
+.songDetailsCard{
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.playerPlayBtn{
+   /* margin:0px !important;*/
+}
+
+.playerPrevBtn{
+    margin:0px !important;
+    width: 30px !important;
+}
+
+.playerNextBtn {
+    margin:-10px !important;
+    margin-right: 0px !important;
+    width: 30px !important;
+}
+
+.playerTitle{
+    font-size: 12px;
+    line-height: 18px;
+    margin-left: -10px;
+    margin-top: -5px;
+}
+
+.playerArtist{
+    font-size: 10px;
+    margin-left: -10px;
+}
+
+#footer{
+    height:60px;
+}
+
+.playerImage {
+    height:60px !important;
+    width :60px !important;
 }
