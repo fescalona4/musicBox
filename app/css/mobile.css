@@ -86,3 +86,7 @@
 .volQueueContainer {
     display: none;
 }
+
+.playerButtons {
+    justify-content:flex-end;
+}
