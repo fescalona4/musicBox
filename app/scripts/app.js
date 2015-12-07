@@ -33,7 +33,7 @@ app.config(['$routeProvider', 'deviceTypeProvider',
 
         var deviceTypeProvider = deviceTypeProvider.$get(),
             deviceType = deviceTypeProvider.getDeviceType();
-        
+
         $routeProvider
             .when('/new', {
                 templateUrl: 'partials/new-releases.html',
@@ -61,9 +61,9 @@ app.config(['$routeProvider', 'deviceTypeProvider',
 ]);
 
 
-app.controller('appController', ['deviceType','$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer', 
+app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
 
-    function(deviceType,$scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
+    function(deviceType, $scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
 
         $scope.$route = $route;
         $scope.$location = $location;
@@ -201,6 +201,45 @@ app.controller('homeController', ['$scope', '$http', '$filter', function($scope,
             json.music = response;
         });
 
+
+
+    this.newReleasesInHome = function() {
+
+        var response = [];
+        range = 3;
+
+        if (json.music[0] != undefined) {
+
+          var filterResults = $filter('filter')(json.music, {filter: 'new'});
+          console.log(filterResults.length);
+
+            for (var i = 0; i < range; i++) {
+                response.push(filterResults[i]);
+            }
+            console.log(response);
+        }
+        
+        return response;
+    };
+
+    this.popularInHome = function() {
+
+        var response = [];
+        range = 3;
+
+        if (json.music[0] != undefined) {
+
+          var filterResults = $filter('filter')(json.music, {filter: 'top'});
+          console.log(filterResults.length);
+
+            for (var i = 0; i < range; i++) {
+                response.push(filterResults[i]);
+            }
+            console.log(response);
+        }
+        
+        return response;
+    };
 
 }]);
 
