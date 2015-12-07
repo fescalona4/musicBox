@@ -22,7 +22,7 @@
 
     <!-- SIDEBAR -->
     <div layout="row" flex>
-        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" style="width:240px">
             <md-toolbar class="">
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" aria-label="Menu" ng-click="appCtrl.toggleSidenav('left')">
@@ -32,15 +32,15 @@
                 </div>
             </md-toolbar>
             <md-menu-item style="width:100%">
-                <md-button class="md-accent" ng-click="go('/','Dashboard')">
+                <md-button class="md-accent" ng-click="go('/','Dashboard');appCtrl.toggleSidenav('left');">
                     <md-icon md-svg-src="images/icons/ic_home_black_48px.svg" class="grayIcon"></md-icon>Dashboard</md-button>
             </md-menu-item>
             <md-menu-item style="width:100%">
-                <md-button class="md-accent" ng-click="go('/new','New Releases')">
+                <md-button class="md-accent" ng-click="go('/new','New Releases');appCtrl.toggleSidenav('left');">
                     <md-icon md-svg-src="images/icons/ic_new_releases_black_48px.svg" class="grayIcon"></md-icon>New Releases</md-button>
             </md-menu-item>
             <md-menu-item style="width:100%">
-                <md-button class="md-accent" ng-click="go('/top','Top Charts')">
+                <md-button class="md-accent" ng-click="go('/top','Top Charts');appCtrl.toggleSidenav('left');">
                     <md-icon md-svg-src="images/icons/ic_star_rate_black_18px.svg" class="grayIcon"></md-icon>Top Charts</md-button>
             </md-menu-item>
         </md-sidenav>
@@ -48,7 +48,7 @@
             <!-- TOP TOOLBAR START-->
             <md-toolbar ng-hide="showSearch">
                 <div class="md-toolbar-tools">
-                    <md-button class="md-icon-button" ng-click="appCtrl.toggleSidenav('left')" hide-gt-sm aria-label="Menu">
+                    <md-button class="md-icon-button" ng-click="appCtrl.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                         <md-icon md-svg-icon="images/icons/ic_menu_white_48px.svg"></md-icon>
                     </md-button>
                     <h1 flex>{{title}}</h1>
@@ -84,11 +84,11 @@
     </div>
 
 
-    <div layout="row" id="footer">
+    <div layout="row" id="footer" ng-hide="playlist.length==0">
         <!--<music-player flex></music-player> -->
-        <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);">
+        <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);" >
             <div layout="row">
-                <md-toolbar-filler layout layout-align="center center" ng-hide="playlist.length==0" class="playerImage">
+                <md-toolbar-filler layout layout-align="center center"  class="playerImage">
                     <img ng-src="images/{{currentPlaying.image}}" class="md-card-image playerImage" style="width:70px;height:70px" alt="">
                 </md-toolbar-filler>
                 <div flex>
@@ -100,7 +100,7 @@
                                 <div class="md-caption playerArtist">{{currentPlaying.artist}}</div>
                             </div>
                         </div>
-                        <div flex  class="playerButtons">
+                        <div flex class="playerButtons">
                             <md-button prev-track class="md-icon-button playerPrevBtn" aria-label="prev">
                                 <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
                             </md-button>
@@ -113,10 +113,10 @@
                                 <md-icon md-svg-icon="images/icons/ic_skip_next_black_48px.svg"></md-icon>
                             </md-button>
                         </div>
-                        <div flex hide-sm class="volQueueContainer">
+                        <div flex class="volQueueContainer">
                             <div layout="row" layout-align="end center" ng-mouseleave="volHover = false">
                                 <!--right side icons -->
-                                <md-button class="md-icon-button fade" aria-label="VolumeDown" hide-sm ng-click="volume=0" ng-show="volHover">
+                                <md-button class="md-icon-button fade" aria-label="VolumeDown" ng-click="volume=0" ng-show="volHover">
                                     <md-icon md-svg-icon="images/icons/ic_volume_down_black_48px.svg"></md-icon>
                                 </md-button>
                                 <md-slider min="0" max="100" class="fade" aria-label="volume" ng-model="volume" style="width:70px" ng-show="volHover">

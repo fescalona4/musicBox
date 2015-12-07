@@ -15,11 +15,12 @@
 
 /* nexus 6 */
 
-@media only screen and (min-width: 385px) and (max-width: 412px) {
+@media only screen and (min-width: 385px) and (max-width: 415px) {
     /* For mobile phones: */
     .musicCard {
         width: 180px;
         margin-left: 18px;
+
         margin-right: 0px;
     }
     md-card img {
@@ -52,14 +53,14 @@
 }
 
 .playerPrevBtn {
-    margin: 0px !important;
-    width: 30px !important;
+    /*margin: 0px !important;*/
+    /*width: 30px !important;*/
 }
 
 .playerNextBtn {
-    margin: -10px !important;
-    margin-right: 0px !important;
-    width: 30px !important;
+   /* margin: -10px !important;
+    margin-right: 0px !important;*/
+    /*width: 30px !important;*/
 }
 
 .playerTitle {
@@ -79,7 +80,7 @@
 }
 
 .playerImage {
-    height: 60px !important;
+    height: 61px !important;
     width: 60px !important;
 }
 
