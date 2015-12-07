@@ -1,9 +1,9 @@
 
 <div layout="column">
-<h2 class="md-display-1">New Song Releases</h2>
+<h2 class="md-display-1">New Song Releases {{windowWidth}}</h2>
 
-<md-content style="height:365px;">
-<div layout="row" flex layout-wrap>
+<md-content style="height:365px;" id="newReleasesInHomePanel" resize>
+<div layout="row" flex>
     <div layout="column" ng-repeat="card in cardsCtrl.newReleasesInHome() track by $index">
         <music-card></music-card>
     </div>

@@ -207,16 +207,22 @@ app.controller('homeController', ['$scope', '$http', '$filter', function($scope,
 
         var response = [];
         range = 3;
+        //var width = angular.element(document.getElementById('newReleasesInHomePanel'))[0].offsetWidth;
+        var width = $scope.windowWidth;
+        console.log("width:"+width);
+        range = width / 220;
+        range = $filter('number')(range, 0);
+        console.log("show:"+range)
 
         if (json.music[0] != undefined) {
 
           var filterResults = $filter('filter')(json.music, {filter: 'new'});
-          console.log(filterResults.length);
+          //console.log(filterResults.length);
 
             for (var i = 0; i < range; i++) {
                 response.push(filterResults[i]);
             }
-            console.log(response);
+            //console.log(response);
         }
         
         return response;
@@ -230,20 +236,55 @@ app.controller('homeController', ['$scope', '$http', '$filter', function($scope,
         if (json.music[0] != undefined) {
 
           var filterResults = $filter('filter')(json.music, {filter: 'top'});
-          console.log(filterResults.length);
+          //console.log(filterResults.length);
 
             for (var i = 0; i < range; i++) {
                 response.push(filterResults[i]);
             }
-            console.log(response);
+            //console.log(response);
         }
         
         return response;
     };
 
 }]);
+/*
+function AppController($scope) {
+   $scope.notifyServiceOnChage = function(){
+     console.log("new:"+$scope.windowHeight);
+  };
+}
 
 
+app.directive('resize', function ($window) {
+    return function (scope, element, attr) {
+
+        var w = angular.element($window);
+        scope.$watch(function () {
+            return {
+                'h': w.height, 
+                'w': w.width
+            };
+        }, function (newValue, oldValue) {
+            scope.windowHeight = newValue.h;
+            scope.windowWidth = newValue.w;
+
+            scope.resizeWithOffset = function (offsetH) {
+                scope.$eval(attr.notifier);
+                return { 
+                    'height': (newValue.h - offsetH) + 'px'                    
+                };
+            };
+
+        }, true);
+
+        w.bind('resize', function () {
+            scope.$apply();
+        });
+    }
+});
+
+*/
 app.controller('newReleasesController', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
 
     var json = this;
