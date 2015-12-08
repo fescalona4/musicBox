@@ -42,8 +42,54 @@ md-sidenav.md-locked-open {
 
 .homePanels {
     height: 365px;
+    max-width: 1100px;
     overflow: hidden;
     background-color: #F5F5F5;
     width:93%;
+    margin-top:5px;
     margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+
+@media only screen and (max-width: 720px) {
+    .homeHeaderRow{
+        width: 448px;
+    }
+
+}
+
+@media only screen and (min-width: 720px) and (max-width: 950px) {
+    .homeHeaderRow{
+        width: 662px;
+    }
+
+}
+
+@media only screen and (min-width: 950px) and (max-width: 1188px) {
+    .homeHeaderRow{
+        width: 878px;
+    }
+
+}
+
+@media only screen and (min-width: 1188px) and (max-width: 1280px) {
+    .homeHeaderRow{
+        width: 1093px;
+    }
+
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1387px) {
+    .homeHeaderRow{
+        width: 878px;
+    }
+
+}
+
+@media only screen and (min-width: 1387px) {
+    .homeHeaderRow{
+        width: 1093px;
+    }
+
 }
