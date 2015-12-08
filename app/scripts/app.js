@@ -38,21 +38,25 @@ app.config(['$routeProvider', 'deviceTypeProvider',
             .when('/new', {
                 templateUrl: 'partials/new-releases.html',
                 controller: 'newReleasesController',
-                controllerAs: 'cardsCtrl'
+                controllerAs: 'cardsCtrl',
+                title: 'New Releases'
             })
             .when('/top', {
                 templateUrl: 'partials/top-charts.html',
                 controller: 'newReleasesController',
-                controllerAs: 'cardsCtrl'
+                controllerAs: 'cardsCtrl',
+                title: 'Popular Songs'
             })
             .when('/home', {
                 templateUrl: 'partials/home.html',
                 controller: 'homeController',
-                controllerAs: 'cardsCtrl'
+                controllerAs: 'cardsCtrl',
+                title: 'Dashboard'
             })
             .when('/song-details/:songId', {
                 templateUrl: 'view/' + deviceType + '/song-details.html',
-                controller: 'soundDetailsController'
+                controller: 'soundDetailsController',
+                title: 'Song Details'
             })
             .otherwise({
                 redirectTo: '/home'
@@ -93,15 +97,10 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
         });
 
 
-
-        //console.log('Current route name: ' + $location.path());
-        if ($location.path() == "/home") {
-            $scope.title = "Dashboard";
-        } else if ($location.path() == "/new") {
-            $scope.title = "New Releases";
-        } else if ($location.path() == "/top") {
-            $scope.title = "Top Charts";
-        }
+        //Change page title based on route
+        $scope.$on("$routeChangeSuccess", function(event, currentRoute, previousRoute) {
+            $scope.title = currentRoute.title;
+        });
 
         appCtrl.toggleSidenav = function(menuId) {
             $mdSidenav(menuId).toggle();
@@ -110,7 +109,6 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
 
         $scope.go = function(path, title) {
             $location.path(path); //go to that route
-            $scope.title = title;
         };
 
 
@@ -200,7 +198,6 @@ app.controller('homeController', ['$scope', '$http', '$filter', function($scope,
         .success(function(response) {
             json.music = response;
         });
-
 
 
 

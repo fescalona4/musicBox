@@ -1,18 +1,18 @@
 
 
 <div layout="column" style="margin-left:15px">
-    <a class="homeHeaders" ng-click="go('/new','New Releases');">New Song Releases</a>
+    <a class="homeHeaders" ng-click="go('/new');">New Song Releases</a>
     <md-content class="homePanels" >
         <div layout="row" flex layout-wrap>
-            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'new', artist: appCtrl.search}">
+            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'new', artist: appCtrl.search} | orderBy:'-id'">
                 <music-card></music-card>
             </div>
         </div>
     </md-content>
-    <a class="homeHeaders" ng-click="go('/top','Top Charts')">Most Popular Songs</a>
+    <a class="homeHeaders" ng-click="go('/top')">Most Popular Songs</a>
     <md-content class="homePanels">
         <div layout="row" flex layout-wrap>
-            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'top', artist: appCtrl.search}">
+            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'top', artist: appCtrl.search} | orderBy:'-playCount'">
                 <music-card></music-card>
             </div>
         </div>
