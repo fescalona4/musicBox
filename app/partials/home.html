@@ -1,24 +1,20 @@
 
-<div layout="column">
-<h2 class="md-display-1">New Song Releases {{windowWidth}}</h2>
 
-<md-content style="height:365px;" id="newReleasesInHomePanel" resize>
-<div layout="row" flex>
-    <div layout="column" ng-repeat="card in cardsCtrl.newReleasesInHome() track by $index">
-        <music-card></music-card>
-    </div>
-</div>
-</md-content>
-
-
-<h2 class="md-display-1">Most Popular Songs</h2>
-
-<md-content style="height:365px;">
-<div layout="row" flex layout-wrap>
-    <div layout="column" ng-repeat="card in cardsCtrl.popularInHome() track by $index">
-        <music-card></music-card>
-    </div>
-</div>
-</md-content>
-
+<div layout="column" style="margin-left:15px">
+    <a class="homeHeaders" ng-click="go('/new','New Releases');">New Song Releases</a>
+    <md-content class="homePanels" >
+        <div layout="row" flex layout-wrap>
+            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'new', artist: appCtrl.search}">
+                <music-card></music-card>
+            </div>
+        </div>
+    </md-content>
+    <a class="homeHeaders" ng-click="go('/top','Top Charts')">Most Popular Songs</a>
+    <md-content class="homePanels">
+        <div layout="row" flex layout-wrap>
+            <div layout="column" ng-repeat="card in cardsCtrl.music | filter: {filter: 'top', artist: appCtrl.search}">
+                <music-card></music-card>
+            </div>
+        </div>
+    </md-content>
 </div>

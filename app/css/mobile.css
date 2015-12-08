@@ -3,12 +3,15 @@
 @media only screen and (max-width: 384px) {
     /* For mobile phones: */
     .musicCard {
-        width: 160px;
+        width: 155px;
         margin-left: 13px;
         margin-right: 0px;
     }
     md-card img {
-        height: 160px;
+        height: 155px;
+    }
+    .homePanels {
+        height: 320px;
     }
 }
 
@@ -25,6 +28,9 @@
     }
     md-card img {
         height: 180px;
+    }
+    .homePanels {
+        height: 350px;
     }
 }
 
@@ -97,3 +103,29 @@
     align-items: center;
     min-width: 50px;
 }
+
+
+.cardContainer{
+    padding-top : 10px;
+/*    padding-left: 10px;
+    padding-right: 10px;*/
+}
+
+
+.homeHeaders {
+    color: #616161;
+    font-size: 20px;
+    font-weight: 100;
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.homePanels {
+    overflow: hidden;
+    background-color: #F5F5F5;
+    width:100%;
+    margin-left: -15px;
+}
+
