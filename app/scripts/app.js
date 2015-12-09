@@ -26,7 +26,6 @@ var app = angular.module('musicBoxApp', ['ngMaterial', 'ngRoute', 'angularSoundM
 
 
 
-
 //set routes
 app.config(['$routeProvider', 'deviceTypeProvider',
     function($routeProvider, deviceTypeProvider) {
@@ -74,6 +73,45 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
 
         $scope.styleType = deviceType.getDeviceType();
         console.log($scope.styleType);
+
+
+
+        SC.initialize({
+            client_id: "49acbcf970718a548c26aa85f8e6e653"
+        });
+
+        $scope.playSong = function(song) {
+            console.log('playSong:'+song.id);
+            $scope.currentPlaying = song;
+
+            SC.stream(song.url).then(function(player){
+              player.play();
+              $scope.soundCloudPlayer = player;
+              $scope.isPlaying = true;
+            });
+        }
+
+        $scope.pauseSong = function() {
+            console.log('pauseSong');
+
+            if ($scope.isPlaying) {
+                $scope.soundCloudPlayer.pause();
+                $scope.isPlaying = false;
+            } 
+            else {
+                $scope.soundCloudPlayer.play();
+                $scope.isPlaying = true;
+            }
+        }
+
+
+
+
+
+
+
+
+
 
 
 

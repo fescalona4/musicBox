@@ -84,7 +84,7 @@
     </div>
 
 
-    <div layout="row" id="footer" ng-hide="playlist.length==0">
+    <div layout="row" id="footer" ng-hide="playlist.length==-1">
         <!--<music-player flex></music-player> -->
         <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);" >
             <div layout="row">
@@ -104,7 +104,7 @@
                             <md-button prev-track class="md-icon-button playerPrevBtn" aria-label="prev">
                                 <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
                             </md-button>
-                            <md-button play-pause-toggle class="md-fab playerPlayBtn" aria-label="Play" 
+                            <md-button ng-click="pauseSong()" class="md-fab playerPlayBtn" aria-label="Play" 
                                 ng-class="{'md-mini':styleType=='mobile'}">
                                 <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
                                 <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
@@ -142,8 +142,10 @@
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-material/angular-material.min.js"></script>
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
+    <script src="../bower_components/plangular/dist/plangular.min.js"></script>
     <script src="scripts/angular-soundmanager2.js"></script>
     <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/deviceTypeProvider.js"></script>
 </body>
