@@ -1,7 +1,7 @@
 {
   "name": "MusicBox",
   "version": "0.0.2",
-  "description": "Website for an awesome music",
+  "description": "Website for awesome music",
   "main": "index.html",
   "moduleType": [],
   "keywords": [
@@ -24,8 +24,7 @@
   "dependencies": {
     "angular": "~1.4.8",
     "angular-material": "master",
-    "angular-route": "1.4.8",
-    "plangular":""
+    "angular-route": "1.4.8"
   },
   "resolutions": {
     "angular": "~1.4.8"

@@ -86,10 +86,10 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
             $mdDialog.hide();
         }
 
-        $scope.$on('player:playlist', function(event, data) {
+/*        $scope.$on('player:playlist', function(event, data) {
             //do your stuff here
             //console.log("playlist: "+JSON.stringify(data));
-        });
+        });*/
 
 
         $scope.playCountPlusPlus = function(id) {
@@ -122,5 +122,4 @@ function DialogController($scope, $mdDialog) {
         $mdDialog.hide(answer);
     };
     this.parent = $scope;
-    //console.log("playlist:"+JSON.stringify($scope));
 }
