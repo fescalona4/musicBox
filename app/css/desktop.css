@@ -33,7 +33,7 @@ md-sidenav.md-locked-open {
 .homeHeaders {
     color: #616161;
     font-size: 28px;
-    font-weight: 100;
+    font-weight: 300;
     margin-left: 25px;
     margin-top: 35px;
     margin-bottom: 5px;
@@ -59,21 +59,21 @@ md-sidenav.md-locked-open {
 
 }
 
-@media only screen and (min-width: 720px) and (max-width: 950px) {
+@media only screen and (min-width: 720px) and (max-width: 955px) {
     .homeHeaderRow{
         width: 662px;
     }
 
 }
 
-@media only screen and (min-width: 950px) and (max-width: 1188px) {
+@media only screen and (min-width: 955px) and (max-width: 1168px) {
     .homeHeaderRow{
         width: 878px;
     }
 
 }
 
-@media only screen and (min-width: 1188px) and (max-width: 1280px) {
+@media only screen and (min-width: 1168px) and (max-width: 1280px) {
     .homeHeaderRow{
         width: 1093px;
     }

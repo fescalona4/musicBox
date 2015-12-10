@@ -9,36 +9,12 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
         console.log($scope.styleType);
 
 
-
+/*
         SC.initialize({
             client_id: "49acbcf970718a548c26aa85f8e6e653"
         });
 
-        $scope.playSong = function(song) {
-            console.log('playSong:' + song.id);
-            $scope.currentPlaying = song;
-
-            SC.stream(song.url).then(function(player) {
-                player.play();
-                $scope.soundCloudPlayer = player;
-                $scope.isPlaying = true;
-            });
-        }
-
-        $scope.pauseSong = function() {
-            console.log('pauseSong');
-
-            if ($scope.isPlaying) {
-                $scope.soundCloudPlayer.pause();
-                $scope.isPlaying = false;
-            } else {
-                $scope.soundCloudPlayer.play();
-                $scope.isPlaying = true;
-            }
-        }
-
-
-
+*/
 
 
         var appCtrl = this;
@@ -86,7 +62,7 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
                         controller: DialogController,
                         //controllerAs: 'ctrl',
                         scope: $scope.$new(),
-                        templateUrl: 'scripts/components/playlist/playlistView.html',
+                        templateUrl: 'js/components/playlist/playlistView.html',
                         parent: angular.element(document.body),
                         targetEvent: ev,
                         clickOutsideToClose: true,

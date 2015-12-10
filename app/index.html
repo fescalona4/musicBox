@@ -83,8 +83,7 @@
         </div>
     </div>
 
-
-    <div layout="row" id="footer" ng-hide="playlist.length==-1">
+    <div layout="row" id="footer" ng-hide="playlist.length==0">
         <!--<music-player flex></music-player> -->
         <md-toolbar md-theme="musicPlayer" style="box-shadow:0 0 8px rgba(0,0,0,.4);" >
             <div layout="row">
@@ -92,7 +91,7 @@
                     <img ng-src="images/{{currentPlaying.image}}" class="md-card-image playerImage" style="width:70px;height:70px" alt="">
                 </md-toolbar-filler>
                 <div flex>
-                    <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default"></md-progress-linear>
+                    <md-progress-linear md-mode="determinate" value="{{ progress }} " md-theme="default"></md-progress-linear>
                     <div class="md-toolbar-tools" layout="row" layout-align="space-between center" >
                         <div flex>
                             <div ng-hide="playlist.length==0">
@@ -104,8 +103,7 @@
                             <md-button prev-track class="md-icon-button playerPrevBtn" aria-label="prev">
                                 <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
                             </md-button>
-                            <md-button ng-click="pauseSong()" class="md-fab playerPlayBtn" aria-label="Play" 
-                                ng-class="{'md-mini':styleType=='mobile'}">
+                            <md-button play-pause-toggle class="md-fab playerPlayBtn" aria-label="Play">
                                 <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
                                 <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
                             </md-button>
@@ -144,7 +142,7 @@
     <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="js/libs/angular-soundmanager2.js"></script>
     <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
-    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+    <!--<script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>-->
     <script src="js/app.module.js"></script>
     <script src="js/app.controller.js"></script>
     <script src="js/app.routes.js"></script>
@@ -154,6 +152,7 @@
     <script src="js/components/song-details/songDetailsController.js"></script>
     <script src="js/components/star-rating/starRatingController.js"></script>
     <script src="js/components/star-rating/starRatingDirective.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,100' rel='stylesheet' type='text/css'>
 </body>
 
 </html>
