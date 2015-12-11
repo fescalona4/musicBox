@@ -3,7 +3,7 @@ import urllib
 import json
 import re
 
-# Read music sites to spy on
+# Read sources to look from
 data = open('sources.json').read()
 # Get array of sites
 sites = json.loads(data)

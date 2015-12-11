@@ -51,4 +51,4 @@ npm-debug.log
 .bowerrc
 
 # python
-.pyc
+*.pyc
