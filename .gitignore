@@ -49,3 +49,6 @@ bower_components/
 
 npm-debug.log
 .bowerrc
+
+# python
+.pyc
