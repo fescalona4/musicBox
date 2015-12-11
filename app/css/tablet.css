@@ -1,12 +1,12 @@
 /* ipad */
 
 .musicCard {
-    width: 240px;
-    margin-left: 30px;
+    width: 200px;
+    margin-left: 20px;
 }
 
 md-card img {
-    height: 240px;
+    height: 200px;
 }
 
 md-sidenav.md-locked-open {
@@ -17,4 +17,37 @@ md-sidenav.md-locked-open {
     min-width: 500px;
     max-width: 650px;
     margin: 20px 20px;
+}
+
+
+.play-stats {
+    margin-left: -7px;
+}
+
+.cardContainer{
+	padding-top : 15px;
+	padding-left: 20px;
+	padding-right: 0px;
+}
+
+.homeHeaders {
+    color: #616161;
+    font-size: 28px;
+    font-weight: 300;
+    margin-left: 40px;
+    margin-top: 35px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.homePanels {
+    height: 365px;
+    max-width: 768px;
+    overflow: hidden;
+    background-color: #F5F5F5;
+    width:93%;
+    margin-top:5px;
+    margin-left: -8px;
+    margin-bottom: 20px;
+    padding-left: 30px;
 }
