@@ -1,10 +1,10 @@
-var port 				= process.env.PORT || 8000;
-var express 		= require('express');
-var bodyParser 	= require('body-parser');
-var path 				= require('path');
-var app 				= express();
+var port        = process.env.PORT || 8000;
+var express     = require('express');
+var bodyParser  = require('body-parser');
+var path        = require('path');
+var app         = express();
 
-var songs 			= require('./routes/songs');
+var songs       = require('./routes/songs');
 
 // Configure middleware
 app.use(bodyParser.json());
@@ -22,6 +22,5 @@ app.use(express.static(staticFileDir));
 app.use(express.static(__dirname));
 
 app.listen(port, function(){
-	console.log('Server started listening port: ' +port);	
+  console.log('Server started listening port: ' +port); 
 });
-
