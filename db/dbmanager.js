@@ -43,7 +43,7 @@ module.exports = {
       }
     };
 
-    return dynamodbDoc.get(params, function(err, data) {
+    dynamodbDoc.get(params, function(err, data) {
       var song = {};
       if (err) {// an error occurred
           song = err;
