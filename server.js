@@ -19,7 +19,7 @@ module.exports = app;
 
 // This is also a better approach for providing port
 // It says to use the port specified in the environment var of the process
-// if not provided default to 800
+// if not provided default to 8000
 var port = process.env.PORT || 8000;
 
 // the /app path is relative to whatever the __dirname variable resolves to
