@@ -1,7 +1,7 @@
 
 
 <div layout="row" flex layout-wrap class="cardContainer">
-    <div layout="column" ng-repeat="card in cardsCtrl.music | filter:
+    <div layout="column" ng-repeat="card in music | filter:
       {filter: 'top', artist: appCtrl.search} | orderBy:'-playCount'">
         <music-card></music-card>
     </div>

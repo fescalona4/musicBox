@@ -1,15 +1,16 @@
-
-app.controller('homeController', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
-
-    var json = this;
-    json.music = [];
+'use strict';
 
 
-    $http.get("/api/get-all-songs")
-        .success(function(response) {
-            json.music = response;
+app.controller('homeController', ['$scope', 'songService', function($scope, songService) {
+
+
+    $scope.music = [];
+
+
+    songService.getAllSongs().then(
+        function(response) {
+            $scope.music = response.data;
         });
-
 
 
 }]);

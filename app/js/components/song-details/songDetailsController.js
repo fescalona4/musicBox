@@ -1,13 +1,19 @@
 
 
-app.controller('songDetailsController', ['$scope', '$routeParams', '$http', function($scope, $routeParams, $http) {
+app.controller('songDetailsController', ['$scope', '$routeParams', 'songService', function($scope, $routeParams, songService) {
 
-    $scope.params = $routeParams;
 
-    $http.get("/api/song/" + $routeParams.songId)
-        .success(function(response) {
-            $scope.song = response;
-            //console.log(response);
-        });
+    $scope.song = {};
+	
+
+    songService.getSong( parseInt($routeParams.songId) )
+    	.then(    
+	        function(response) {
+	            $scope.song = response.data;
+	    	}
+	    );
+
+
+
 
 }]);

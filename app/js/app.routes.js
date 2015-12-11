@@ -8,20 +8,20 @@ app.config(['$routeProvider', 'deviceTypeProvider',
         $routeProvider
             .when('/new', {
                 templateUrl: 'js/components/new-releases/newReleasesView.html',
-                controller: 'newReleasesController',
+                controller: 'homeController',
                 controllerAs: 'cardsCtrl',
                 title: 'New Releases'
             })
             .when('/top', {
                 templateUrl: 'js/components/top-charts/topChartsView.html',
-                controller: 'newReleasesController',
+                controller: 'homeController',
                 controllerAs: 'cardsCtrl',
                 title: 'Popular Songs'
             })
             .when('/home', {
                 templateUrl: 'js/components/home/homeView.html',
                 controller: 'homeController',
-                controllerAs: 'cardsCtrl',
+                controllerAs: 'ctrl',
                 title: 'Dashboard'
             })
             .when('/song-details/:songId', {
