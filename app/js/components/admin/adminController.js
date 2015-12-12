@@ -1,12 +1,14 @@
 'use strict';
 
 
-angular.module('musicBoxApp.admin', [])
-    .controller('adminController', ['$scope', 'songService', '$mdDialog', function($scope, songService, $mdDialog) {
+angular.module('musicBoxApp.admin', ['ngFileUpload'])
+
+    .controller('adminController', ['$scope', 'songService', '$mdDialog','Upload',
+     function($scope, songService, $mdDialog, Upload) {
 
 
         $scope.song = {
-            "filter": "new",
+            "filter": "new, top",
             "comments": [],
             "downloadCount": 0,
             "playCount": 0,
@@ -18,11 +20,13 @@ angular.module('musicBoxApp.admin', [])
             console.log("submit");
             console.log($scope.song);
 
-            songService.insertNewSong($scope.song)
+            $scope.uploadPic($scope.picFile);
+
+/*            songService.insertNewSong($scope.song)
                 .then(
                     function(response) {
                         console.log(response);
-                    });
+                    });*/
         }
 
 
@@ -65,6 +69,35 @@ angular.module('musicBoxApp.admin', [])
         }
 
         $scope.showLogin();
+
+
+
+
+
+
+        $scope.uploadPic = function(file) {
+        file.upload = Upload.upload({
+          url: 'api/photo',
+          data: {file: file},
+        });
+
+        file.upload.then(function (response) {
+            file.result = response.data;
+        }, function (response) {
+          if (response.status > 0)
+            $scope.errorMsg = response.status + ': ' + response.data;
+        }, function (evt) {
+          // Math.min is to fix IE which reports 200% sometimes
+          file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+        });
+        }
+
+
+
+
+
+
+
 
 
 

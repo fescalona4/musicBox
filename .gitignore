@@ -46,6 +46,7 @@ Temporary Items
 # Dependency Management
 node_modules/
 bower_components/
+app/images/uploads
 
 npm-debug.log
 .bowerrc

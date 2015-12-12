@@ -5,6 +5,31 @@ var db = require('../db/dbmanager.js');
 
 
 
+//File upload service
+var multer  = require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './app/images/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload = multer({ storage: storage })
+
+router.post('/photo',upload.single('file'), function(req,res){
+  
+    console.log(req.body);
+    console.log(req.file);
+    //res.send("File uploaded.");
+    res.status(204).end();
+});
+
+
+
+
+
 // GET service to get all existing songs in DB
 router.get('/get-all-songs', function(req, res, next) {
 
@@ -66,6 +91,10 @@ router.put('/insert-new-song', function(req, res, next) {
 
     });
 });
+
+
+
+
 
 
 
