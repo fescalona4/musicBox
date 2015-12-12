@@ -7,7 +7,7 @@
     </div>
     <md-content class="homePanels" >
         <div layout="row" flex layout-wrap>
-            <div layout="column" ng-repeat="card in music | filter: {filter: 'new', artist: appCtrl.search} | orderBy:'-id'">
+            <div layout="column" ng-repeat="card in music | filter: {filter: 'new', artist: appCtrl.search} | orderBy:'-id'"   class="fade">
                 <music-card></music-card>
             </div>
         </div>
@@ -18,7 +18,7 @@
     </div>
     <md-content class="homePanels">
         <div layout="row" flex layout-wrap>
-            <div layout="column" ng-repeat="card in music | filter: {filter: 'top', artist: appCtrl.search} | orderBy:'-playCount'">
+            <div layout="column" ng-repeat="card in music | filter: {filter: 'top', artist: appCtrl.search} | orderBy:'-playCount'" class="fade">
                 <music-card></music-card>
             </div>
         </div>

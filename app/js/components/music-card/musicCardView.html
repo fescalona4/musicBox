@@ -5,12 +5,14 @@
 <md-card  ng-class="{'md-whiteframe-5dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="musicCard">
     <img ng-src="images/{{card.image}}" class="md-card-image" ng-click="go('/song-details/'+card.id)">
     <md-card-content style="padding:0px 10px; overflow:hidden">
-        <h4 class="" style="white-space:nowrap;margin-top:10px;margin-bottom:15px">
+        
+        <h4 class="cardSongTitle">
             <b>{{card.title | limitTo : 19}}{{(card.title.length>19)?' ...':''}}</b>
         </h4>
-        <p class="md-body-1" style="margin-top:-10px">
+        <p class="md-body-1 cardSongArtist">
             {{card.artist | limitTo : 45}} {{(card.artist.length>45)?' ...':''}}
         </p>
+
     </md-card-content>
     <md-card-actions layout="row" layout-align="space-around center">
         <div flex>

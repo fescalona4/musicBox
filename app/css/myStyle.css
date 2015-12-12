@@ -44,7 +44,10 @@ md-card-content p {
     transition: all linear 500ms;
 }
 
-/*md-dialog*/.playlistDialog {
+
+/*md-dialog*/
+
+.playlistDialog {
     width: 50%;
     height: auto;
     position: absolute;
@@ -101,4 +104,40 @@ md-sidenav {
     min-width: 190px
 }
 
+.cardSongTitle {
+    white-space: nowrap;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
 
+.cardSongArtist {
+    margin-top: -10px;
+}
+
+
+
+
+/*Animations*/
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.fade.ng-enter {
+  animation: 0.7s appear;
+}
+
+.fade.ng-leave {
+  animation: 0.2s disappear;
+}
