@@ -44,7 +44,7 @@ md-card-content p {
     transition: all linear 500ms;
 }
 
-md-dialog {
+/*md-dialog*/.playlistDialog {
     width: 50%;
     height: auto;
     position: absolute;

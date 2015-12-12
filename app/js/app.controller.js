@@ -1,4 +1,7 @@
-app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
+'use strict';
+
+angular.module('musicBoxApp')
+    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer',
 
     function(deviceType, $scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer) {
 
@@ -8,13 +11,6 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
         $scope.styleType = deviceType.getDeviceType();
         console.log($scope.styleType);
 
-
-/*
-        SC.initialize({
-            client_id: "49acbcf970718a548c26aa85f8e6e653"
-        });
-
-*/
 
 
         var appCtrl = this;
@@ -47,6 +43,11 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
 
         };
 
+        $scope.onSwipeLeft = function(menuId) {
+            $mdSidenav(menuId).toggle();
+            console.log("onSwipeLeft");
+        };
+
         $scope.go = function(path, title) {
             $location.path(path); //go to that route
         };
@@ -67,7 +68,9 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
                         targetEvent: ev,
                         clickOutsideToClose: true,
                         disableParentScroll: false,
-                        hasBackdrop: false
+                        hasBackdrop: false,
+                        focusOnOpen: false,
+                        autoWrap :false
                     })
                     .then(function(answer) {
                         //$scope.status = 'You said the information was "' + answer + '".';
@@ -86,30 +89,22 @@ app.controller('appController', ['deviceType', '$scope', '$route', '$http', '$lo
             $mdDialog.hide();
         }
 
-/*        $scope.$on('player:playlist', function(event, data) {
-            //do your stuff here
-            //console.log("playlist: "+JSON.stringify(data));
-        });*/
-
 
         $scope.playCountPlusPlus = function(id) {
-            //console.log("playCountPlusPlus");
             $http.put("/api/song/play-count/" + id, null)
                 .success(function(response) {
-                    //console.log(response);
                 });
         }
 
         $scope.downloadCountPlusPlus = function(id) {
-            //console.log("downloadCountPlusPlus");
             $http.put("/api/song/download-count/" + id, null)
                 .success(function(response) {
-                    //console.log(response);
                 });
         }
 
     }
 ]);
+
 
 function DialogController($scope, $mdDialog) {
     $scope.hide = function() {

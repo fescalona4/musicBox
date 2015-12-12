@@ -1,0 +1,23 @@
+
+
+<md-dialog class="loginDialog">
+<form md-theme="docs-dark" name="loginForm" ng-submit="login()" novalidate>
+    <md-content layout-padding layout="column">
+        <div>
+        	<md-input-container>
+                <label>user</label>
+                <input ng-model="user.username">
+            </md-input-container>
+            <md-input-container>
+                <label>pwd</label>
+                <input ng-model="user.pwd" required type="password">
+            </md-input-container>
+
+        </div>
+        <div>
+            <md-button class="md-raised md-accent" ng-click="cancelLogin()">Cancel</md-button>
+            <md-button class="md-raised md-primary" type="submit" ng-disabled="loginForm.$invalid">Login</md-button>
+        </div>
+    </md-content>
+</form>
+<md-dialog>

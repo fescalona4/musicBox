@@ -18,5 +18,10 @@ angular.module('musicBoxApp')
         };
 
 
+        this.insertNewSong = function(song) {
+
+            return $http.put("/api/insert-new-song", song);
+        };
+
 
     }]);

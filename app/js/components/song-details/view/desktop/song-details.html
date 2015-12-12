@@ -22,15 +22,15 @@
 		            	{{song.downloadCount}}
 		            </span>
 		        </md-card-title-text>
-		        <div style="margin-top:-20px;">
+<!-- 		        <div style="margin-top:-20px;" ng-hide="true">
 		        	<div ng-controller="starCtrl"> 
-					 	<span ng-repeat="rating in ratings"><!-- {{rating.current}} out of {{rating.max}} -->
-					        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
+					 	<span ng-repeat="rating in ratings"> {{rating.current}} out of {{rating.max}} 
+				        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
 					        </div>
 					        <div class="md-display-1" style="text-align:center">{{rating.current | number:1}}</div>
 					    </span>
 					</div>
-		        </div>
+		        </div>  -->
 	        </div>
 	        <div flex></div>
 	        <md-card-actions layout="row" layout-align="end end">

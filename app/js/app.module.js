@@ -1,5 +1,8 @@
-var app = angular.module('musicBoxApp', 
-    ['ngMaterial', 'ngRoute', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider'])
+'use strict';
+
+
+angular.module('musicBoxApp', 
+    ['ngMaterial', 'ngRoute', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
 
 
 
@@ -23,6 +26,10 @@ var app = angular.module('musicBoxApp',
         .primaryPalette('grey', {
             'default': '50' // use shade 200 for default, and keep all other shades the same
         });
+    $mdThemingProvider.theme('docs-dark', 'default')
+      .primaryPalette('yellow')
+      .accentPalette('blue-grey')
+      .dark();
 });
 
 

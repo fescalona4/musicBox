@@ -1,0 +1,37 @@
+<!-- Form for submitting new song -->
+<form md-theme="docs-dark" name="adminForm" ng-submit="addNewSong()" novalidate>
+    <md-content layout-padding layout="column">
+        <div>
+        	<md-input-container>
+                <label>Artist</label>
+                <input ng-model="song.artist" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Title</label>
+                <input ng-model="song.title" required>
+            </md-input-container>
+
+        </div>
+        <div>
+            <md-input-container>
+                <label>File Name</label>
+                <input ng-model="song.filename" required>
+            </md-input-container>
+            <md-input-container>
+                <label>Image Name</label>
+                <input ng-model="song.image" required>
+            </md-input-container>
+        </div>
+        <md-input-container>
+            <label>Stream Url</label>
+            <input ng-model="song.url" required>
+        </md-input-container>
+        <div>
+            <md-button class="md-raised md-accent">Clear</md-button>
+            <md-button class="md-raised md-primary" type="submit" ng-disabled="adminForm.$invalid">Add New Song</md-button>
+        </div>
+        <div>
+            <pre>song = {{song | json}}</pre>
+        </div>
+    </md-content>
+</form>

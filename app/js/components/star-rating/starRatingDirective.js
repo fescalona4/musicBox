@@ -1,6 +1,8 @@
+'use strict';
 
 
-app.directive('starRating', function() {
+angular.module('musicBoxApp')
+    .directive('starRating', function() {
     return {
         restrict: 'A',
         template: '<div layout="row" > ' +

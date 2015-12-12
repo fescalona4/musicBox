@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>MusicBox</title>
 
     <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
@@ -22,7 +22,7 @@
 
     <!-- SIDEBAR -->
     <div layout="row" flex>
-        <md-sidenav layout="column" layout-align="start start" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" style="width:240px">
+        <md-sidenav layout="column" layout-align="start start" md-swipe-left="onSwipeLeft('left')" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" style="width:240px">
             <md-toolbar class="">
                 <div class="md-toolbar-tools">
                     <md-button class="md-icon-button" aria-label="Menu" ng-click="appCtrl.toggleSidenav('left')">
@@ -136,10 +136,10 @@
 
 
     <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-material/angular-material.min.js"></script>
-    <script src="../bower_components/angular-route/angular-route.min.js"></script>
     <script src="js/libs/angular-soundmanager2.js"></script>
     <script src="//cdn.jsdelivr.net/angular-material-icons/0.4.0/angular-material-icons.min.js"></script>
     <script src="js/app.module.js"></script>
@@ -147,6 +147,7 @@
     <script src="js/app.controller.js"></script>
     <script src="js/app.routes.js"></script>
     <script src="js/components/home/homeController.js"></script>
+    <script src="js/components/admin/adminController.js"></script>
     <script src="js/components/music-card/musicCardDirective.js"></script>
     <script src="js/components/song-details/songDetailsController.js"></script>
     <script src="js/components/star-rating/starRatingController.js"></script>

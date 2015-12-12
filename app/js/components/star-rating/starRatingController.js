@@ -1,5 +1,8 @@
+'use strict';
 
-app.controller('starCtrl', ['$scope', function($scope) {
+
+angular.module('musicBoxApp')
+    .controller('starCtrl', ['$scope', function($scope) {
     $scope.rating = 0;
     $scope.ratings = [{
         current: 3,

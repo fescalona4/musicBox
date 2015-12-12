@@ -1,11 +1,25 @@
 var AWS = require('aws-sdk');
 AWS.config.region = 'us-east-1';
 
+
+
+
+//setting proxy
+//var proxy = require('proxy-agent');
+//AWS.config.update({httpOptions: { agent: proxy('http://tpaproxy.verizon.com:80') } });
+
+
 var dynamodb = new AWS.DynamoDB();
 var dynamodbDoc = new AWS.DynamoDB.DocumentClient();
+
+
+
 var fs = require('fs');
+var count = 0;
 
 module.exports = {
+
+
 
   // Find all songs in db
   findAllSongs: function(callback){
@@ -13,9 +27,6 @@ module.exports = {
     var params = {
       TableName: 'Songs'
     };
-
-    console.log('Finding all songs...');
-
 
     dynamodbDoc.scan(params, function(err, data) {
       // Retrieve the json data in dynamo db
@@ -27,12 +38,14 @@ module.exports = {
       } 
       else {
           // Successful response
-          console.log("api/get-all-songs");
+          console.log("api/get-all-songs: "+count++);
           songs = data.Items;
       }
       callback(songs);
     });
   },
+
+
 
   findSongById: function(id, callback){
 
@@ -52,10 +65,12 @@ module.exports = {
           // successful response
           song = data.Item;
       }
-      console.log(song);
+      //console.log(song);
       callback(song);
     });
   },
+
+
 
   increasePlayCount: function(id, callback){
 
@@ -77,12 +92,14 @@ module.exports = {
             console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
             signal = err;
         } else {
-            console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+            //console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
             signal = err;
         }
         callback(signal);
     });
   },
+
+
 
   increaseDownloadCount: function(id, callback){
 
@@ -105,52 +122,79 @@ module.exports = {
           console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
           signal = err;
       } else {
-          console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+          //console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
           signal= err;
       }
       callback(signal);
     });
   },
 
-  // POST service to load all songs from json to db
-  loadAllFromJson: function(callback){
-    fs.readFile('app/myDataJson.json', 'utf8', function(){
-      
-      allMovies.forEach(function(movie) {
-      
-        var params = {
-            TableName: "Songs",
-            Item: {
-              "id":  movie.id,
-              "title": movie.title,
-              "image":  movie.image,
-              "artist":  movie.artist,
-              "filter": movie.filter,
-              "filename":  movie.filename,
-              "url":  movie.url,
-              "comments": movie.comments,
-              "downloadCount":  movie.downloadCount,
-              "playCount":  movie.playCount,
-              "rating":  movie.rating
-            }
-         };
 
-        dynamodbDoc.put(params, function(err, data) {
-          var output = {};
-          if (err) {
-              console.error("Unable to create table. Error JSON:", JSON.stringify(err, null, 2));
-              output = err;
-          } else {
-              console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
-              output = data;
-          }
-          callback(output);
-       }); //ends dynamodb
 
-      }); //ends foreach
+  getNewId: function(song,callback){
 
-    }); // ends fsReadFile
-    
-  }//ends loadAllFromJson
+   var params = {
+      TableName: 'Helper',
+      Key: {
+          "id": "IdCount"
+      },
+      UpdateExpression: "set Counts = Counts + :val",
+      ExpressionAttributeValues: {
+          ":val": 1
+      },
+      ReturnValues: "UPDATED_NEW"
+    };
+
+    dynamodbDoc.update(params, function(err, data) {
+        var signal = {};
+        var newId = null;
+        if (err) {
+            console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+            signal = err;
+        } else {
+            //console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+            newId = data.Attributes;
+            //console.log(newId);
+        }
+        callback(song, newId);
+    });
+  },
+
+
+
+// POST service to load all songs from json to db
+insertNewSong: function(id, song, callback) {
+
+      console.log(song);
+      var params = {
+        TableName: "Songs",
+        Item: {
+            "id": parseInt(id.Counts),
+            "title": song.title,
+            "image": song.image,
+            "artist": song.artist,
+            "filter": song.filter,
+            "filename": song.filename,
+            "url": song.url,
+            "comments": song.comments,
+            "downloadCount": song.downloadCount,
+            "playCount": song.playCount,
+            "rating": song.rating
+        }
+    };
+
+    dynamodbDoc.put(params, function(err, data) {
+        var output = {};
+        if (err) {
+            console.error("Unable to create item. Error JSON:", JSON.stringify(err, null, 2));
+            output = err;
+        } else {
+            console.log("Created new song:", JSON.stringify(data, null, 2));
+            output = "INSERT SUCCESS";
+        }
+        callback(output);
+    }); //ends dynamodb   
+}
+
 
 }; //ends module

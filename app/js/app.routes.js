@@ -1,6 +1,10 @@
+'use strict';
+
+
 //set routes
-app.config(['$routeProvider', 'deviceTypeProvider',
-    function($routeProvider, deviceTypeProvider) {
+angular.module('musicBoxApp')
+    .config(['$routeProvider', 'deviceTypeProvider','$locationProvider',
+    function($routeProvider, deviceTypeProvider, $locationProvider) {
 
         var deviceTypeProvider = deviceTypeProvider.$get(),
             deviceType = deviceTypeProvider.getDeviceType();
@@ -9,13 +13,13 @@ app.config(['$routeProvider', 'deviceTypeProvider',
             .when('/new', {
                 templateUrl: 'js/components/new-releases/newReleasesView.html',
                 controller: 'homeController',
-                controllerAs: 'cardsCtrl',
+                controllerAs: 'ctrl',
                 title: 'New Releases'
             })
             .when('/top', {
                 templateUrl: 'js/components/top-charts/topChartsView.html',
                 controller: 'homeController',
-                controllerAs: 'cardsCtrl',
+                controllerAs: 'ctrl',
                 title: 'Popular Songs'
             })
             .when('/home', {
@@ -30,8 +34,19 @@ app.config(['$routeProvider', 'deviceTypeProvider',
                 controllerAs: 'songs',
                 title: 'Song Details'
             })
+            .when('/admin', {
+                templateUrl: 'js/components/admin/adminView.html',
+                controller: 'adminController',
+                controllerAs: 'ctrl',
+                title: 'Admin Page'
+            })
             .otherwise({
                 redirectTo: '/home'
             });
+
+
+        // use the HTML5 History API
+        //$locationProvider.html5Mode(true);
+
     }
 ]);

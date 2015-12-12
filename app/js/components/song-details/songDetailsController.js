@@ -1,6 +1,8 @@
+'use strict';
 
 
-app.controller('songDetailsController', ['$scope', '$routeParams', 'songService', function($scope, $routeParams, songService) {
+angular.module('musicBoxApp')
+    .controller('songDetailsController', ['$scope', '$routeParams', 'songService', function($scope, $routeParams, songService) {
 
 
     $scope.song = {};

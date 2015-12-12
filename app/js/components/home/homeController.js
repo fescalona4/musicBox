@@ -1,7 +1,8 @@
 'use strict';
 
 
-app.controller('homeController', ['$scope', 'songService', function($scope, songService) {
+angular.module('musicBoxApp')
+    .controller('homeController', ['$scope', 'songService', function($scope, songService) {
 
 
     $scope.music = [];

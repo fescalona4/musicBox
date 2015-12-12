@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db/dbmanager.js');
 
+
+
+
 // GET service to get all existing songs in DB
 router.get('/get-all-songs', function(req, res, next) {
 
@@ -40,12 +43,33 @@ router.put('/song/download-count/:id', function(req, res, next) {
    });
 });
 
-// POST service to load all songs from json to db
-router.post('/load-all-songs', function(req, res, next) {
 
-    db.loadAllFromJson(function(result){
+// GET service to get new ID
+router.get('/get-new-id', function(req, res, next) {
+
+   db.getNewId(function(result){
+      res.send(result);
+   });
+});
+
+
+// POST service to load all songs from json to db
+router.put('/insert-new-song', function(req, res, next) {
+
+    var song = req.body;
+
+    db.getNewId(song, function(song, newId){
+
+      db.insertNewSong(newId, song,function(result){
         res.send(result);
+      });
+
     });
 });
+
+
+
+
+
 
 module.exports = router;
