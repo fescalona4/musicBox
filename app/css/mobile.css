@@ -11,7 +11,7 @@
         height: 155px;
     }
     .homePanels {
-        height: 320px;
+        height: 295px;
     }
 }
 
@@ -30,7 +30,24 @@
         height: 180px;
     }
     .homePanels {
-        height: 350px;
+        height: 320px;
+    }
+}
+
+/* ipad broken */
+@media only screen and (min-width: 416px) {
+    /* For mobile phones: */
+    .musicCard {
+        width: 175px;
+        margin-left: 12px;
+
+        margin-right: 0px;
+    }
+    md-card img {
+        height: 175px;
+    }
+    .homePanels {
+        height: 310px;
     }
 }
 
@@ -129,3 +146,6 @@
     margin-left: -15px;
 }
 
+.homeHeaderRow{
+    margin-right: 2%;
+}
