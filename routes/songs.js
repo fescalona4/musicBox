@@ -27,7 +27,13 @@ router.post('/photo',upload.single('file'), function(req,res){
 });
 
 
+// GET service to get all existing songs in DB
+router.get('/get-visit-count', function(req, res, next) {
 
+    db.increaseVisitCount(function(result){
+        res.send(result);
+    }); 
+});
 
 
 // GET service to get all existing songs in DB

@@ -47,7 +47,7 @@ angular.module("musicBoxApp.deviceTypeProvider", []).provider('deviceType', ['$w
                     width = $window['outerWidth'],
                     isSmart = (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(userAgentString);
                 if (isSmart && width >= 768) {
-                    deviceType = "tablet";
+                    deviceType = "mobile";
                 } else if (isSmart && width <= 767) {
                     deviceType = "mobile";
                 }

@@ -1,15 +1,22 @@
 'use strict';
 
 angular.module('musicBoxApp')
-    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer', '$animate',
+    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer', '$animate','songService',
 
-    function(deviceType, $scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer, $animate) {
+    function(deviceType, $scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer, $animate,songService) {
 
         $scope.$route = $route;
         $scope.$location = $location;
 
         $scope.styleType = deviceType.getDeviceType();
         console.log($scope.styleType);
+
+        //Get Visit count      
+        songService.getVisitCount().then(
+            function(response) {
+                $scope.visitCount = response.data.Counts;
+                console.log("visits: "+$scope.visitCount);
+            });
 
 
 

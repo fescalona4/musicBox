@@ -130,6 +130,37 @@ module.exports = {
   },
 
 
+  increaseVisitCount: function(callback){
+
+   var params = {
+      TableName: 'Helper',
+      Key: {
+          "id": "visitCount"
+      },
+      UpdateExpression: "set Counts = Counts + :val",
+      ExpressionAttributeValues: {
+          ":val": 1
+      },
+      ReturnValues: "UPDATED_NEW"
+    };
+
+    dynamodbDoc.update(params, function(err, data) {
+        var signal = {};
+        var newCount = null;
+        if (err) {
+            console.error("Unable to update item. Error JSON:", JSON.stringify(err, null, 2));
+            signal = err;
+        } else {
+            //console.log("UpdateItem succeeded:", JSON.stringify(data, null, 2));
+            newCount = data.Attributes;
+        }
+        callback(newCount);
+    });
+  },
+
+
+
+
 
   getNewId: function(song,callback){
 

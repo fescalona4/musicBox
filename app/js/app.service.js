@@ -24,4 +24,9 @@ angular.module('musicBoxApp')
         };
 
 
+        this.getVisitCount = function() {
+
+            return $http.get("/api/get-visit-count");
+        };
+
     }]);
