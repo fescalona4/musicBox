@@ -209,7 +209,7 @@ module.exports = {
                 "downloadCount": song.downloadCount,
                 "playCount": song.playCount,
                 "rating": song.rating,
-                "date": song.date
+                "dateAdded": song.dateAdded
             }
         };
 

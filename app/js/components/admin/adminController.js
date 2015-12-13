@@ -86,8 +86,8 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
 
         $scope.tableOrder = '-dateAdded'; 
         $scope.selected = [];
-
-
+        $scope.myLimit = 10;
+        $scope.myPage = 1;
 
         //Form submit
         $scope.updateSong = function() {

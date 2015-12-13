@@ -14,10 +14,18 @@
     <link rel="stylesheet" href="css/myStyle.css">
     <link rel='stylesheet' ng-if="styleType.length > 0" ng-href='css/{{styleType}}.css'>
 
+    <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
 </head>
 
 
-<body layout="column" ng-cloak >
+<body layout="column" ng-cloak>
     <!-- Initialize Soundmanager -->
     <sound-manager></sound-manager>
     <!-- md-is-locked-open="$mdMedia('gt-sm')" -->

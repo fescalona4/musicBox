@@ -18,17 +18,17 @@
                     <table md-data-table md-row-select="selected" md-progress="deferred">
                         <thead md-order="tableOrder">
                             <tr>
-                                <th name="Id" order-by="id"></th>
+                                <th name="Id" numeric order-by="id"></th>
                                 <th name="Title" order-by="title"></th>
                                 <th name="Artist" order-by="artist"></th>
-                                <th numeric name="Date" order-by="dateAdded"></th>
+                                <th name="Date" numeric order-by="dateAdded"></th>
                                 <th name="Filename" unit="mp3" order-by="filename"></th>
                                 <th name="Image" unit="jpg"></th>
                                 <th name="Url" unit="http"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr md-auto-select ng-repeat="song in music | filter:{filename: search} | orderBy:tableOrder">
+                            <tr md-auto-select ng-repeat="song in music | filter:{filename: search} | orderBy:tableOrder  | limitTo: myLimit: (myPage - 1) * myLimit">
                                 <td>{{song.id}}</td>
                                 <td>{{song.title}}</td>
                                 <td>{{song.artist}}</td>
@@ -40,6 +40,9 @@
                         </tbody>
                     </table>
                 </md-data-table-container>
+                <!-- Pagination -->
+                <md-data-table-pagination md-limit="myLimit" md-page="myPage" md-total="{{music.length}}"></md-data-table-pagination>
+
             </md-card>
         </md-content>
     </md-tab>
