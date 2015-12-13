@@ -1,54 +1,38 @@
 'use strict';
 
 
-angular.module('musicBoxApp.admin', ['ngFileUpload'])
+angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
 
     .controller('adminController', ['$scope', 'songService', '$mdDialog','Upload',
      function($scope, songService, $mdDialog, Upload) {
 
-
+        //new song to be inserted
         $scope.song = {
             "filter": "new, top",
             "comments": [],
             "downloadCount": 0,
             "playCount": 0,
             "rating": 0,
+            "dateAdded": new Date()
         };
 
-
+        //Form submit
         $scope.addNewSong = function() {
             console.log("submit");
-            console.log($scope.song);
 
-            $scope.uploadPic($scope.picFile);
+            if($scope.picFile != undefined){
+                $scope.uploadPic($scope.picFile);
+            }
 
-/*            songService.insertNewSong($scope.song)
+            songService.insertNewSong($scope.song)
                 .then(
                     function(response) {
                         console.log(response);
-                    });*/
+                    });
         }
 
 
-
-        $scope.showConfirm = function() {
-            // Appending dialog to document.body to cover sidenav in docs app
-            var confirm = $mdDialog.confirm()
-                .title('Please enter pwd')
-                .textContent('here')
-                .ariaLabel('Lucky day')
-                .ok('Login')
-                .cancel('Cancel');
-            $mdDialog.show(confirm).then(function() {
-                $scope.status = 'You decided to get rid of your debt.';
-                console.log("login");
-            }, function() {
-                $scope.status = 'You decided to keep your debt.';
-                console.log("cancel");
-                $scope.go('/');
-            });
-        };
-
+        //Login dialog
         $scope.showLogin = function(ev) {
             $mdDialog.show({
                     controller: loginController,
@@ -67,14 +51,13 @@ angular.module('musicBoxApp.admin', ['ngFileUpload'])
 
                 }, function() {});
         }
-
-        $scope.showLogin();
-
+        $scope.showLogin(); //show login on load
 
 
 
 
 
+        //Function for uploading picture
         $scope.uploadPic = function(file) {
         file.upload = Upload.upload({
           url: 'api/photo',
@@ -94,14 +77,34 @@ angular.module('musicBoxApp.admin', ['ngFileUpload'])
 
 
 
+        //getting all song to insert in table
+        $scope.music = [];
+        songService.getAllSongs().then(
+            function(response) {
+                $scope.music = response.data;
+            });
+
+        $scope.tableOrder = '-dateAdded'; 
+        $scope.selected = [];
 
 
 
+        //Form submit
+        $scope.updateSong = function() {
+            console.log($scope.selected[0]);
 
 
+            if($scope.picFile != undefined){
+                $scope.uploadPic($scope.picFile);
+            }
 
-
-
+            songService.updateSong($scope.selected[0])
+                .then(
+                    function(response) {
+                        console.log(response.data);
+                        $scope.updateResponse = response.data;
+                    });
+        }
 
 
 

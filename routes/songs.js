@@ -99,7 +99,17 @@ router.put('/insert-new-song', function(req, res, next) {
 });
 
 
+// POST service to load all songs from json to db
+router.post('/update-song', function(req, res, next) {
 
+    var song = req.body;
+    console.log(song);
+
+    db.updateSong(song, function(result) {
+        res.send(result);
+    });
+
+});
 
 
 

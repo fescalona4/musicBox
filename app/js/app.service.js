@@ -11,7 +11,6 @@ angular.module('musicBoxApp')
         };
 
 
-
         this.getSong = function(id) {
 
             return $http.get("/api/song/" + id);
@@ -21,6 +20,12 @@ angular.module('musicBoxApp')
         this.insertNewSong = function(song) {
 
             return $http.put("/api/insert-new-song", song);
+        };
+
+
+        this.updateSong = function(song) {
+            
+            return $http.post("/api/update-song", song);
         };
 
 
