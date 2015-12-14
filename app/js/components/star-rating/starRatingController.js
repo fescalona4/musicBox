@@ -12,4 +12,5 @@ angular.module('musicBoxApp')
     $scope.getSelectedRating = function(rating) {
         //console.log(rating);
     }
+
 }]);

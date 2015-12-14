@@ -6,10 +6,10 @@ angular.module('musicBoxApp')
     return {
         restrict: 'A',
         template: '<div layout="row" > ' +
-            '<md-button class="md-icon-button grayIcon" aria-label="rating" ' +
+            '<md-button class="md-icon-button" aria-label="rating" ' +
             'ng-click="toggle($index)" style="margin:0px;padding:0px;width:22px;" ng-repeat="star in stars">' +
-            '    <md-icon md-svg-icon="images/icons/ic_star_black_48px.svg" ng-show="star.filled"></md-icon>' +
-            '    <md-icon md-svg-icon="images/icons/ic_star_border_black_48px.svg" ng-hide="star.filled"></md-icon>' +
+            '    <md-icon class="starFilled" md-svg-icon="images/icons/ic_star_black_48px.svg" ng-show="star.filled"></md-icon>' +
+            '    <md-icon class="starFilled" md-svg-icon="images/icons/ic_star_border_black_48px.svg" ng-hide="star.filled"></md-icon>' +
             '</md-button> ' +
             '</div>',
         scope: {

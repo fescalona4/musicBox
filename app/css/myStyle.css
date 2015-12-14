@@ -18,11 +18,12 @@ md-card-content p {
 }
 
 .grayIcon {
-    opacity: 0.6;
+    opacity: 0.65;
 }
 
 .starFilled {
     fill: rgb(255, 110, 64);
+    opacity: 1;
 }
 
 .orangeIcon {
