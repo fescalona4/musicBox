@@ -1,6 +1,4 @@
 # MusicBox
-
-#Url
 http://www.cubanmusicbox.com
 
 ##Description

@@ -49,4 +49,18 @@ angular.module('musicBoxApp')
         //$locationProvider.html5Mode(true);
 
     }
+])
+
+.run(['$rootScope','$location','$window',
+    function($rootScope,$location, $window) {
+
+        $window.ga('create', 'UA-71457119-1', 'auto');
+
+        // track pageview on state change
+        $rootScope.$on('$routeChangeSuccess', function (event) {
+            $window.ga('send', 'pageview', $location.path());
+        });
+
+    }
+
 ]);
