@@ -1,10 +1,10 @@
-# musicBox
+# MusicBox
 
 #Url
 http://www.cubanmusicbox.com
 
 ##Description
-A music streaming/listening website primarily targeting Cuban Reaggeton artists. 
+A music streaming/listening website primarily targeting Cuban Reggaeton. 
 
 
 ##Horizontal Prototype
@@ -16,12 +16,14 @@ This project requires the following technogologies:
  * NPM (Node pakcage manager)
  * Bower (Client side dependency management) 
  * AngularJS
+ * Angular Material
  * Node.js / Espress.js
- * MongoDB
+ * DynamoDB
 
 To contribute/run follow these steps:
  * Run ``git clone https://github.com/fescalona4/musicBox.git``
  * cd /musicBox 
  * Run ``npm install``
- * Run ``node server.js`` 
  * Run ``bower install`` 
+ * Run ``node server.js`` 
+
