@@ -112,6 +112,17 @@ router.post('/update-song', function(req, res, next) {
 });
 
 
+// POST service to load all songs from json to db
+router.post('/update-comments/:id', function(req, res, next) {
+
+    var id = req.params.id;
+    var song = req.body;
+
+    db.addNewComment(id, song, function(result) {
+        res.send(result);
+    });
+
+});
 
 
 

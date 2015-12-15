@@ -34,4 +34,10 @@ angular.module('musicBoxApp')
             return $http.get("/api/get-visit-count");
         };
 
+
+        this.updateComments = function(id, comment) {
+            
+            return $http.post("/api/update-comments/" + id, comment);
+        };
+
     }]);

@@ -4,14 +4,9 @@ AWS.config.region = 'us-east-1';
 
 
 
-//setting proxy
-//var proxy = require('proxy-agent');
-//AWS.config.update({httpOptions: { agent: proxy('http://tpaproxy.verizon.com:80') } });
 
 
-var dynamodb = new AWS.DynamoDB();
 var dynamodbDoc = new AWS.DynamoDB.DocumentClient();
-
 
 
 var fs = require('fs');
@@ -266,7 +261,42 @@ module.exports = {
             }
             callback(output);
         }); //ends dynamodb   
+    },
+
+
+
+
+    // POST service to add new comment
+    addNewComment: function(id, comment, callback) {
+        console.log(id);
+        console.log(comment);
+        var params = {
+            TableName: "Songs",
+            Key: {
+                "id": parseInt(id),
+            },
+
+            UpdateExpression: "SET comments[999] = :comm",
+
+            ExpressionAttributeValues: {
+                ":comm": comment
+            },
+            ReturnValues: "UPDATED_NEW"
+        };
+
+        dynamodbDoc.update(params, function(err, data) {
+            var output = {};
+            if (err) {
+                console.error("Unable to Update comments. Error JSON:", JSON.stringify(err, null, 2));
+                output = err;
+            } else {
+                console.log("Update comments:", JSON.stringify(data, null, 2));
+                output = "Update SUCCESS";
+            }
+            callback(output);
+        }); //ends dynamodb   
     }
+
 
 
 

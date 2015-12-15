@@ -11,23 +11,23 @@
                     <span class="md-headline">{{song.title}}</span>
                     <span class="md-subhead" style="margin-bottom:10px">{{song.artist}}</span>
                     <span class="md-body-2 play-stats">
-		            	<md-icon class="grayIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
-		            	{{song.playCount}}
- 		            </span>
+                        <md-icon class="grayIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+                        {{song.playCount}}
+                    </span>
                     <span class="md-body-2 play-stats">
-		            	<md-icon class="grayIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
-		            	{{song.downloadCount}}
-		            </span>
+                        <md-icon class="grayIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+                        {{song.downloadCount}}
+                    </span>
                 </md-card-title-text>
-                <!-- 		        <div style="margin-top:-20px;" ng-hide="true">
-		        	<div ng-controller="starCtrl"> 
-					 	<span ng-repeat="rating in ratings"> {{rating.current}} out of {{rating.max}} 
-				        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
-					        </div>
-					        <div class="md-display-1" style="text-align:center">{{rating.current | number:1}}</div>
-					    </span>
-					</div>
-		        </div>  -->
+                <!--                <div style="margin-top:-20px;" ng-hide="true">
+                    <div ng-controller="starCtrl"> 
+                        <span ng-repeat="rating in ratings"> {{rating.current}} out of {{rating.max}} 
+                        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
+                            </div>
+                            <div class="md-display-1" style="text-align:center">{{rating.current | number:1}}</div>
+                        </span>
+                    </div>
+                </div>  -->
             </div>
             <div flex></div>
             <md-card-actions layout="row" layout-align="end end">
@@ -45,8 +45,6 @@
         </div>
     </md-card-title>
     <md-divider style="margin:15px; margin-left:216px"></md-divider>
-
-
     <!-- Review form -->
     <form id="reviewForm" name="reviewForm" ng-submit="addNewReview()" novalidate ng-show="writeReview">
         <md-content layout-padding layout="column">
@@ -57,15 +55,15 @@
                 </md-input-container>
                 <div ng-controller="starCtrl" layout="row" layout-align="end center">
                     <span ng-repeat="rating in ratings" layout="row" layout-align="end center">
-				        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)" ng-click="setRating(rating.current)">
-					        </div>
-					        <div style="text-align:center;margin-left:5px;color:rgb(255,110,64);"> {{rating.current | number:0}}</div>
-					    </span>
+                        <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)" ng-click="setRating(rating.current)">
+                            </div>
+                            <div style="text-align:center;margin-left:5px;color:rgb(255,110,64);"> {{rating.current | number:0}}</div>
+                        </span>
                 </div>
             </div>
             <md-input-container style="max-width:80%;margin-top:-5px;">
                 <label style="padding-left:7px;">Comment</label>
-                <textarea ng-model="newComment.comment" columns="4" md-maxlength="150" rows="4"></textarea>
+                <textarea ng-model="newComment.comment" columns="4" md-maxlength="150" rows="4" required></textarea>
             </md-input-container>
             <div layout="row" layout-align="end center">
                 <md-button ng-click="writeReview=false;">Cancel</md-button>
@@ -78,7 +76,7 @@
     <md-content flex layout-padding>
         <div layout="row" layout-align="space-between center">
             <div>Reviews</div>
-            <md-button class="md-raised md-accent" ng-click="writeReview=true;" ng-disabled="writeReview">Write a Review</md-button>
+            <md-button class="md-raised md-accent" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">Write a Review</md-button>
         </div>
         <md-list-item class="md-2-line" ng-show="writeReview">
             <div class="md-list-item-text">
@@ -86,9 +84,12 @@
                 <p>{{newComment.comment}}</p>
             </div>
         </md-list-item>
-        <md-list-item class="md-2-line" ng-repeat="comment in song.comments">
+        <md-list-item class="md-2-line" ng-repeat="comment in song.comments | orderBy:$index:true">
             <div class="md-list-item-text">
-                <h3>{{comment.name}}</h3>
+                <div layout="row" layout-align="start center">
+                    <h3><b>{{comment.name}}</b></h3>
+                    <div style="margin-left:10px;" star-rating3 rating-value="comment.rating"></div>
+                </div>
                 <p>{{comment.comment}}</p>
             </div>
         </md-list-item>

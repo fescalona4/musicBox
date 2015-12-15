@@ -83,7 +83,7 @@
     <md-content flex layout-padding>
         <div layout="row" layout-align="space-between center">
             <div>Reviews</div>
-            <md-button class="md-raised md-accent" ng-click="writeReview=true;" ng-disabled="writeReview">Write a Review</md-button>
+            <md-button class="md-raised md-accent" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">Write a Review</md-button>
         </div>
                 <md-list-item class="md-2-line" ng-show="writeReview">
             <div class="md-list-item-text">
@@ -91,9 +91,12 @@
                 <p>{{newComment.comment}}</p>
             </div>
         </md-list-item>
-        <md-list-item class="md-2-line" ng-repeat="comment in song.comments">
+        <md-list-item class="md-2-line" ng-repeat="comment in song.comments | orderBy:$index:true">
             <div class="md-list-item-text">
-                <h3>{{comment.name}}</h3>
+                <div layout="row" layout-align="start center">
+                    <h3><b>{{comment.name}}</b></h3>
+                    <div style="margin-left:10px;" star-rating3 rating-value="comment.rating"></div>
+                </div>
                 <p>{{comment.comment}}</p>
             </div>
         </md-list-item>
