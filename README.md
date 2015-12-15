@@ -1,7 +1,7 @@
 # musicBox
 
 #Url
-http://ec2-52-91-137-52.compute-1.amazonaws.com:8000
+http://www.cubanmusicbox.com
 
 ##Description
 A music streaming/listening website primarily targeting Cuban Reaggeton artists. 
