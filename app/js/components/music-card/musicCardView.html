@@ -3,7 +3,8 @@
 <div layout-sm="colum" layout-align-sm="center center">
 
 <md-card  ng-class="{'md-whiteframe-5dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="musicCard">
-    <img ng-src="images/uploads/{{card.image}}" class="md-card-image" ng-click="go('/song-details/'+card.id)">
+    <img ng-src="images/uploads/{{card.image}}" class="md-card-image hoverOverlay" ng-click="go('/song-details/'+card.id)">
+    
     <md-card-content style="padding:0px 10px; overflow:hidden">
         
         <h4 class="cardSongTitle">
@@ -16,7 +17,7 @@
     </md-card-content>
     <md-card-actions layout="row" layout-align="space-around center">
         <div flex>
-            <md-button music-player add-song="card" class="md-icon-button grayIcon" aria-label="addToQueue" ng-show="hover" style="margin-left:0px;margin-top:-10px">
+            <md-button music-player add-song="card" class="md-icon-button" aria-label="addToQueue" ng-show="hover" style="margin-left:0px;margin-top:-10px">
                 <md-icon md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
             </md-button>
         </div>

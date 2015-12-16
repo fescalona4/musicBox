@@ -14,23 +14,18 @@
                     <span class="md-headline songTitle">{{song.title}}</span>
                     <span class="md-subhead">{{song.artist}}</span>
                     <div layout="row">
-
                         <span class="md-body-2 play-stats">           
-                            <md-icon class="grayIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+                            <md-icon class="primaryIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
                         {{song.playCount}}
                         </span>
-
                         <span class="md-body-2 play-stats">                     
-                            <md-icon class="grayIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg" style="padding-top:2px;"></md-icon>
+                            <md-icon class="primaryIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg" style="padding-top:2px;"></md-icon>
                         {{song.downloadCount}}
                         </span>
-                        <!-- Rating Stars -->
-                        <!--                        <div ng-controller="starCtrl" style="margin-top:5px;"> 
-                            <span ng-repeat="rating in ratings"> {{rating.current}} out of {{rating.max}} 
-                                <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)">
-                                </div>
-                            </span>
-                        </div> -->
+                        <span class="md-body-2 play-stats">
+                        <md-icon class="primaryIcon" md-svg-src="images/icons/ic_star_black_48px.svg" style="margin-top:-3px;"></md-icon>
+                        <label>{{totalRating | number:1}}</label>
+                    </span>
                     </div>
                 </md-card-title-text>
             </div>
@@ -39,16 +34,21 @@
     <md-card-actions layout="row" layout-align="start center">
         <md-card-icon-actions>
             <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon class="grayIcon" md-svg-icon="images/icons/ic_favorite_black_48px.svg"></md-icon>
+                <md-icon md-svg-icon="images/icons/ic_favorite_black_48px.svg"></md-icon>
             </md-button>
             <md-button class="md-icon-button" aria-label="AddToQueue">
-                <md-icon class="grayIcon" md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
+                <md-icon md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
             </md-button>
         </md-card-icon-actions>
-        <md-button music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">Listen</md-button>
-        <md-button href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;" ng-click="downloadCountPlusPlus(song.id)">Download</md-button>
+            <md-button class="md-primary md-raised" music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">
+                <md-icon md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+                Listen</md-button>
+            <md-button class="md-primary md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;margin-right:0px;" ng-click="downloadCountPlusPlus(song.id)">
+                <md-icon md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+                Download
+            </md-button>
     </md-card-actions>
-    <md-divider></md-divider>
+    <md-divider style="margin-top:5px;"></md-divider>
 
     <!-- Review form -->
     <form id="reviewForm" name="reviewForm" ng-submit="addNewReview()" novalidate ng-show="writeReview">
@@ -83,7 +83,10 @@
     <md-content flex layout-padding>
         <div layout="row" layout-align="space-between center">
             <div>Reviews</div>
-            <md-button class="md-raised md-accent" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">Write a Review</md-button>
+                <md-button class="md-raised" style="color:rgb(255,110,64);margin-right:0px;" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">
+                    <md-icon class="accentIcon" md-svg-icon="images/icons/ic_edit_black_48px.svg"></md-icon>
+                    Write a Review
+                </md-button>
         </div>
                 <md-list-item class="md-2-line" ng-show="writeReview">
             <div class="md-list-item-text">
@@ -95,7 +98,7 @@
             <div class="md-list-item-text">
                 <div layout="row" layout-align="start center">
                     <h3><b>{{comment.name}}</b></h3>
-                    <div style="margin-left:10px;" star-rating3 rating-value="comment.rating"></div>
+                    <div style="margin-left:10px;" star-rating-read-only rating-value="comment.rating"></div>
                 </div>
                 <p>{{comment.comment}}</p>
             </div>

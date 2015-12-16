@@ -44,8 +44,13 @@ angular.module('musicBoxApp')
     }
 });
 
+
+
+
+
+
 angular.module('musicBoxApp')
-    .directive('starRating2', function() {
+    .directive('starRatingNoClick', function() {
     return {
         restrict: 'A',
         template: '<div layout="row" > ' +
@@ -90,12 +95,12 @@ angular.module('musicBoxApp')
 
 
 angular.module('musicBoxApp')
-    .directive('starRating3', function() {
+    .directive('starRatingReadOnly', function() {
     return {
         restrict: 'A',
         template: '<div ng-controller="starCtrl" layout="row" layout-align="end center">'+
                    ' <span ng-repeat="rating in ratings" layout="row" layout-align="end center">'+
-                    '   <div star-rating2 rating-value="comment.rating" max="rating.max"></div>'+
+                    '   <div star-rating-no-click rating-value="comment.rating" max="rating.max"></div>'+
                      '   </span>'+
                 '</div>'
     }

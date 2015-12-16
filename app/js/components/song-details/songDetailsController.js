@@ -20,6 +20,10 @@ angular.module('musicBoxApp')
         $scope.getSong();
 
 
+
+        $scope.totalRating = 4.5; 
+
+
         $scope.resetNewComment = function() {
             $scope.newComment = {
                 "name": "",
