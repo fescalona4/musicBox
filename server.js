@@ -1,3 +1,5 @@
+var env = process.env.NODE_ENV;
+
 var port        = process.env.PORT || 8000;
 var express     = require('express');
 var bodyParser  = require('body-parser');
@@ -10,8 +12,7 @@ var songs       = require('./routes/songs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-// Collect visitor metric
-// Todo
+
 
 // bootstrap routes
 app.use('/api', songs); 
@@ -24,3 +25,12 @@ app.use(express.static(__dirname));
 app.listen(port, function(){
   console.log('Server started listening port: ' +port); 
 });
+
+
+if (env == 'dev') {
+	//Livereload code for development auto refresh
+	var livereload = require('livereload');
+	var server = livereload.createServer();
+	server.watch(__dirname + "/app");
+	console.log('livereload is running'); 
+}

@@ -25,3 +25,4 @@ To contribute/run follow these steps:
  * Run ``bower install`` 
  * Run ``node server.js`` 
 
+ * Run with livereload ``NODE_ENV=dev node server.js`` 

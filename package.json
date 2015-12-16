@@ -32,6 +32,7 @@
     "body-parser": "~1.0.0",
     "bower": "latest",
     "express": "latest",
+    "livereload": "^0.4.0",
     "multer": "^1.1.0",
     "proxy-agent": "^2.0.0"
   }
