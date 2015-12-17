@@ -11,7 +11,7 @@
         height: 155px;
     }
     .homePanels {
-        height: 295px;
+        height: 290px;
     }
 }
 
@@ -30,7 +30,7 @@
         height: 180px;
     }
     .homePanels {
-        height: 320px;
+        height: 315px;
     }
 }
 
@@ -47,7 +47,7 @@
         height: 175px;
     }
     .homePanels {
-        height: 310px;
+        height: 305px;
     }
 }
 
@@ -75,7 +75,8 @@
 }
 
 .playerPlayBtn {
-    /* margin:0px !important;*/
+/*    line-height: 42px !important;
+    height: 42px !important;*/
 }
 
 .playerPrevBtn {

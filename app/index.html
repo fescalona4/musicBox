@@ -114,11 +114,12 @@
                                 <div class="md-caption playerArtist">{{currentPlaying.artist}}</div>
                             </div>
                         </div>
-                        <div flex class="playerButtons">
+                        <div  class="playerButtons">
                             <md-button prev-track class="md-icon-button playerPrevBtn" aria-label="prev">
                                 <md-icon md-svg-icon="images/icons/ic_skip_previous_black_48px.svg"></md-icon>
                             </md-button>
-                            <md-button play-pause-toggle class="md-fab playerPlayBtn" aria-label="Play">
+                            <md-button play-pause-toggle class="md-fab playerPlayBtn" 
+                            ng-class="{'md-mini':(styleType == 'mobile')}"  aria-label="Play">
                                 <md-icon md-svg-src="images/icons/ic_play_arrow_white_48px.svg" style="margin-top:-2px" ng-hide="isPlaying"></md-icon>
                                 <md-icon md-svg-src="images/icons/ic_pause_white_48px.svg" style="margin-top:-2px" ng-show="isPlaying"></md-icon>
                             </md-button>
