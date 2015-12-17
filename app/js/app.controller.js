@@ -9,14 +9,8 @@ angular.module('musicBoxApp')
         $scope.$location = $location;
 
         $scope.styleType = deviceType.getDeviceType();
-        console.log($scope.styleType);
+        //console.log($scope.styleType);
 
-        //Get Visit count      
-        songService.getVisitCount().then(
-            function(response) {
-                $scope.visitCount = response.data.Counts;
-                console.log("visits: "+$scope.visitCount);
-            });
 
 
 

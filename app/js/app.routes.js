@@ -10,6 +10,12 @@ angular.module('musicBoxApp')
             deviceType = deviceTypeProvider.getDeviceType();
 
         $routeProvider
+            .when('/home', {
+                templateUrl: 'js/components/home/homeView.html',
+                controller: 'homeController',
+                controllerAs: 'ctrl',
+                title: 'Dashboard'
+            })
             .when('/new', {
                 templateUrl: 'js/components/new-releases/newReleasesView.html',
                 controller: 'homeController',
@@ -22,11 +28,11 @@ angular.module('musicBoxApp')
                 controllerAs: 'ctrl',
                 title: 'Popular Songs'
             })
-            .when('/home', {
-                templateUrl: 'js/components/home/homeView.html',
-                controller: 'homeController',
+            .when('/music', {
+                templateUrl: 'js/components/all-music/allMusicView.html',
+                controller: 'allMusicController',
                 controllerAs: 'ctrl',
-                title: 'Dashboard'
+                title: 'Singles'
             })
             .when('/song-details/:songId', {
                 templateUrl: 'js/components/song-details/view/' + deviceType + '/song-details.html',

@@ -54,6 +54,10 @@
                 <md-button class="md-accent" ng-click="go('/top');appCtrl.toggleSidenav('left');">
                     <md-icon md-svg-src="images/icons/ic_star_black_48px.svg" class="blackIcon grayIcon"></md-icon>Top Charts</md-button>
             </md-menu-item>
+            <md-menu-item style="width:100%">
+                <md-button class="md-accent" ng-click="go('/music');appCtrl.toggleSidenav('left');">
+                    <md-icon md-svg-src="images/icons/ic_music_note_black_48px.svg" class="blackIcon grayIcon"></md-icon>Music</md-button>
+            </md-menu-item>
         </md-sidenav>
         <div layout="column" flex>
             <!-- TOP TOOLBAR START-->
@@ -161,6 +165,8 @@
     <script src="js/app.routes.js"></script>
     <script src="js/components/home/homeController.js"></script>
     <script src="js/components/admin/adminController.js"></script>
+    <script src="js/components/all-music/allMusicController.js"></script>
+    <script src="js/components/small-music-card/smallMusicCardDirective.js"></script>
     <script src="js/components/music-card/musicCardDirective.js"></script>
     <script src="js/components/song-details/songDetailsController.js"></script>
     <script src="js/components/star-rating/starRatingController.js"></script>

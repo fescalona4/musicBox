@@ -129,6 +129,15 @@ md-sidenav {
     height: 150px;
 }
 
+.smallCardSongTitle {
+    white-space: nowrap;
+    margin-top: 5px;
+    margin-bottom: 13px;
+}
+.smallCardSongArtist {
+    margin-top: -10px;
+    font-size: 12px;
+}
 
 
 /*Animations*/
