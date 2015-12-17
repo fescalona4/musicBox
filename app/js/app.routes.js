@@ -61,14 +61,17 @@ angular.module('musicBoxApp')
     }
 ])
 
-.run(['$rootScope','$location','$window',
-    function($rootScope,$location, $window) {
+.run(['$rootScope','$location','$window', '$state',
+    function($rootScope,$location, $window, $state) {
 
         $window.ga('create', 'UA-71457119-1', 'auto');
 
         // track pageview on state change
         $rootScope.$on('$stateChangeSuccess', function (event) {
             $window.ga('send', 'pageview', $location.path());
+
+            //set title
+            $rootScope.title = $state.current.title;
         });
 
     }
