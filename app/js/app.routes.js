@@ -32,7 +32,7 @@ angular.module('musicBoxApp')
                 templateUrl: 'js/components/all-music/allMusicView.html',
                 controller: 'allMusicController',
                 controllerAs: 'ctrl',
-                title: 'Singles'
+                title: 'Music'
             })
             .when('/song-details/:songId', {
                 templateUrl: 'js/components/song-details/view/' + deviceType + '/song-details.html',

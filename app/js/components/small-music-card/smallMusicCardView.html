@@ -1,5 +1,5 @@
 <md-card class="smallCard" flex="100" layout-fill>
-    <md-card-title style="padding:10px 15px;" >
+    <md-card-title style="padding:10px 15px;"  ng-click="go('/song-details/'+card.id)">
         <md-card-title-text>
             <span class="smallCardSongTitle">{{card.title}}</span>
             <span class="md-body-1 smallCardSongArtist">{{card.artist}}</span>

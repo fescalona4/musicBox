@@ -52,11 +52,11 @@ md-sidenav.md-locked-open {
 }
 
 .smallCardContainer {
-    margin: 30px 0px;
+    margin: 30px 30px;
 }
 
 .smallCard {
-    width: 400px;
+    width: 500px;
     margin: 3px;
 }
 
