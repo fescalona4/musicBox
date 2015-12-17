@@ -3,68 +3,75 @@
 
 //set routes
 angular.module('musicBoxApp')
-    .config(['$routeProvider', 'deviceTypeProvider','$locationProvider',
-    function($routeProvider, deviceTypeProvider, $locationProvider) {
+    .config(['$stateProvider', 'deviceTypeProvider','$urlRouterProvider','$locationProvider',
+    function($stateProvider, deviceTypeProvider, $urlRouterProvider,$locationProvider) {
 
         var deviceTypeProvider = deviceTypeProvider.$get(),
             deviceType = deviceTypeProvider.getDeviceType();
 
-        $routeProvider
-            .when('/home', {
+        $stateProvider
+            .state('home', {
+                url: '/home',
                 templateUrl: 'js/components/home/homeView.html',
                 controller: 'homeController',
                 controllerAs: 'ctrl',
                 title: 'Dashboard'
             })
-            .when('/new', {
+            .state('new', {
+                url: '/new',
                 templateUrl: 'js/components/new-releases/newReleasesView.html',
                 controller: 'homeController',
                 controllerAs: 'ctrl',
                 title: 'New Releases'
             })
-            .when('/top', {
+            .state('top', {
+                url: '/top',
                 templateUrl: 'js/components/top-charts/topChartsView.html',
                 controller: 'homeController',
                 controllerAs: 'ctrl',
                 title: 'Popular Songs'
             })
-            .when('/music', {
+            .state('music', {
+                url: '/music',
                 templateUrl: 'js/components/all-music/allMusicView.html',
                 controller: 'allMusicController',
                 controllerAs: 'ctrl',
                 title: 'Music'
             })
-            .when('/song-details/:songId', {
+            .state('song-details', {
+                url: '/song-details/:songId',
                 templateUrl: 'js/components/song-details/view/' + deviceType + '/song-details.html',
                 controller: 'songDetailsController',
                 controllerAs: 'songs',
                 title: 'Song Details'
             })
-            .when('/admin', {
+            .state('admin', {
+                url: '/admin',
                 templateUrl: 'js/components/admin/adminView.html',
                 controller: 'adminController',
                 controllerAs: 'ctrl',
                 title: 'Admin Page'
-            })
-            .otherwise({
-                redirectTo: '/home'
             });
+            $urlRouterProvider.otherwise('/home');
 
 
         // use the HTML5 History API
-        //$locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(true).hashPrefix('#!');
 
     }
 ])
 
-.run(['$rootScope','$location','$window',
-    function($rootScope,$location, $window) {
+.run(['$rootScope','$location','$window', '$state',
+    function($rootScope,$location, $window, $state) {
 
         $window.ga('create', 'UA-71457119-1', 'auto');
 
         // track pageview on state change
-        $rootScope.$on('$routeChangeSuccess', function (event) {
+        $rootScope.$on('$stateChangeSuccess', function (event) {
             $window.ga('send', 'pageview', $location.path());
+
+            //set title
+            $rootScope.title = $state.current.title;
         });
 
     }

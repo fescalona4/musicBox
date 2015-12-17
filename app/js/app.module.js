@@ -2,7 +2,7 @@
 
 
 angular.module('musicBoxApp', 
-    ['ngMaterial', 'ngRoute', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
+    ['ngMaterial', 'ngRoute', 'ui.router', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
 
 
 

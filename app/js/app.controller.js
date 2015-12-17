@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('musicBoxApp')
-    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', '$mdSidenav', '$mdDialog', 'angularPlayer', '$animate','songService',
+    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', 
+        '$mdSidenav', '$mdDialog', 'angularPlayer', '$animate','songService',
 
-    function(deviceType, $scope, $route, $http, $location, $mdSidenav, $mdDialog, angularPlayer, $animate,songService) {
+    function(deviceType, $scope, $route, $http, $location, 
+        $mdSidenav, $mdDialog, angularPlayer, $animate,songService) {
 
         $scope.$route = $route;
         $scope.$location = $location;

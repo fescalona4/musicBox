@@ -2,14 +2,14 @@
 
 
 angular.module('musicBoxApp')
-    .controller('songDetailsController', ['$scope', '$routeParams', 'songService', function($scope, $routeParams, songService) {
+    .controller('songDetailsController', ['$scope', '$stateParams', 'songService', function($scope, $stateParams, songService) {
 
 
         $scope.song = {};
 
 
         $scope.getSong = function() {
-            songService.getSong(parseInt($routeParams.songId))
+            songService.getSong(parseInt($stateParams.songId))
                 .then(
                     function(response) {
                         //console.log("getSong");
