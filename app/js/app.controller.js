@@ -1,13 +1,13 @@
-'use strict';
+
 
 angular.module('musicBoxApp')
-    .controller('appController', ['deviceType', '$scope', '$route', '$http', '$location', 
+    .controller('appController', ['deviceType', '$scope', '$http', '$location', 
         '$mdSidenav', '$mdDialog', 'angularPlayer', '$animate','songService',
 
-    function(deviceType, $scope, $route, $http, $location, 
-        $mdSidenav, $mdDialog, angularPlayer, $animate,songService) {
+    function(deviceType, $scope, $http, $location, 
+        $mdSidenav, $mdDialog, angularPlayer, $animate, songService) {
 
-        $scope.$route = $route;
+        //$scope.$route = $route;
         $scope.$location = $location;
 
         $scope.styleType = deviceType.getDeviceType();
@@ -30,7 +30,7 @@ angular.module('musicBoxApp')
         );
         $scope.$on('music:isPlaying', function(event, data) {
             //console.log("music:isPlaying: "+data);
-            if (data == true) {
+            if (data === true) {
                 angularPlayer.adjustVolumeSlider($scope.volume);
             }
         });
@@ -48,7 +48,7 @@ angular.module('musicBoxApp')
 
         $scope.onSwipeLeft = function(menuId) {
             $mdSidenav(menuId).toggle();
-            console.log("onSwipeLeft");
+            //console.log("onSwipeLeft");
         };
 
         $scope.go = function(path, title) {
@@ -90,20 +90,20 @@ angular.module('musicBoxApp')
 
         $scope.closeDialog = function() {
             $mdDialog.hide();
-        }
+        };
 
 
         $scope.playCountPlusPlus = function(id) {
             $http.put("/api/song/play-count/" + id, null)
                 .success(function(response) {
                 });
-        }
+        };
 
         $scope.downloadCountPlusPlus = function(id) {
             $http.put("/api/song/download-count/" + id, null)
                 .success(function(response) {
                 });
-        }
+        };
 
     }
 ]);

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var db = require('../db/dbmanager.js');
+var db = require('../routes/dbmanager.js');
 
 
 
@@ -9,14 +9,14 @@ var db = require('../db/dbmanager.js');
 var multer  = require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './app/images/uploads')
+    cb(null, './app/images/uploads');
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    cb(null, file.originalname);
   }
-})
+});
 
-var upload = multer({ storage: storage })
+var upload = multer({ storage: storage });
 
 router.post('/photo',upload.single('file'), function(req,res){
   

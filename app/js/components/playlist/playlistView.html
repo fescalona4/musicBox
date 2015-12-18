@@ -1,6 +1,6 @@
 
 
-<md-dialog aria-label="Playlist" ng-cloak class="playlistDialog">
+<md-dialog aria-label="Playlist" ng-cloak class="playlist-dialog">
     <md-dialog-content>
         <div class="md-dialog-content">
             <div layout="column" layout-align="center center" ng-show="{{playlist.length==0}}">
@@ -14,11 +14,11 @@
                     <p>{{song.artist}}</p>
                 </div>
                 <!-- <md-button play-from-playlist="song">PLAY</md-button> -->
-                <md-button class="md-icon-button grayIcon" aria-label="Play" play-from-playlist="song" style="margin-top:10px;margin-right:0px">
+                <md-button class="md-icon-button gray-icon" aria-label="Play" play-from-playlist="song" style="margin-top:10px;margin-right:0px">
                     <md-icon md-svg-icon="images/icons/ic_queue_play_next_black_48px.svg"></md-icon>
                 </md-button>
                 <!-- <md-button remove-from-playlist="song" data-index="{{$index}}">REMOVE</md-button> -->
-                <md-button class="md-icon-button grayIcon" aria-label="Remove" remove-from-playlist="song" data-index="{{$index}}" style="margin-top:10px; margin-left:0px">
+                <md-button class="md-icon-button gray-icon" aria-label="Remove" remove-from-playlist="song" data-index="{{$index}}" style="margin-top:10px; margin-left:0px">
                     <md-icon md-svg-icon="images/icons/ic_remove_from_queue_black_48px.svg"></md-icon>
                 </md-button>
                 <!-- <p class="md-secondary">{{::currentDuration}}</p>-->

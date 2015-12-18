@@ -2,16 +2,16 @@
 
 <div layout-sm="colum" layout-align-sm="center center">
 
-<md-card  ng-class="{'md-whiteframe-5dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="musicCard">
-    <img ng-src="images/uploads/{{card.image}}" class="md-card-image hoverOverlay" ng-click="go('/song-details/'+card.id)">
+<md-card  ng-class="{'md-whiteframe-5dp': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false" class="music-card">
+    <img ng-src="images/uploads/{{card.image}}" class="md-card-image hover-overlay" ng-click="go('/song-details/'+card.id)">
     
     <md-card-content style="padding:0px 10px; overflow:hidden">
         
-        <h4 class="cardSongTitle">
-            <b>{{card.title | limitTo : 19}}{{(card.title.length>19)?' ...':''}}</b>
+        <h4 class="card-song-title">
+            <b>{{card.title}}</b>
         </h4>
-        <p class="md-body-1 cardSongArtist">
-            {{card.artist | limitTo : 45}} {{(card.artist.length>45)?' ...':''}}
+        <p class="md-body-1 card-song-artist">
+            {{card.artist}}
         </p>
 
     </md-card-content>

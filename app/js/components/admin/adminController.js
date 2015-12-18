@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
@@ -18,9 +18,9 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
 
         //Form submit
         $scope.addNewSong = function() {
-            console.log("submit");
+            //console.log("submit");
 
-            if($scope.picFile != undefined){
+            if($scope.picFile !== undefined){
                 $scope.uploadPic($scope.picFile);
             }
 
@@ -29,7 +29,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
                     function(response) {
                         console.log(response);
                     });
-        }
+        };
 
 
         //Login dialog
@@ -50,7 +50,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
                 .then(function(answer) {
 
                 }, function() {});
-        }
+        };
         $scope.showLogin(); //show login on load
 
 
@@ -73,7 +73,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
           // Math.min is to fix IE which reports 200% sometimes
           file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         });
-        }
+        };
 
 
 
@@ -94,7 +94,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
             console.log($scope.selected[0]);
 
 
-            if($scope.picFile != undefined){
+            if($scope.picFile !== undefined){
                 $scope.uploadPic($scope.picFile);
             }
 
@@ -104,7 +104,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
                         console.log(response.data);
                         $scope.updateResponse = response.data;
                     });
-        }
+        };
 
 
 

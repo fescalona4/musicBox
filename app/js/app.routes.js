@@ -1,4 +1,3 @@
-'use strict';
 
 
 //set routes
@@ -6,8 +5,8 @@ angular.module('musicBoxApp')
     .config(['$stateProvider', 'deviceTypeProvider','$urlRouterProvider','$locationProvider',
     function($stateProvider, deviceTypeProvider, $urlRouterProvider,$locationProvider) {
 
-        var deviceTypeProvider = deviceTypeProvider.$get(),
-            deviceType = deviceTypeProvider.getDeviceType();
+
+        var deviceType = deviceTypeProvider.$get().getDeviceType();
 
         $stateProvider
             .state('home', {

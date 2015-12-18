@@ -1,22 +1,22 @@
 
 
 <div layout="column" style="margin-left:15px">
-	<div layout="row" layout-align="space-between end" class="homeHeaderRow">
-    	<a class="homeHeaders" ng-click="go('/new');">New Song Releases</a>
+	<div layout="row" layout-align="space-between end" class="home-header-row">
+    	<a class="home-headers" ng-click="go('/new');">New Song Releases</a>
      	<md-button class="md-raised md-warn" ng-click="go('/new');">See More</md-button>
     </div>
-    <md-content class="homePanels" >
+    <md-content class="home-panels" >
         <div layout="row" flex layout-wrap>
             <div layout="column" ng-repeat="card in music | filter: {filter: 'new', filename: appCtrl.search} | orderBy:'-dateAdded' | limitTo:'5'"   class="fade">
                 <music-card></music-card>
             </div>
         </div>
     </md-content>
-    <div layout="row" layout-align="space-between end" class="homeHeaderRow">
-    	<a class="homeHeaders" ng-click="go('/top')">Most Popular Songs</a>
+    <div layout="row" layout-align="space-between end" class="home-header-row">
+    	<a class="home-headers" ng-click="go('/top')">Most Popular Songs</a>
         <md-button class="md-raised md-warn" ng-click="go('/top');">See More</md-button>
     </div>
-    <md-content class="homePanels">
+    <md-content class="home-panels">
         <div layout="row" flex layout-wrap>
             <div layout="column" ng-repeat="card in music | filter: {filter: 'top', filename: appCtrl.search} | orderBy:'-playCount' | limitTo:'5'" class="fade">
                 <music-card></music-card>

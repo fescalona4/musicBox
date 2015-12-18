@@ -1,8 +1,8 @@
-<md-card class="smallCard" flex="100" layout-fill>
+<md-card class="small-card" flex="100" layout-fill>
     <md-card-title style="padding:10px 15px;"  ng-click="go('/song-details/'+card.id)">
         <md-card-title-text>
-            <span class="smallCardSongTitle">{{card.title}}</span>
-            <span class="md-body-1 smallCardSongArtist">{{card.artist}}</span>
+            <span class="small-card-song-title">{{card.title}}</span>
+            <span class="md-body-1 small-card-song-artist">{{card.artist}}</span>
         </md-card-title-text>
         <div layout="row" layout-align="center center">
             <md-fab-speed-dial md-direction="left" md-open="isOpen" class="md-scale md-hover-full" ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
@@ -11,7 +11,7 @@
                         <md-icon md-svg-src="images/icons/ic_menu_white_48px.svg"></md-icon>
                     </md-button>
                 </md-fab-trigger>
-                <md-fab-actions class="fabActions">
+                <md-fab-actions class="fab-actions">
                     <md-button music-player add-song="card" aria-label="Queue" class="md-fab md-raised md-mini">
                         <md-icon md-svg-src="images/icons/ic_queue_black_48px.svg" aria-label="Twitter"></md-icon>
                     </md-button>

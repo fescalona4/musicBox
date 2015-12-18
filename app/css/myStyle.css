@@ -1,6 +1,6 @@
 
-.bodyContent {
-    background-color: #F5F5F5 !important;
+.body-content {
+    background-color: #f5f55 !important;
     font-family: 'Roboto', sans-serif !important;
 }
 
@@ -17,28 +17,28 @@ md-card-content p {
     z-index: 99;
 }
 
-.grayIcon {
+.gray-icon {
     opacity: 0.65;
 }
 
-.starFilled {
+.star-filled {
     fill: rgb(255, 110, 64);
     opacity: 1;
 }
 
-.orangeIcon {
+.orange-icon {
     fill: rgb(255, 110, 64);
 }
 
-.blackIcon {
+.black-icon {
     fill: #000000;
 }
 
-.primaryIcon{
+.primary-icon{
     fill:rgb(3,169,244);
 }
 
-.accentIcon{
+.accent-icon{
     fill:rgb(255,110,64);
 }
 
@@ -57,7 +57,7 @@ md-card-content p {
 
 /*md-dialog*/
 
-.playlistDialog {
+.playlist-dialog {
     width: 50%;
     height: auto;
     position: absolute;
@@ -78,7 +78,7 @@ md-card {
 
 md-toolbar {
     .md-button.md-default-theme {
-        border-radius: 99%; // round toolbar buttons
+        border-radius: 99%; /*round toolbar buttons*/
     }
 }
 
@@ -86,12 +86,14 @@ h2 {
     font-weight: 400;
 }
 
+/*
 .md-toolbar-tools-bottom {
     font-size: small;
     &:last-child {
         opacity: 0.8;
     }
 }
+*/
 
 md-toolbar:not(.md-hue-1),
 .md-fab {
@@ -102,25 +104,39 @@ md-sidenav {
     fill: #737373;
     ng-md-icon {
         position: relative;
-        top: 5px; // adjust for svg viewbox
+        top: 5px; /*adjust for svg viewbox*/
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .user-avatar {
     border-radius: 99%;
 }
 
-.playerButtons {
+.player-buttons {
     min-width: 190px
 }
 
-.cardSongTitle {
+.card-song-title {
     white-space: nowrap;
     margin-top: 10px;
     margin-bottom: 15px;
 }
 
-.cardSongArtist {
+.card-song-artist {
     margin-top: -10px;
 }
 
@@ -129,12 +145,12 @@ md-sidenav {
     height: 150px;
 }
 
-.smallCardSongTitle {
+.small-card-song-title {
     white-space: nowrap;
     margin-top: 5px;
     margin-bottom: 13px;
 }
-.smallCardSongArtist {
+.small-card-song-artist {
     margin-top: -10px;
     font-size: 12px;
 }
@@ -167,7 +183,7 @@ md-sidenav {
 
 
 
-.hoverOverlay {
+.hover-overlay {
     -webkit-filter: brightness(100%);
     -moz-filter: brightness(100%);
     -o-filter: brightness(100%);
@@ -179,7 +195,7 @@ md-sidenav {
     transition: all 0.5s;
 }
 
-.hoverOverlay:hover {
+.hover-overlay:hover {
     -webkit-filter: brightness(70%);
     -moz-filter: brightness(70%);
     -o-filter: brightness(70%);

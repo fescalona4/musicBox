@@ -1,7 +1,7 @@
 
 
-<div layout="column" layout-align="start start" class="smallCardContainer">
-	 <div layout="column" class="smallCardContainer2" ng-repeat="card in music | filter:
+<div layout="column" layout-align="start start" class="small-card-container">
+	 <div layout="column" class="small-card-container2" ng-repeat="card in music | filter:
       {filename: appCtrl.search} | orderBy:'-dateAdded'">
         <small-music-card></small-music-card>
     </div>

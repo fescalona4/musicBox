@@ -1,7 +1,7 @@
 <!--*************-->
 <!-- Mobile View -->
 <!--*************-->
-<md-card style="" class="songDetailsCard">
+<md-card style="" class="song-details-card">
     <md-card-title class="card-title">
         <md-card-title-media>
             <div class="md-media-lg card-media" style="width:150px;height:150px">
@@ -11,19 +11,19 @@
         <div layout="column" layout-align="space-between none" flex>
             <div layout="row">
                 <md-card-title-text>
-                    <span class="md-headline songTitle">{{song.title}}</span>
+                    <span class="md-headline song-title">{{song.title}}</span>
                     <span class="md-subhead">{{song.artist}}</span>
                     <div layout="row">
                         <span class="md-body-2 play-stats">           
-                            <md-icon class="primaryIcon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+                            <md-icon class="primary-icon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
                         {{song.playCount}}
                         </span>
                         <span class="md-body-2 play-stats">                     
-                            <md-icon class="primaryIcon" md-svg-src="images/icons/ic_file_download_black_48px.svg" style="padding-top:2px;"></md-icon>
+                            <md-icon class="primary-icon" md-svg-src="images/icons/ic_file_download_black_48px.svg" style="padding-top:2px;"></md-icon>
                         {{song.downloadCount}}
                         </span>
                         <span class="md-body-2 play-stats">
-                        <md-icon class="primaryIcon" md-svg-src="images/icons/ic_star_black_48px.svg" style="margin-top:-3px;"></md-icon>
+                        <md-icon class="primary-icon" md-svg-src="images/icons/ic_star_black_48px.svg" style="margin-top:-3px;"></md-icon>
                         <label>{{totalRating | number:1}}</label>
                     </span>
                     </div>
@@ -84,7 +84,7 @@
         <div layout="row" layout-align="space-between center">
             <div>Reviews</div>
                 <md-button class="md-raised" style="color:rgb(255,110,64);margin-right:0px;" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">
-                    <md-icon class="accentIcon" md-svg-icon="images/icons/ic_edit_black_48px.svg"></md-icon>
+                    <md-icon class="accent-icon" md-svg-icon="images/icons/ic_edit_black_48px.svg"></md-icon>
                     Write a Review
                 </md-button>
         </div>
