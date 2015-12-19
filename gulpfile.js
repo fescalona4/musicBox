@@ -27,7 +27,7 @@ var paths = {
 var pipes = {};
 
 pipes.orderedVendorScripts = function() {
-    return plugins.order(['angular.js']);
+    return plugins.order(['angular.js','angular-material']);
 };
 
 pipes.orderedAppScripts = function() {
@@ -61,7 +61,7 @@ pipes.builtAppScriptsProd = function() {
         .pipe(pipes.orderedAppScripts())
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
-            //.pipe(plugins.uglify())
+            .pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distScriptsProd));
 };
@@ -75,17 +75,26 @@ pipes.builtVendorScriptsDev = function() {
 
 pipes.builtVendorScriptsProd = function() {
 
-    return gulp.src(bowerFiles())
-        .pipe(gulp.dest('dist.prod/bower_components'));
-
     return gulp.src(bowerFiles('**/*.js'))
         .pipe(pipes.orderedVendorScripts())
         .pipe(plugins.concat('vendor.min.js'))
-        //.pipe(plugins.uglify())
+        .pipe(plugins.uglify())
         .pipe(gulp.dest(paths.distScriptsProd));
 
+};
+
+pipes.builtVendorCssProd = function() {
+
+    return gulp.src(bowerFiles('**/*.css'))
+        .pipe(plugins.sourcemaps.init())
+            //.pipe(plugins.sass())
+            .pipe(plugins.minifyCss())
+        .pipe(plugins.sourcemaps.write())
+        .pipe(pipes.minifiedFileName())
+        .pipe(gulp.dest(paths.distProd + '/css'));
 
 };
+
 
 pipes.validatedDevServerScripts = function() {
     return gulp.src(paths.scriptsDevServer)
@@ -176,17 +185,19 @@ pipes.builtIndexDev = function() {
 pipes.builtIndexProd = function() {
 
     var vendorScripts = pipes.builtVendorScriptsProd();
+    var vendorStyles = pipes.builtVendorCssProd();
     var appScripts = pipes.builtAppScriptsProd();
     var appStyles = pipes.builtStylesProd();
 
     return pipes.validatedIndex()
         .pipe(gulp.dest(paths.distProd)) // write first to get relative path for inject
         .pipe(plugins.inject(vendorScripts, {relative: true, name: 'bower'}))
+        .pipe(plugins.inject(vendorStyles, {relative: true, name: 'bower'}))
         .pipe(plugins.inject(appScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
         .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
         .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
-        //.pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
+        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest(paths.distProd));
 };
 
@@ -254,6 +265,7 @@ gulp.task('build-styles-prod', pipes.builtStylesProd);
 // moves vendor scripts into the dev environment
 gulp.task('build-vendor-scripts-dev', pipes.builtVendorScriptsDev);
 
+gulp.task('build-vendor-css-prod', pipes.builtVendorStylesProd);
 // concatenates, uglifies, and moves vendor scripts into the prod environment
 gulp.task('build-vendor-scripts-prod', pipes.builtVendorScriptsProd);
 

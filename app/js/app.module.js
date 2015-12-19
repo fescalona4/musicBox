@@ -6,7 +6,7 @@ angular.module('musicBoxApp',
 
 
 //set theme
-.config(function($mdThemingProvider) {
+.config(['$mdThemingProvider',function($mdThemingProvider) {
     var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
         'contrastDefaultColor': 'light',
         'contrastDarkColors': ['50'],
@@ -29,7 +29,7 @@ angular.module('musicBoxApp',
       .primaryPalette('yellow')
       .accentPalette('blue-grey')
       .dark();
-})
+}])
 .service('songService', ['$http', function($http) {
 
 
