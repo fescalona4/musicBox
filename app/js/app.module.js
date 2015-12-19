@@ -1,13 +1,12 @@
-'use strict';
 
 
 angular.module('musicBoxApp', 
-    ['ngMaterial', 'ngRoute', 'ui.router', 'angularSoundManager', 'ngMdIcons', 'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
+    ['ngMaterial', 'ui.router', 'angularSoundManager',  'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
 
 
 
 //set theme
-.config(function($mdThemingProvider) {
+.config(['$mdThemingProvider',function($mdThemingProvider) {
     var customBlueMap = $mdThemingProvider.extendPalette('light-blue', {
         'contrastDefaultColor': 'light',
         'contrastDarkColors': ['50'],
@@ -30,7 +29,47 @@ angular.module('musicBoxApp',
       .primaryPalette('yellow')
       .accentPalette('blue-grey')
       .dark();
-});
+}])
+.service('songService', ['$http', function($http) {
+
+
+        this.getAllSongs = function() {
+
+            return $http.get("/api/get-all-songs");
+        };
+
+
+        this.getSong = function(id) {
+
+            return $http.get("/api/song/" + id);
+        };
+
+
+        this.insertNewSong = function(song) {
+
+            return $http.put("/api/insert-new-song", song);
+        };
+
+
+        this.updateSong = function(song) {
+            
+            return $http.post("/api/update-song", song);
+        };
+
+
+        this.getVisitCount = function() {
+
+            return $http.get("/api/get-visit-count");
+        };
+
+
+        this.updateComments = function(id, comment) {
+            
+            return $http.post("/api/update-comments/" + id, comment);
+        };
+
+    }])
+;
 
 
 
@@ -42,10 +81,10 @@ angular.module("musicBoxApp.deviceTypeProvider", []).provider('deviceType', ['$w
     this.$get = function() {
         return { /*Returns the device type desktop, mobile and tablet, default device type is desktop*/
             getDeviceType: function() { //Let, default device type 
-                var deviceType = 'desktop',
-                    userAgentString = $window['navigator']['userAgent'] || $window['navigator']['vendor'] || $window['opera'],
-                    width = $window['outerWidth'],
-                    isSmart = (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(userAgentString);
+                var deviceType = 'desktop';
+                var userAgentString = $window.navigator.userAgent || $window.navigator.vendor || $window.opera;
+                var width = $window.outerWidth;
+                var isSmart = (/iPhone|iPod|iPad|Silk|Android|BlackBerry|Opera Mini|IEMobile/).test(userAgentString);
                 if (isSmart && width >= 768) {
                     deviceType = "mobile";
                 } else if (isSmart && width <= 767) {
@@ -53,6 +92,6 @@ angular.module("musicBoxApp.deviceTypeProvider", []).provider('deviceType', ['$w
                 }
                 return deviceType;
             }
-        }
+        };
     };
 }]);

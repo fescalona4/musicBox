@@ -47,6 +47,8 @@ Temporary Items
 node_modules/
 bower_components/
 app/images/uploads
+dist.dev/
+dist.prod/
 
 npm-debug.log
 .bowerrc

@@ -1,6 +1,6 @@
 
 
-<div layout="row" flex layout-wrap class="cardContainer">
+<div layout="row" flex layout-wrap class="card-container">
     <div layout="column" ng-repeat="card in music | filter:
       {filter: 'new', filename: appCtrl.search} | orderBy:'-dateAdded'  | limitTo:'20'">
         <music-card></music-card>

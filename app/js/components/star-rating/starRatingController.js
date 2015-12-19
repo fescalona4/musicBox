@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 angular.module('musicBoxApp')
@@ -11,6 +11,6 @@ angular.module('musicBoxApp')
 
     $scope.getSelectedRating = function(rating) {
         //console.log(rating);
-    }
+    };
 
 }]);

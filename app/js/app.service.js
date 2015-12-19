@@ -1,4 +1,4 @@
-'use strict';
+/*
 
 
 angular.module('musicBoxApp')
@@ -41,3 +41,4 @@ angular.module('musicBoxApp')
         };
 
     }]);
+*/

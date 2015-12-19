@@ -1,4 +1,4 @@
-'use strict';
+
 
 
 angular.module('musicBoxApp')
@@ -54,13 +54,13 @@ angular.module('musicBoxApp')
             songService.updateComments($scope.song.id, $scope.newComment)
                 .then(
                     function(response) {
-                        console.log(response);
+                        //console.log(response);
                         $scope.getSong();
                         $scope.resetNewComment();
                         $scope.reviewCompleted = true;
                     });
 
-        }
+        };
 
     }]);
 

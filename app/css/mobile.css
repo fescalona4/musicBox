@@ -2,7 +2,7 @@
 
 @media only screen and (max-width: 384px) {
     /* For mobile phones: */
-    .musicCard {
+    .music-card {
         width: 155px;
         margin-left: 13px;
         margin-right: 0px;
@@ -10,7 +10,7 @@
     md-card img {
         height: 155px;
     }
-    .homePanels {
+    .home-panels {
         height: 290px;
     }
 }
@@ -20,7 +20,7 @@
 
 @media only screen and (min-width: 385px) and (max-width: 415px) {
     /* For mobile phones: */
-    .musicCard {
+    .music-card {
         width: 180px;
         margin-left: 18px;
 
@@ -29,7 +29,7 @@
     md-card img {
         height: 180px;
     }
-    .homePanels {
+    .home-panels {
         height: 315px;
     }
 }
@@ -37,7 +37,7 @@
 /* ipad broken */
 @media only screen and (min-width: 416px) {
     /* For mobile phones: */
-    .musicCard {
+    .music-card {
         width: 175px;
         margin-left: 12px;
 
@@ -46,7 +46,7 @@
     md-card img {
         height: 175px;
     }
-    .homePanels {
+    .home-panels {
         height: 305px;
     }
 }
@@ -61,43 +61,43 @@
     padding-bottom: 0px;
 }
 
-.cardSongTitle  {
+.card-song-title  {
     font-size: 14px;
 }
 
-.cardSongArtist  {
+.card-song-artist  {
     font-size: 12px;
 }
 
-.songDetailsCard {
+.song-details-card {
     margin-left: 12px;
     margin-right: 12px;
 }
 
-.playerPlayBtn {
+.player-play-btn {
 /*    line-height: 42px !important;
     height: 42px !important;*/
 }
 
-.playerPrevBtn {
+.player-prev-btn {
     /*margin: 0px !important;*/
     /*width: 30px !important;*/
 }
 
-.playerNextBtn {
+.player-next-btn {
    /* margin: -10px !important;
     margin-right: 0px !important;*/
     /*width: 30px !important;*/
 }
 
-.playerTitle {
+.player-title {
     font-size: 12px;
     line-height: 18px;
     margin-left: -10px;
     margin-top: -5px;
 }
 
-.playerArtist {
+.player-artist {
     font-size: 10px;
     margin-left: -10px;
 }
@@ -106,16 +106,16 @@
     height: 60px;
 }
 
-.playerImage {
+.player-image {
     height: 61px !important;
     width: 60px !important;
 }
 
-.volQueueContainer {
+.vol-queue-container {
     display: none;
 }
 
-.playerButtons {
+.player-buttons {
     display: flex;
     box-sizing: border-box;
     flex-direction: row;
@@ -126,14 +126,14 @@
 }
 
 
-.cardContainer{
+.card-container{
     padding-top : 10px;
 /*    padding-left: 10px;
     padding-right: 10px;*/
 }
 
 
-.homeHeaders {
+.home-headers {
     color: #616161;
     font-size: 20px;
     font-weight: 100;
@@ -143,33 +143,33 @@
     cursor: pointer;
 }
 
-.homePanels {
+.home-panels {
     overflow: hidden;
     background-color: #F5F5F5;
     width:100%;
     margin-left: -15px;
 }
 
-.homeHeaderRow{
+.home-header-row{
     margin-right: 2%;
 }
 
-.smallCardContainer{
+.small-card-container{
     margin:10px -3px;
     margin-right: 0px;
 }
 
 
-.smallCardContainer2{
+.small-card-container2{
     width:100%;
 }
 
 
-.smallCard{
+.small-card{
     width:100%; 
     margin:3px;
 }
 
-.fabActions {
+.fab-actions {
     width: 50px;
 }

@@ -1,4 +1,3 @@
-'use strict';
 
 
 angular.module('musicBoxApp')
@@ -41,7 +40,7 @@ angular.module('musicBoxApp')
                 }
             });
         }
-    }
+    };
 });
 
 
@@ -89,7 +88,7 @@ angular.module('musicBoxApp')
                 }
             });
         }
-    }
+    };
 });
 
 
@@ -103,5 +102,5 @@ angular.module('musicBoxApp')
                     '   <div star-rating-no-click rating-value="comment.rating" max="rating.max"></div>'+
                      '   </span>'+
                 '</div>'
-    }
+    };
 });
