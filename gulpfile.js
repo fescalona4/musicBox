@@ -51,6 +51,8 @@ pipes.builtAppScriptsDev = function() {
         .pipe(gulp.dest(paths.distDev));
 };
 
+
+
 pipes.builtAppScriptsProd = function() {
     var scriptedPartials = pipes.scriptedPartials();
     var validatedAppScripts = pipes.validatedAppScripts();
@@ -59,10 +61,12 @@ pipes.builtAppScriptsProd = function() {
         .pipe(pipes.orderedAppScripts())
         .pipe(plugins.sourcemaps.init())
             .pipe(plugins.concat('app.min.js'))
-            .pipe(plugins.uglify())
+            //.pipe(plugins.uglify())
         .pipe(plugins.sourcemaps.write())
         .pipe(gulp.dest(paths.distScriptsProd));
 };
+
+
 
 pipes.builtVendorScriptsDev = function() {
     return gulp.src(bowerFiles())
@@ -73,7 +77,7 @@ pipes.builtVendorScriptsProd = function() {
     return gulp.src(bowerFiles('**/*.js'))
         .pipe(pipes.orderedVendorScripts())
         .pipe(plugins.concat('vendor.min.js'))
-        .pipe(plugins.uglify())
+        //.pipe(plugins.uglify())
         .pipe(gulp.dest(paths.distScriptsProd));
 };
 
@@ -99,7 +103,7 @@ pipes.scriptedPartials = function() {
         .pipe(plugins.htmlhint.failReporter())
         .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(plugins.ngHtml2js({
-            moduleName: "healthyGulpAngularApp"
+            moduleName: "musicBoxApp"
         }));
 };
 
@@ -174,7 +178,9 @@ pipes.builtIndexProd = function() {
         .pipe(plugins.inject(vendorScripts, {relative: true, name: 'bower'}))
         .pipe(plugins.inject(appScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
-        .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
+        .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
+        .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
+        //.pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest(paths.distProd));
 };
 
@@ -207,36 +213,7 @@ gulp.task('clean-prod', function() {
 });
 
 
-/*
-gulp.task('inject-before', function(){
-    gulp.src('./dist.dev/index.html')
-        .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
-        .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
 
-        .pipe(plugins.rename('index2.html'))
-        .pipe(gulp.dest(paths.distDev));
-        console.log('here');
-
-});
-
-gulp.task('clean-index', ['inject-before'], function() {
-    var deferred = Q.defer();
-    del('./dist.dev/index.html', function() {
-        deferred.resolve();
-    });
-    return deferred.promise;
-});
-
-gulp.task('inject-before2', ['clean-index'], function(){
-
-    gulp.src('./dist.dev/index2.html')
-        .pipe(plugins.rename('index.html'))
-        .pipe(gulp.dest(paths.distDev));
-
-    gulp.src('./dist.dev/index2.html')
-        .pipe(clean({force: true}));
-
-});*/
 
 // checks html source files for syntax errors
 gulp.task('validate-partials', pipes.validatedPartials);
