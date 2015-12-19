@@ -4,6 +4,8 @@ var del = require('del');
 var es = require('event-stream');
 var bowerFiles = require('main-bower-files');
 var print = require('gulp-print');
+var inject = require('gulp-inject-string');
+/*var clean = require('gulp-clean');*/
 var Q = require('q');
 
 // == PATH STRINGS ========
@@ -127,6 +129,13 @@ pipes.processedImagesProd = function() {
         .pipe(gulp.dest(paths.distProd + '/images/'));
 };
 
+
+
+
+
+
+
+
 pipes.validatedIndex = function() {
     return gulp.src(paths.index)
         .pipe(plugins.htmlhint())
@@ -148,6 +157,9 @@ pipes.builtIndexDev = function() {
         .pipe(plugins.inject(orderedVendorScripts, {relative: true, name: 'bower'}))
         .pipe(plugins.inject(orderedAppScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
+        .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
+        .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
+
         .pipe(gulp.dest(paths.distDev));
 };
 
@@ -193,6 +205,38 @@ gulp.task('clean-prod', function() {
     });
     return deferred.promise;
 });
+
+
+/*
+gulp.task('inject-before', function(){
+    gulp.src('./dist.dev/index.html')
+        .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
+        .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
+
+        .pipe(plugins.rename('index2.html'))
+        .pipe(gulp.dest(paths.distDev));
+        console.log('here');
+
+});
+
+gulp.task('clean-index', ['inject-before'], function() {
+    var deferred = Q.defer();
+    del('./dist.dev/index.html', function() {
+        deferred.resolve();
+    });
+    return deferred.promise;
+});
+
+gulp.task('inject-before2', ['clean-index'], function(){
+
+    gulp.src('./dist.dev/index2.html')
+        .pipe(plugins.rename('index.html'))
+        .pipe(gulp.dest(paths.distDev));
+
+    gulp.src('./dist.dev/index2.html')
+        .pipe(clean({force: true}));
+
+});*/
 
 // checks html source files for syntax errors
 gulp.task('validate-partials', pipes.validatedPartials);
