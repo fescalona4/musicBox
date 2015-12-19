@@ -11,7 +11,7 @@ var Q = require('q');
 // == PATH STRINGS ========
 
 var paths = {
-    scripts: ['app/js/**/*.js' , '!app/js/**/*min.js'],
+    scripts: ['app/js/components/**/*.js','app/js/libs/**/*.js','app/js/**/*.js'],
     styles: ['./app/**/*.css'],
     images: './app/images/**/*',
     index: './app/index.html',
@@ -74,11 +74,17 @@ pipes.builtVendorScriptsDev = function() {
 };
 
 pipes.builtVendorScriptsProd = function() {
+
+    return gulp.src(bowerFiles())
+        .pipe(gulp.dest('dist.prod/bower_components'));
+
     return gulp.src(bowerFiles('**/*.js'))
         .pipe(pipes.orderedVendorScripts())
         .pipe(plugins.concat('vendor.min.js'))
         //.pipe(plugins.uglify())
         .pipe(gulp.dest(paths.distScriptsProd));
+
+
 };
 
 pipes.validatedDevServerScripts = function() {
