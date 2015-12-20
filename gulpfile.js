@@ -195,8 +195,8 @@ pipes.builtIndexProd = function() {
         .pipe(plugins.inject(vendorStyles, {relative: true, name: 'bower'}))
         .pipe(plugins.inject(appScripts, {relative: true}))
         .pipe(plugins.inject(appStyles, {relative: true}))
-        .pipe(inject.before(' href="css/desktop', ' ng-if="styleType == \'desktop\'" '))
-        .pipe(inject.before(' href="css/mobile' , ' ng-if="styleType == \'mobile\'" '))
+        .pipe(inject.before('href="css/desktop', ' ng-if="styleType == \'desktop\'" ng-'))
+        .pipe(inject.before('href="css/mobile' , ' ng-if="styleType == \'mobile\'" ng-'))
         .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest(paths.distProd));
 };
