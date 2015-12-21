@@ -24,6 +24,7 @@ app.use(express.static(staticdir));
 app.use(express.static(__dirname));*/
 
 var staticdir = env === 'production' ? 'dist.prod' : 'dist.dev'; // get static files dir
+app.use(require('prerender-node').set('prerenderToken', '8ESwxcLKzl0COL7btzHW')); //prerender.io token
 app.use(methodOverride('X-HTTP-Method-Override')); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/' + staticdir)); // set the static files location /public/img will be /img for users
 
