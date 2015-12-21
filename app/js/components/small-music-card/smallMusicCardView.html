@@ -1,28 +1,37 @@
+<!--  -->
 <md-card class="small-card" flex="100" layout-fill>
-    <md-card-title style="padding:10px 15px;"  ng-click="go('/song-details/'+card.id)">
-        <md-card-title-text>
+    <md-card-title style="padding:10px 20px;">
+        <md-card-title-text ng-click="go('/song-details/'+card.id)">
             <span class="small-card-song-title">{{card.title}}</span>
             <span class="md-body-1 small-card-song-artist">{{card.artist}}</span>
         </md-card-title-text>
-        <div layout="row" layout-align="center center">
-            <md-fab-speed-dial md-direction="left" md-open="isOpen" class="md-scale md-hover-full" ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
-                <md-fab-trigger>
-                    <md-button aria-label="menu" class="md-fab md-mini">
-                        <md-icon md-svg-src="images/icons/ic_menu_white_48px.svg"></md-icon>
-                    </md-button>
-                </md-fab-trigger>
-                <md-fab-actions class="fab-actions">
-                    <md-button music-player add-song="card" aria-label="Queue" class="md-fab md-raised md-mini">
-                        <md-icon md-svg-src="images/icons/ic_queue_black_48px.svg" aria-label="Twitter"></md-icon>
-                    </md-button>
-                    <md-button aria-label="Download" class="md-fab md-raised md-mini" href="{{card.url}}" download="{{card.filename}}" ng-click="downloadCountPlusPlus(card.id)">
-                        <md-icon md-svg-src="images/icons/ic_file_download_black_48px.svg" aria-label="Facebook"></md-icon>
-                    </md-button>
-                    <md-button music-player="play" add-song="card" aria-label="Play" class="md-fab md-raised md-mini" ng-click="playCountPlusPlus(card.id)">
-                        <md-icon md-svg-src="images/icons/ic_play_arrow_black_48px.svg" aria-label="Google Hangout"></md-icon>
-                    </md-button>
-                </md-fab-actions>
-            </md-fab-speed-dial>
+        <div layout="row" layout-align="end end">
+            <md-menu style="padding:0px">
+                <md-button aria-label="menu" class="md-mini" ng-click="ctrl.openMenu($mdOpenMenu, $event)" style="margin-right:-18px;">
+                    <md-icon md-svg-src="images/icons/ic_more_48px.svg"></md-icon>
+                </md-button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ng-click="playCountPlusPlus(card.id);" music-player="play" add-song="card" aria-label="Play">
+                            <md-icon md-svg-src="images/icons/ic_play_arrow_black_48px.svg" md-menu-align-target></md-icon>
+                            Play
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button aria-label="Download" href="{{card.url}}" download="{{card.filename}}"
+                            ng-click="downloadCountPlusPlus(card.id)">
+                            <md-icon md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+                            Download
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button music-player add-song="card">
+                            <md-icon md-svg-src="images/icons/ic_queue_music_black_48px.svg"></md-icon>
+                            Add To Queue
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </md-card-title>
 </md-card>
