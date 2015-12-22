@@ -40,9 +40,21 @@
         </md-card-title>
         <md-card-actions layout="row" layout-align="end start" style="margin-top:-8px;">
             <md-card-icon-actions>
-                <md-button class="md-icon-button" aria-label="Favorite" style="margin-left:30px;">
-                    <md-icon md-svg-icon="images/icons/ic_favorite_black_48px.svg"></md-icon>
+
+                <md-button class="md-icon-button" aria-label="share" style="margin-left:30px;"  ng-click="clickShare()">
+                    
+                    <md-icon md-svg-icon="images/icons/ic_share_48px.svg">
+                        <a id="fbShare" facebook-feed-share class="facebookShare" 
+                            data-url="http://google.com" 
+                            data-shares="shares" 
+                            data-name="{{song.title}}" 
+                            data-description="{{song.artist}}"
+                            data-pircture="images/uploads/{{song.image}}"
+                            data-caption="CubanMusicBox.com" >        
+                        </a>
+                    </md-icon>    
                 </md-button>
+
                 <md-button class="md-icon-button" aria-label="AddToQueue" style="margin-left:20px;">
                     <md-icon md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
                 </md-button>

@@ -1,7 +1,8 @@
 
 
 angular.module('musicBoxApp', 
-    ['ngMaterial', 'ui.router', 'angularSoundManager',  'ngAnimate', 'musicBoxApp.deviceTypeProvider','musicBoxApp.admin'])
+    ['ngMaterial', 'ui.router', 'angularSoundManager',  'ngAnimate', 
+        'musicBoxApp.deviceTypeProvider','musicBoxApp.admin', 'djds4rce.angular-socialshare'])
 
 
 

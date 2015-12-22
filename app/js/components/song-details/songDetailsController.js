@@ -2,7 +2,7 @@
 
 
 angular.module('musicBoxApp')
-    .controller('songDetailsController', ['$scope', '$stateParams', 'songService', function($scope, $stateParams, songService) {
+    .controller('songDetailsController', ['$scope', '$stateParams', 'songService', '$location', function($scope, $stateParams, songService, $location) {
 
 
         $scope.song = {};
@@ -60,6 +60,15 @@ angular.module('musicBoxApp')
                         $scope.reviewCompleted = true;
                     });
 
+        };
+
+
+        $scope.completeUrl = $location.absUrl();
+        console.log($scope.completeUrl);
+
+        $scope.clickShare = function(){
+            angular.element('#fbShare').trigger('click');
+            console.log('#fbShare');
         };
 
     }]);

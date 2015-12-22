@@ -55,14 +55,15 @@ angular.module('musicBoxApp')
 
 
         // use the HTML5 History API
-        $locationProvider.html5Mode(true).hashPrefix('#!');
+        $locationProvider.html5Mode(true).hashPrefix('!');
 
     }
 ])
 
-.run(['$rootScope','$location','$window', '$state',
-    function($rootScope,$location, $window, $state) {
+.run(['$rootScope','$location','$window', '$state', '$FB',
+    function($rootScope,$location, $window, $state, $FB) {
 
+        $FB.init('644748478997319');
         $window.ga('create', 'UA-71457119-1', 'auto');
 
         // track pageview on state change
