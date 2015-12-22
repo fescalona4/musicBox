@@ -60,10 +60,10 @@ angular.module('musicBoxApp')
     }
 ])
 
-.run(['$rootScope','$location','$window', '$state', '$FB',
-    function($rootScope,$location, $window, $state, $FB) {
+.run(['$rootScope','$location','$window', '$state', 
+    function($rootScope,$location, $window, $state) {
 
-        $FB.init('644748478997319');
+        
         $window.ga('create', 'UA-71457119-1', 'auto');
 
         // track pageview on state change

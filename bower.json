@@ -26,6 +26,6 @@
     "ng-file-upload": "~10.1.9",
     "angular-ui-router": "latest",
     "angular-material": "~1.0.1",
-    "angular-socialshare": "latest"
+    "angular-socialshare": "angularjs-socialshare#~0.1.20"
   }
 }

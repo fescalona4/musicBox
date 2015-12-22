@@ -66,11 +66,6 @@ angular.module('musicBoxApp')
         $scope.completeUrl = $location.absUrl();
         console.log($scope.completeUrl);
 
-        $scope.clickShare = function(){
-            angular.element('#fbShare').trigger('click');
-            console.log('#fbShare');
-        };
-
     }]);
 
 
