@@ -44,6 +44,11 @@ angular.module('musicBoxApp')
                 controllerAs: 'songs',
                 title: 'Song Details'
             })
+            .state('share', {
+                url: '/share',
+                templateUrl: 'js/components/share/shareMsgView.html',
+                title: 'Share'
+            })
             .state('admin', {
                 url: '/admin',
                 templateUrl: 'js/components/admin/adminView.html',
