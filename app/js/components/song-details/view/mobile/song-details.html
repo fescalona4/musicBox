@@ -33,10 +33,27 @@
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
         <md-card-icon-actions>
-            <md-button class="md-icon-button" aria-label="Favorite">
-                <md-icon md-svg-icon="images/icons/ic_favorite_black_48px.svg"></md-icon>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="AddToQueue">
+                <md-button class="md-icon-button" aria-label="share">
+                    
+                        <md-icon md-svg-icon="images/icons/ic_share_48px.svg"
+                        socialshare
+                        socialshare-provider="facebook"
+                        socialshare-text="{{song.title}}"
+                        socialshare-description="{{song.artist}}"
+                        socialshare-caption="cubanmusicbox.com"
+                        socialshare-url="{{completeUrl}}"
+                        socialshare-type="feed"
+                        socialshare-via="644748478997319"
+                        socialshare-media="http://cubanmusicbox.com/images/uploads/{{song.image}}"
+                        socialshare-redirect-uri="http://cubanmusicbox.com/share"
+                        socialshare-popup-height="400"
+                        socialshare-popup-width="600"
+                        socialshare-trigger="click"
+                        >                        
+                        </md-icon>
+                    
+                </md-button>
+            <md-button class="md-icon-button" aria-label="AddToQueue" music-player add-song="song">
                 <md-icon md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
             </md-button>
         </md-card-icon-actions>
