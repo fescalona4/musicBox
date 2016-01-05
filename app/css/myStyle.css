@@ -209,3 +209,14 @@ md-sidenav {
     -ms-filter: brightness(70%);
     filter: brightness(70%);
 }
+
+.paragraph-end{
+    background-image: -webkit-gradient(linear,left top,right top,color-stop(0%,rgba(255,255,255,0)),color-stop(100%,rgba(255,255,255,1)));
+    background-image: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,1));
+    background: linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,1));
+    position: absolute;
+    right: 0;
+    max-height: 100%;
+    height: 20px;
+    width: 20%;
+}
