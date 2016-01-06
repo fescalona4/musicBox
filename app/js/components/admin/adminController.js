@@ -1,10 +1,11 @@
+//
+//
+angular.module('musicBoxApp.admin', ['ngFileUpload', 'md.data.table'])
+
+.controller('adminController', ['$scope', 'songService', '$mdDialog', 'Upload',
+    function($scope, songService, $mdDialog, Upload) {
 
 
-
-angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
-
-    .controller('adminController', ['$scope', 'songService', '$mdDialog','Upload',
-     function($scope, songService, $mdDialog, Upload) {
 
         //new song to be inserted
         $scope.song = {
@@ -20,7 +21,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
         $scope.addNewSong = function() {
             //console.log("submit");
 
-            if($scope.picFile !== undefined){
+            if ($scope.picFile !== undefined) {
                 $scope.uploadPic($scope.picFile);
             }
 
@@ -44,8 +45,8 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
                     disableParentScroll: false,
                     hasBackdrop: true,
                     focusOnOpen: false,
-                    escapeToClose :false,
-                    autoWrap :false
+                    escapeToClose: false,
+                    autoWrap: false
                 })
                 .then(function(answer) {
 
@@ -57,22 +58,27 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
 
 
 
+
+
+
         //Function for uploading picture
         $scope.uploadPic = function(file) {
-        file.upload = Upload.upload({
-          url: 'api/photo',
-          data: {file: file},
-        });
+            file.upload = Upload.upload({
+                url: 'api/photo',
+                data: {
+                    file: file
+                },
+            });
 
-        file.upload.then(function (response) {
-            file.result = response.data;
-        }, function (response) {
-          if (response.status > 0)
-            $scope.errorMsg = response.status + ': ' + response.data;
-        }, function (evt) {
-          // Math.min is to fix IE which reports 200% sometimes
-          file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
-        });
+            file.upload.then(function(response) {
+                file.result = response.data;
+            }, function(response) {
+                if (response.status > 0)
+                    $scope.errorMsg = response.status + ': ' + response.data;
+            }, function(evt) {
+                // Math.min is to fix IE which reports 200% sometimes
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            });
         };
 
 
@@ -84,7 +90,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
                 $scope.music = response.data;
             });
 
-        $scope.tableOrder = '-dateAdded'; 
+        $scope.tableOrder = '-dateAdded';
         $scope.selected = [];
         $scope.myLimit = 10;
         $scope.myPage = 1;
@@ -94,7 +100,7 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
             console.log($scope.selected[0]);
 
 
-            if($scope.picFile !== undefined){
+            if ($scope.picFile !== undefined) {
                 $scope.uploadPic($scope.picFile);
             }
 
@@ -108,11 +114,13 @@ angular.module('musicBoxApp.admin', ['ngFileUpload','md.data.table'])
 
 
 
-    }]);
-
+    }
+]);
 
 
 function loginController($scope, $mdDialog) {
+
+    //console.log("loginController");
 
     this.parent = $scope;
 

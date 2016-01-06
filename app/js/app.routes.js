@@ -50,7 +50,7 @@ angular.module('musicBoxApp')
                 title: 'Share'
             })
             .state('admin', {
-                url: '/admin',
+                url: '/admin-page',
                 templateUrl: 'js/components/admin/adminView.html',
                 controller: 'adminController',
                 controllerAs: 'ctrl',
