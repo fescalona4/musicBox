@@ -101,9 +101,11 @@
                 <md-toolbar-filler layout layout-align="center center"  class="player-image">
                     <img ng-src="images/uploads/{{currentPlaying.image}}" class="md-card-image player-image" style="width:70px;height:70px" alt="">
                 </md-toolbar-filler>
-                <div flex>
-                    <md-progress-linear md-mode="determinate" value="{{ progress }} " md-theme="default"></md-progress-linear>
-                    <div class="md-toolbar-tools" layout="row" layout-align="space-between center" >
+                <div flex layout="column" layout-align="start start">
+                    <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ng-hide="buffering"></md-progress-linear>
+                    <md-progress-linear md-mode="query" md-theme="default" ng-show="buffering"></md-progress-linear>
+                    <div flex layout="row" layout-align="center center" style="width:100%">
+                    <div flex class="md-toolbar-tools" layout="row" layout-align="space-between end" >
                         <div flex>
                             <div ng-hide="playlist.length==0">
                                 <div class="md-subhead playertitle"><b>{{currentPlaying.title}}</b></div>
@@ -140,35 +142,13 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
         </md-toolbar>
     </div>
 
 
-<!-- 
-    <script src="../bower_components/angular/angular.min.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
-    <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
-    <script src="../bower_components/angular-material/angular-material.min.js"></script>
-    <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>
-    <script src="js/libs/angular-soundmanager2.js"></script>
-    <script src="js/libs/md-data-table.js"></script>
-    <script src="js/app.module.js"></script>
-    <script src="js/app.service.js"></script>
-    <script src="js/app.controller.js"></script>
-    <script src="js/app.routes.js"></script>
-    <script src="js/components/home/homeController.js"></script>
-    <script src="js/components/admin/adminController.js"></script>
-    <script src="js/components/all-music/allMusicController.js"></script>
-    <script src="js/components/small-music-card/smallMusicCardDirective.js"></script>
-    <script src="js/components/music-card/musicCardDirective.js"></script>
-    <script src="js/components/song-details/songDetailsController.js"></script>
-    <script src="js/components/star-rating/starRatingController.js"></script>
-    <script src="js/components/star-rating/starRatingDirective.js"></script>
- 
- -->
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

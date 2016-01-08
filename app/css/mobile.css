@@ -121,8 +121,13 @@
     margin-left: -10px;
 }
 
+
 #footer {
-    height: 60px;
+    left: 0px;
+    bottom: 0px;
+    height: 61px;
+    width: 100%;
+    z-index: 99;
 }
 
 .player-image {

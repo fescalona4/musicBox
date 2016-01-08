@@ -1,5 +1,13 @@
 /* For desktop: */
 
+#footer {
+    left: 0px;
+    bottom: 0px;
+    height: 70px;
+    width: 100%;
+    z-index: 99;
+}
+
 .music-card {
     width: 200px;
     margin-left: 15px;

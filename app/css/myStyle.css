@@ -15,14 +15,6 @@ md-card-content p {
     height: 36px;
 }
 
-#footer {
-    /*position:fixed;*/
-    left: 0px;
-    bottom: 0px;
-    height: 70px;
-    width: 100%;
-    z-index: 99;
-}
 
 .gray-icon {
     opacity: 0.65;

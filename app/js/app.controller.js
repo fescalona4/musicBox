@@ -7,7 +7,7 @@ angular.module('musicBoxApp')
     function(deviceType, $scope, $http, $location, 
         $mdSidenav, $mdDialog, angularPlayer, $animate, songService) {
 
-        //$scope.$route = $route;
+        $scope.buffering = false;
         $scope.$location = $location;
 
         $scope.styleType = deviceType.getDeviceType();
@@ -33,6 +33,15 @@ angular.module('musicBoxApp')
             if (data === true) {
                 angularPlayer.adjustVolumeSlider($scope.volume);
             }
+            //hide track seeker & show buffering
+            $scope.buffering = true;
+        });
+
+        $scope.$on('track:loaded', function(event, data) {
+            console.log("track:loaded: "+data);
+
+            //show track seeker & hide buffering when track loaded
+            $scope.buffering = false;
         });
 
 
