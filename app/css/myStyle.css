@@ -58,6 +58,7 @@ md-card-content p {
 
 .playlist-dialog {
     width: 50%;
+    max-width: 450px;
     height: auto;
     position: absolute;
     right: 30px;

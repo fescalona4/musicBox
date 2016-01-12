@@ -103,7 +103,7 @@
                 </md-toolbar-filler>
                 <div flex layout="column" layout-align="start start">
                     <md-progress-linear md-mode="determinate" value="{{ progress }}" md-theme="default" ng-hide="buffering"></md-progress-linear>
-                    <md-progress-linear md-mode="query" md-theme="default" ng-show="buffering"></md-progress-linear>
+                    <md-progress-linear class="md-warn" md-mode="query" md-theme="default" ng-show="buffering"></md-progress-linear>
                     <div flex layout="row" layout-align="center center" style="width:100%">
                     <div flex class="md-toolbar-tools" layout="row" layout-align="space-between end" >
                         <div flex>
