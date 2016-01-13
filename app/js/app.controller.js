@@ -72,7 +72,7 @@ angular.module('musicBoxApp')
                     $scope.playlistShown = true;
 
                     $mdDialog.show({
-                            controller: ['$scope', '$mdDialog', function($scope, $mdDialog) {
+                            controller: ['$scope', '$mdDialog', '$timeout', function($scope, $mdDialog, $timeout) {
                                 $scope.hide = function() {
                                     $mdDialog.hide();
                                 };
@@ -86,8 +86,25 @@ angular.module('musicBoxApp')
 
 
                                 $scope.playSelectedSong = function(song) {
-                                    console.log(song);
-                                    angularPlayer.playTrack(song);
+                                    //console.log(song.title);
+
+                                    $timeout(function() {
+                                        angularPlayer.playTrack(song.id);
+                                    }, 0);
+                                };
+
+                                $scope.remove = function(song, index) {
+                                    //console.log("remove");
+                                    $timeout(function() {
+                                        angularPlayer.removeSong(song.id, index);
+                                        console.log(angularPlayer.getPlaylist().length);
+                                        if (angularPlayer.getPlaylist().length <= 0) {
+                                            $scope.closeDialog();
+                                        }
+                                    }, 0);
+
+
+
                                 };
                             }],
                             //controller: DialogController,
@@ -132,24 +149,3 @@ angular.module('musicBoxApp')
 
         }
     ]);
-
-
-/*function DialogController($scope, $mdDialog) {
-    $scope.hide = function() {
-        $mdDialog.hide();
-    };
-    $scope.cancel = function() {
-        $mdDialog.cancel();
-    };
-    $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
-    };
-    this.parent = $scope;
-
-
-    $scope.playSelectedSong = function(song) {
-        angularPlayer.playTrack(song);
-    };
-}
-*/
-

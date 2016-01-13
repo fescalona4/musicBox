@@ -5,7 +5,7 @@ angular.module('musicBoxApp')
 
         var originatorEv;
         this.openMenu = function($mdOpenMenu, ev) {
-            console.log('here');
+            //console.log('here');
             originatorEv = ev;
             $mdOpenMenu(ev);
         };

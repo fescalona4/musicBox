@@ -7,17 +7,14 @@
                 <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" style="height:64px;width:64px;margin-top:45px"></md-icon>
                 <h3 style="color:rgba(0,0,0,0.54)">Your queue is empty</h3>
             </div>
-            <md-list-item class="md-2-line md-clickable" ng-repeat="song in playlist track by song.id" ng-click="playSelectedSong(song.id)">
+            <md-list-item class="md-2-line md-clickable" ng-repeat="song in playlist track by song.id" ng-click="playSelectedSong(song)">
                 <img ng-src="images/uploads/{{song.image}}" class="md-avatar" alt=""/>
                 <div class="md-list-item-text">
                     <h3>{{song.title}}</h3>
                     <p>{{song.artist}}</p>
                 </div>
-                <!-- <md-button play-from-playlist="song">PLAY</md-button>  ng-click="playSelectedSong(song.id)  -->
-<!--                 <md-button class="md-icon-button gray-icon" aria-label="Play" play-from-playlist="song" style="margin-top:10px;margin-right:0px">
-                    <md-icon md-svg-icon="images/icons/ic_queue_play_next_black_48px.svg"></md-icon>
-                </md-button> -->
-                <md-button class="md-icon-button gray-icon" aria-label="Remove" remove-from-playlist="song" data-index="{{$index}}">
+<!-- remove-from-playlist="song" -->
+                <md-button class="md-icon-button gray-icon md-secondary" aria-label="Remove" ng-click="remove(song, $index)"  data-index="{{$index}}" >
                     <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
                 </md-button>
             </md-list-item>
