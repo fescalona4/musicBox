@@ -97,7 +97,7 @@ angular.module('musicBoxApp')
                                     //console.log("remove");
                                     $timeout(function() {
                                         angularPlayer.removeSong(song.id, index);
-                                        console.log(angularPlayer.getPlaylist().length);
+                                        
                                         if (angularPlayer.getPlaylist().length <= 0) {
                                             $scope.closeDialog();
                                         }
