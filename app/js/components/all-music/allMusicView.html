@@ -1,9 +1,39 @@
-
-
-<div layout="column" layout-align="start start" class="small-card-container">
-	 <div layout="column" class="small-card-container2" ng-repeat="card in music | filter:
-      {filename: appCtrl.search} | orderBy:'-dateAdded'">
-        <small-music-card></small-music-card>
-    </div>
-
+<!--  -->
+<!--  -->
+<div layout="column" layout-align="start center" layout-align-gt-md="start start" class="small-card-container">
+    <md-card>
+        <md-list-item class="md-2-line md-clickable all-music-card" ng-repeat="song in music | filter: {filename: appCtrl.search} | orderBy:'-dateAdded'" ng-click="go('/song-details/'+song.id)">
+            <img ng-src="images/uploads/{{song.image}}" class="list-image" alt="{{song.artist}}" style="margin-left: -16px; margin-top:-2px;" />
+            <div class="md-list-item-text">
+                <h3>{{song.title}}</h3>
+                <p style="color:rgba(0,0,0,0.54); font-size:13px;">{{song.artist}}</p>
+            </div>
+            <md-menu>
+                <md-button class="md-icon-button gray-icon" aria-label="Remove" ng-click="ctrl.openMenu($mdOpenMenu, $event)">
+                    <md-icon md-svg-icon="images/icons/ic_more_48px.svg"></md-icon>
+                </md-button>
+                <md-menu-content width="3">
+                    <md-menu-item>
+                        <md-button ng-click="playCountPlusPlus(song.id);" music-player="play" add-song="song" aria-label="Play">
+                            <md-icon class="primary-icon" md-svg-src="images/icons/ic_play_arrow_black_48px.svg" md-menu-align-target></md-icon>
+                            Play
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button aria-label="Download" href="{{song.url}}" download="{{song.filename}}" ng-click="downloadCountPlusPlus(song.id)">
+                            <md-icon class="primary-icon" md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+                            Download
+                        </md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button music-player add-song="song">
+                            <md-icon class="primary-icon" md-svg-src="images/icons/ic_queue_music_black_48px.svg"></md-icon>
+                            Add To Queue
+                        </md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
+            <md-divider></md-divider>
+        </md-list-item>
+    </md-card>
 </div>

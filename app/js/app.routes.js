@@ -35,7 +35,7 @@ angular.module('musicBoxApp')
                 templateUrl: 'js/components/all-music/allMusicView.html',
                 controller: 'allMusicController',
                 controllerAs: 'ctrl',
-                title: 'Music'
+                title: 'All Music'
             })
             .state('song-details', {
                 url: '/song-details/:songId',

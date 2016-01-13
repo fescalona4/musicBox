@@ -2,18 +2,18 @@
 
 <md-dialog aria-label="Playlist" ng-cloak class="playlist-dialog">
     <md-dialog-content>
-        <div class="">
+        <div>
             <div layout="column" layout-align="center center" ng-show="{{playlist.length==0}}">
                 <md-icon md-svg-icon="images/icons/ic_queue_music_black_48px.svg" style="height:64px;width:64px;margin-top:45px"></md-icon>
                 <h3 style="color:rgba(0,0,0,0.54)">Your queue is empty</h3>
             </div>
+            
             <md-list-item class="md-2-line md-clickable" ng-repeat="song in playlist track by song.id" ng-click="playSelectedSong(song)">
                 <img ng-src="images/uploads/{{song.image}}" class="md-avatar" alt=""/>
                 <div class="md-list-item-text">
                     <h3>{{song.title}}</h3>
                     <p>{{song.artist}}</p>
                 </div>
-<!-- remove-from-playlist="song" -->
                 <md-button class="md-icon-button gray-icon md-secondary" aria-label="Remove" ng-click="remove(song, $index)"  data-index="{{$index}}" >
                     <md-icon md-svg-icon="images/icons/ic_close_black_48px.svg"></md-icon>
                 </md-button>

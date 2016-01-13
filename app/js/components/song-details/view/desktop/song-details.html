@@ -1,4 +1,4 @@
-<div layout="column" layout-align="star star" flex>
+<div layout="column" layout-align="star center" layout-align-gt-md="start start" class="small-card-container">
     <md-card style="" class="song-details-card">
         <md-card-title>
             <md-card-title-media>
@@ -9,7 +9,7 @@
             <div layout="column" layout-align="space-between none" flex>
                 <div layout="row" layout-align="center center">
                     <md-card-title-text style="margin-top:10px;">
-                        <span class="md-headline">{{song.title}}</span>
+                        <span class="md-title detail-song-title" style="font-weight:400;">{{song.title}}</span>
                         <span class="md-subhead" style="margin-bottom:20px;margin-top:-5px;">{{song.artist}}</span>
                         <div>
                             <span class="md-body-2 play-stats" style="margin-top:10px;">
@@ -20,21 +20,12 @@
                         <md-icon class="primary-icon" md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
                         {{song.downloadCount}}
                     </span>
-                            <span class="md-body-2 play-stats" style="margin-left:10px;">
+                     <!--        <span class="md-body-2 play-stats" style="margin-left:10px;">
                         <md-icon class="primary-icon" md-svg-src="images/icons/ic_star_black_48px.svg" style="margin-top:-3px;"></md-icon>
                         <label>{{totalRating | number:1}}</label>
-                    </span>
+                    </span> -->
                         </div>
                     </md-card-title-text>
-                    <!-- 
-                <div style="margin-top:-20px;">
-                <div ng-controller="starCtrl"> 
-                        <span ng-repeat="rating in ratings">
-                        <div star-rating-no-click rating-value="totalRating" max="rating.max"></div>
-                            <div style="text-align:center">{{totalRating | number:0}}</div>
-                        </span>
-                    </div>
-                </div>   -->
                 </div>
             </div>
         </md-card-title>

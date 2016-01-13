@@ -4,14 +4,14 @@
 <md-card style="" class="song-details-card">
     <md-card-title class="card-title">
         <md-card-title-media>
-            <div class="md-media-lg card-media" style="width:150px;height:150px">
-                <img ng-src="images/uploads/{{song.image}}" class="md-card-image" style="margin-top:-16px; margin-left:-16px;width:150px;height:150px">
+            <div class="md-media-lg card-media" style="width:120px;height:120px">
+                <img ng-src="images/uploads/{{song.image}}" class="md-card-image" style="margin-top:-16px; margin-left:-16px;width:120px;height:120px">
             </div>
         </md-card-title-media>
         <div layout="column" layout-align="space-between none" flex>
             <div layout="row">
                 <md-card-title-text>
-                    <span class="md-headline song-title">{{song.title}}</span>
+                    <span class="detail-song-title">{{song.title}}</span>
                     <span class="md-subhead">{{song.artist}}</span>
                     <div layout="row">
                         <span class="md-body-2 play-stats">           
@@ -22,10 +22,6 @@
                             <md-icon class="primary-icon" md-svg-src="images/icons/ic_file_download_black_48px.svg" style="padding-top:2px;"></md-icon>
                         {{song.downloadCount}}
                         </span>
-                        <span class="md-body-2 play-stats">
-                        <md-icon class="primary-icon" md-svg-src="images/icons/ic_star_black_48px.svg" style="margin-top:-3px;"></md-icon>
-                        <label>{{totalRating | number:1}}</label>
-                    </span>
                     </div>
                 </md-card-title-text>
             </div>
@@ -33,40 +29,23 @@
     </md-card-title>
     <md-card-actions layout="row" layout-align="start center">
         <md-card-icon-actions>
-                <md-button class="md-icon-button" aria-label="share">
-                    
-                        <md-icon md-svg-icon="images/icons/ic_share_48px.svg"
-                        socialshare
-                        socialshare-provider="facebook"
-                        socialshare-text="{{song.title}}"
-                        socialshare-description="{{song.artist}}"
-                        socialshare-caption="cubanmusicbox.com"
-                        socialshare-url="{{completeUrl}}"
-                        socialshare-type="feed"
-                        socialshare-via="644748478997319"
-                        socialshare-media="http://cubanmusicbox.com/images/uploads/{{song.image}}"
-                        socialshare-redirect-uri="http://cubanmusicbox.com/share"
-                        socialshare-popup-height="400"
-                        socialshare-popup-width="600"
-                        socialshare-trigger="click"
-                        >                        
-                        </md-icon>
-                    
-                </md-button>
+            <md-button class="md-icon-button" aria-label="share">
+                <md-icon md-svg-icon="images/icons/ic_share_48px.svg" socialshare socialshare-provider="facebook" socialshare-text="{{song.title}}" socialshare-description="{{song.artist}}" socialshare-caption="cubanmusicbox.com" socialshare-url="{{completeUrl}}" socialshare-type="feed" socialshare-via="644748478997319" socialshare-media="http://cubanmusicbox.com/images/uploads/{{song.image}}" socialshare-redirect-uri="http://cubanmusicbox.com/share" socialshare-popup-height="400" socialshare-popup-width="600" socialshare-trigger="click">
+                </md-icon>
+            </md-button>
             <md-button class="md-icon-button" aria-label="AddToQueue" music-player add-song="song">
                 <md-icon md-svg-icon="images/icons/ic_queue_black_48px.svg"></md-icon>
             </md-button>
         </md-card-icon-actions>
-            <md-button class="md-primary md-raised" music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">
-                <md-icon md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
-                Listen</md-button>
-            <md-button class="md-primary md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;margin-right:0px;" ng-click="downloadCountPlusPlus(song.id)">
-                <md-icon md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
-                Download
-            </md-button>
+        <md-button class="md-primary md-raised" music-player="play" add-song="song" ng-click="playCountPlusPlus(song.id)">
+            <md-icon md-svg-src="images/icons/ic_play_arrow_black_48px.svg"></md-icon>
+            Listen</md-button>
+        <md-button class="md-primary md-raised" href="{{song.url}}" download="{{song.filename}}" style="margin-left:10px;margin-right:0px;" ng-click="downloadCountPlusPlus(song.id)">
+            <md-icon md-svg-src="images/icons/ic_file_download_black_48px.svg"></md-icon>
+            Download
+        </md-button>
     </md-card-actions>
     <md-divider style="margin-top:5px;"></md-divider>
-
     <!-- Review form -->
     <form id="reviewForm" name="reviewForm" ng-submit="addNewReview()" novalidate ng-show="writeReview">
         <md-content layout-padding layout="column">
@@ -92,20 +71,17 @@
                 <md-button class="md-raised md-primary" type="submit" ng-disabled="reviewForm.$invalid">Submit</md-button>
             </div>
         </md-content>
-
     </form>
     <!-- Review form end-->
-
-
     <md-content flex layout-padding>
         <div layout="row" layout-align="space-between center">
             <div>Reviews</div>
-                <md-button class="md-raised" style="color:rgb(255,110,64);margin-right:0px;" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">
-                    <md-icon class="accent-icon" md-svg-icon="images/icons/ic_edit_black_48px.svg"></md-icon>
-                    Write a Review
-                </md-button>
+            <md-button class="md-raised" style="color:rgb(255,110,64);margin-right:0px;" ng-click="writeReview=true;" ng-disabled="writeReview || reviewCompleted">
+                <md-icon class="accent-icon" md-svg-icon="images/icons/ic_edit_black_48px.svg"></md-icon>
+                Write a Review
+            </md-button>
         </div>
-                <md-list-item class="md-2-line" ng-show="writeReview">
+        <md-list-item class="md-2-line" ng-show="writeReview">
             <div class="md-list-item-text">
                 <h3>{{newComment.name}}</h3>
                 <p>{{newComment.comment}}</p>

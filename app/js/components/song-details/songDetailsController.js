@@ -64,7 +64,7 @@ angular.module('musicBoxApp')
 
 
         $scope.completeUrl = $location.absUrl();
-        console.log($scope.completeUrl);
+        //console.log($scope.completeUrl);
 
     }]);
 
